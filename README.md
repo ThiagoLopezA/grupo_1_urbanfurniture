@@ -7,6 +7,10 @@ Nos proponemos captar la atención de quienes buscan muebles de un estilo sobrio
 
 <h3>Sitios de referencia</h3>
 
-<h4><a href="https://www.landmark.com.ar">Landmark</h4>
-<h4><a href="https://www.divanlito.com">Divanlito</h4>
-<h4><a href="https://www.neoda.com">Neoda</h4>
+<h4><a href="https://www.landmark.com.ar">Landmark</a></h4>
+<h4><a href="https://www.divanlito.com">Divanlito</a></h4>
+<h4><a href="https://www.neoda.com">Neoda</a></h4>
+<h4><a href="https://https://romanohomerestoration.com/">Romano Home Restoration</a></h4>  
+<h4><a href="https://https://decosale.com.ar/">Deco Sale</a></h4>
+<h4><a href="https://en.dogusegitim.com/">Dogus</a></h4>
+<h4><a href="https://www.urbanladder.com/">Urban Ladder</a></h4>  
