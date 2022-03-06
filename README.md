@@ -1,19 +1,22 @@
-<h3> Temática del sitio </h3>
+# Temática del sitio
+
 E-commerce de muebles de interior y decoración del hogar.
 
-<h3> Público objetivo </h3>
+# Público objetivo
+
 Nos proponemos captar la atención de quienes buscan muebles de un estilo sobrio, elegante y minimalista.
 
+# Sitios de referencia
 
-<h3>Sitios de referencia</h3>
+[Landmark](https://www.landmark.com.ar)
+[Divanlito](https://www.divanlito.com)
+[Neoda](https://www.neoda.com)
+[Romano Home Restoration](https://romanohomerestoration.com/)
+[Deco Sale](https://decosale.com.ar/)
+[Dogus](https://en.dogusegitim.com/)
+[Urban Ladder](https://www.urbanladder.com/)
 
-<h4><a href="https://www.landmark.com.ar">Landmark</a></h4>
-<h4><a href="https://www.divanlito.com">Divanlito</a></h4>
-<h4><a href="https://www.neoda.com">Neoda</a></h4>
-<h4><a href="https://romanohomerestoration.com/">Romano Home Restoration</a></h4>  
-<h4><a href="https://decosale.com.ar/">Deco Sale</a></h4>
-<h4><a href="https://en.dogusegitim.com/">Dogus</a></h4>
-<h4><a href="https://www.urbanladder.com/">Urban Ladder</a></h4>  
+# Miembros
 
-<h3> Miembros </h3>
-<p> Ronald Palacios : Estudiante de Programacion Full Stack, Estar familiarizado con las últimanologías disponibles, y seguir aprendies .</p>
+- **Ronald Palacios :** Estudiante de Programacion Full Stack, Estar familiarizado con las última tecnologías disponibles, y seguir aprendiendo.
+- **Thiago López :** Estudiante de Ingenieria de Sistemas (UTN-FRT), y fanático del aprendizaje constante sobre el desarrollo de software.
