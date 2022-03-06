@@ -14,3 +14,6 @@ Nos proponemos captar la atención de quienes buscan muebles de un estilo sobrio
 <h4><a href="https://decosale.com.ar/">Deco Sale</a></h4>
 <h4><a href="https://en.dogusegitim.com/">Dogus</a></h4>
 <h4><a href="https://www.urbanladder.com/">Urban Ladder</a></h4>  
+
+<h3> Miebros </h3>
+<p> Ronald Palacios : Estudiante de Programacion Full Stack, Estar familiarizado con las últimanologías disponibles, y seguir aprendies .</p>
