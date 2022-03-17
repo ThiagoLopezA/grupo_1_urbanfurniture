@@ -1,0 +1,51 @@
+/* Banner section*/
+.banner {
+  width: 100%;
+  position: relative;
+}
+.banner img {
+  width: 100%;
+}
+.banner div {
+  position: absolute;
+  z-index: 2;
+  font-family: "Open Sans";
+  color: white;
+  right: 8%;
+  top: 30%;
+}
+.banner h3 {
+  font-size: 1.2rem;
+}
+.banner h4 {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+/*
+Media querys sizes:
+Smaller smarthphones -> 0-480
+Tablets & larger smarthphones -> 481-768
+Laptops,larger tablets, and small desktops -> 769 - 1279
+Larger desktops -> 1280+
+*/
+
+@media (min-width: 600px) {
+  .banner div {
+    top: 40%;
+  }
+  .banner h3 {
+    font-size: 1.5rem;
+  }
+  .banner h4 {
+    font-size: 1.2rem;
+  }
+}
+@media (min-width: 769px) {
+  .banner h3 {
+    font-size: 2.5rem;
+  }
+  .banner h4 {
+    font-size: 2rem;
+  }
+}
