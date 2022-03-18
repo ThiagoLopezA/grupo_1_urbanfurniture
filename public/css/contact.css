@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap");
+
 /* Banner section*/
 .banner {
   width: 100%;
@@ -22,6 +24,88 @@
   font-weight: 300;
 }
 
+/*Faqs section*/
+.faqs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 5%;
+  border-bottom: 1px solid #909090;
+}
+.faqs-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10%;
+}
+.faqs-title {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.1rem;
+  line-height: 23px;
+  text-align: center;
+  color: #707070;
+  margin: 4%;
+}
+.faqs-item img {
+  width: 20%;
+}
+.faqs-btn {
+  color: #707070;
+  font-family: "Roboto";
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 22px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  background: #f7f7f7;
+  border: 1px solid #909090;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+/*<-- Email section -->*/
+.email {
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+  width: 100%;
+}
+.email-title {
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 2%;
+}
+.email-desc {
+  font-family: "Open Sans";
+  font-weight: 300;
+  font-size: 1.3rem;
+  margin-bottom: 2%;
+}
+.button {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.button .faqs-btn {
+  padding-left: 2.5rem;
+}
+.button img {
+  position: absolute;
+  width: 1.5rem;
+  left: 0.5rem;
+}
+
+iframe {
+  width: 80%;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 5px;
+  height: 55vh;
+  margin: 2rem;
+}
+
 /*
 Media querys sizes:
 Smaller smarthphones -> 0-480
@@ -31,6 +115,15 @@ Larger desktops -> 1280+
 */
 
 @media (min-width: 600px) {
+  /*<--Faqs section-->*/
+  .faqs {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .faqs-item {
+    width: 50%;
+  }
+  /*<--Banner section-->*/
   .banner div {
     top: 40%;
   }
@@ -42,10 +135,23 @@ Larger desktops -> 1280+
   }
 }
 @media (min-width: 769px) {
+  /*<--Banner section-->*/
   .banner h3 {
     font-size: 2.5rem;
   }
   .banner h4 {
     font-size: 2rem;
+  }
+  /*<--Faqs section-->*/
+  .faqs-item {
+    width: 25%;
+    margin-top: 5%;
+  }
+  /*<--Email section-->*/
+  .email-section {
+    width: 50%;
+  }
+  .email {
+    flex-direction: row;
   }
 }
