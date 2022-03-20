@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Urban Furniture</title>
+    <!-- css -->
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/home.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/login.css" />
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/143040bb16.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- Inicio del Header-->
+    <header>
+      <img src="/img/Navbar.png" alt="Logo" />
+    </header>
+    <!-- Fin del Header-->
+
+    <!-- Inicio del Main-->
+    <main class="main-login">
+      <img src="/img/user-login.png" class="user-img" alt="user-img" />
+      <div class="login-container">
+        <form action="/login" method="POST" class="login-form">
+          <h3 class="login-title">Bienvenido</h3>
+          <div class="input-wraper">
+            <input
+              type="text"
+              name="user"
+              class="login-input"
+              placeholder="Nombre de usuario"
+            /><i class="fa-solid fa-user input-icon"></i>
+          </div>
+          <div class="input-wraper">
+            <input
+              type="password"
+              name="password"
+              class="login-input"
+              placeholder="Contraseña"
+            /><i class="fa-solid fa-lock input-icon"></i>
+          </div>
+          <input
+            type="checkbox"
+            class="form-check-input"
+            name="remember-user"
+          /><label class="label-remember-user">Recordarme</label>
+
+          <div class="ingresar">
+            <button class="login-button" type="submit">Ingresar</button>
+
+            <a href="#"
+              ><p class="recover-pass">¿Has olvidado tu contraseña?</p></a
+            >
+          </div>
+        </form>
+      </div>
+    </main>
+    <!-- Fin del Main-->
+
+    <!-- Inicio del Footer-->
+    <footer>
+      <section class="footer-bottom">
+        <article>
+          <div class="logo">
+            <h5>URBAN</h5>
+            <h6>furniture</h6>
+          </div>
+          <p>
+            Somos una empresa dedicada a poder alcanzar a nuestros clientes
+            muebles de la mejor calidad al mejor precio.
+          </p>
+        </article>
+
+        <article>
+          <h5 class="footer-title">Contacto</h5>
+          <h6 class="contacto">
+            <i class="fa-solid fa-location-dot"></i> Buenos Aires, Argentina
+          </h6>
+          <h6 class="contacto">
+            <i class="fa-solid fa-mobile-screen-button"></i> +54 333 1268347
+          </h6>
+          <h6 class="contacto">
+            <span class="fa-solid fa-envelope"></span>
+            contacto@urbanfuniture.com
+          </h6>
+        </article>
+
+        <article>
+          <h5 class="footer-title">Nuestras redes</h5>
+          <div class="contenedor-redes">
+            <a href="#" class="redes"
+              ><i class="fa-brands fa-facebook-square"></i
+            ></a>
+            <a href="#" class="redes"
+              ><i class="fa-brands fa-twitter-square"></i
+            ></a>
+            <a href="#" class="redes"
+              ><i class="fa-brands fa-instagram-square"></i
+            ></a>
+          </div>
+        </article>
+      </section>
+    </footer>
+    <!-- Fin del Footer-->
+  </body>
+</html>
