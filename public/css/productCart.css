@@ -1,0 +1,39 @@
+/* <-- Google fonts --> */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap");
+*{
+    font-family: Roboto;
+}
+
+
+.main-cart {
+    background-color: #ececec;
+    margin-top: 2rem;;
+}
+.imagenes {
+    background-color: rgba(196, 196, 196, 0.33);
+    padding: 20px 40px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+}
+.product{
+    display: flex;
+    flex-direction: column
+}
+
+.imagenes img{
+    width: 100%;
+}
+
+.descuento{
+    color: #39d54a;
+    font-weight: 400;
+}
+.precio-anterior{
+    text-decoration: line-through;
+}
+.product-wrapper{
+    display: flex;
+    align-items: center;
+}
