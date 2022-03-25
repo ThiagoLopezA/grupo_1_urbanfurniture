@@ -6,3 +6,96 @@
   margin: 0;
   padding: 0;
 }
+
+/*<-- Cards & Card-section -->*/
+.ofertas {
+  padding: 2rem;
+}
+.ofertas h2 {
+  font-family: Roboto;
+  font-size: 1.3rem;
+}
+.ver-todas {
+  border: 1px solid #909090;
+  padding: 0.1rem 0.5rem;
+  border-radius: 0.5rem;
+  margin-left: 1rem;
+  font-size: 1rem;
+  font-weight: 300;
+  cursor: pointer;
+}
+.card-desc {
+  font-size: 16px;
+  color: #666;
+  margin-top: 0.7rem;
+  display: none;
+}
+.card-texto {
+  font-size: 12px;
+}
+.card-descuento {
+  margin-left: 10px;
+  font-size: 16px;
+  color: #39d54a;
+  display: inline;
+  width: 70%;
+  font-weight: 500;
+}
+.card-precio {
+  font-weight: 500;
+  display: inline;
+  width: 30%;
+}
+.card {
+  margin: 10px;
+  width: 80vw;
+  background-color: white;
+}
+.card img {
+  width: 100%;
+}
+
+.card-datos {
+  border-top: 1px solid #ebebeb;
+  padding: 15px;
+  width: 100%;
+  position: relative;
+}
+
+.card-icon {
+  display: block;
+  border-radius: 50%;
+  color: #39d54a;
+  padding: 5px;
+  border: 1px solid #39d54a;
+  position: absolute;
+  right: 20px;
+  top: -15px;
+}
+.card-icon i {
+  transition: 1500ms;
+  position: relative;
+}
+.card-icon i:hover {
+  transform: rotateZ(-90deg);
+}
+@media (min-width: 830px) {
+  .card .card-desc {
+    transition: 2500ms;
+  }
+  .card:hover .card-desc {
+    display: block;
+  }
+  .card {
+    width: 35vw;
+    transition: 500ms;
+  }
+  .card:hover {
+    box-shadow: 0px 5px 10px rgba(100, 100, 100, 0.5);
+  }
+}
+@media (min-width: 1279px) {
+  .card {
+    width: 20vw;
+  }
+}
