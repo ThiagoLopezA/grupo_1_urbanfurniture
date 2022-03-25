@@ -10,6 +10,13 @@
 /*<-- Cards & Card-section -->*/
 .ofertas {
   padding: 2rem;
+  width: 100%;
+  height: auto;
+}
+.product-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .ofertas h2 {
   font-family: Roboto;
@@ -40,18 +47,27 @@
   display: inline;
   width: 70%;
   font-weight: 500;
+  font-family: Roboto;
+  font-weight: 300;
 }
 .card-precio {
-  font-weight: 500;
+  font-family: Roboto;
+  font-weight: 300;
   display: inline;
   width: 30%;
 }
-.card {
-  margin: 10px;
+.card-body {
+  margin: 1rem;
   width: 80vw;
   background-color: white;
+  border-radius: 1rem;
 }
-.card img {
+.card-image {
+  width: 100%;
+  border-radius: 0.5rem;
+  background-color: rgba(196, 196, 196, 0.33);
+}
+.card-image img {
   width: 100%;
 }
 
@@ -62,40 +78,28 @@
   position: relative;
 }
 
-.card-icon {
-  display: block;
-  border-radius: 50%;
-  color: #39d54a;
-  padding: 5px;
-  border: 1px solid #39d54a;
-  position: absolute;
-  right: 20px;
-  top: -15px;
-}
-.card-icon i {
-  transition: 1500ms;
-  position: relative;
-}
-.card-icon i:hover {
-  transform: rotateZ(-90deg);
-}
 @media (min-width: 830px) {
-  .card .card-desc {
+  .product-area {
+    flex-direction: row;
+    align-items: center;
+    flex: wrap;
+  }
+  .card-body .card-desc {
     transition: 2500ms;
   }
-  .card:hover .card-desc {
+  .card-body:hover .card-desc {
     display: block;
   }
-  .card {
+  .card-body {
     width: 35vw;
     transition: 500ms;
   }
-  .card:hover {
+  .card-body:hover {
     box-shadow: 0px 5px 10px rgba(100, 100, 100, 0.5);
   }
 }
 @media (min-width: 1279px) {
-  .card {
+  .card-body {
     width: 20vw;
   }
 }

@@ -34,9 +34,11 @@ nav {
   margin-top: -0.32rem;
 }
 nav .logo {
-  width: 20%;
+  width: 60%;
   font-size: 1.3rem;
+  color: #03091c;
 }
+
 nav .logo p {
   font-weight: 700;
 }
@@ -44,10 +46,11 @@ nav .logo span {
   font-weight: 400;
 }
 ul {
-  width: 40%;
+  width: 50%;
   list-style: none;
   display: flex;
   justify-content: space-between;
+  display: none;
 }
 .nav-item {
   font-family: "Roboto";
@@ -58,13 +61,25 @@ ul {
   font-weight: 500;
 }
 .user-options {
-  width: 10%;
+  width: 20%;
   display: flex;
   justify-content: space-between;
-  margin-right: 1.5rem;
-  margin-bottom: 0.5rem;
+  margin-left: 1rem;
+  margin-bottom: 0.9rem;
+  display: none;
+  padding: 0;
 }
-
+.user-options i {
+  font-size: 1rem;
+  margin-left: 1.5rem;
+}
+.menu-small-devices {
+  font-size: 1.2rem;
+  width: 40%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+}
 /*
 .navigator {
   width: 100%;
@@ -221,6 +236,18 @@ Larger desktops -> 1280+
 */
 
 @media (min-width: 769px) {
+  ul {
+    display: flex;
+  }
+  .menu-small-devices {
+    display: none;
+  }
+  .user-options {
+    display: inline;
+  }
+  nav .logo {
+    width: 30%;
+  }
   .footer-bottom {
     width: 100%;
     flex-direction: row;
@@ -233,5 +260,10 @@ Larger desktops -> 1280+
   .footer-bottom p {
     text-align: left;
     margin-top: 10px;
+  }
+}
+@media (min-width: 1249px) {
+  .user-options {
+    width: 15%;
   }
 }
