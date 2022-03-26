@@ -6,10 +6,10 @@
 }
 
 .main-login {
-  /* margin-top: 80px;
-  margin-bottom: 100px; */
   margin: auto;
   margin-bottom: 5%;
+  /* margin-top: 80px; */
+  /* margin-bottom: 100px; */
 }
 
 .user-img {
@@ -22,7 +22,7 @@
 .login-container {
   display: flex;
   width: 400px;
-  height: 50vh;
+  height: 60vh;
   align-items: center;
   justify-content: center;
   margin: auto;
@@ -114,4 +114,18 @@ form a {
 .ingresar {
   text-align: center;
   margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.links-login {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: auto;
+}
+
+.links-login i {
+  padding: 10px;
 }
