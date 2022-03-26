@@ -30,15 +30,30 @@
   font-size: 1rem;
   font-weight: 300;
   cursor: pointer;
+  transition: 500ms;
+}
+.ver-todas:hover {
+  background-color: rgba(143, 143, 143, 0.3);
+  color: black;
+}
+.card-body {
+  cursor: pointer;
+  margin: 1rem;
+  width: 80vw;
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
 }
 .card-desc {
-  font-size: 16px;
+  font-size: 1rem;
   color: #666;
-  margin-top: 0.7rem;
-  display: none;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+  opacity: 0;
+  font-family: Roboto;
 }
 .card-texto {
-  font-size: 12px;
+  font-size: 1rem;
 }
 .card-descuento {
   margin-left: 10px;
@@ -56,24 +71,26 @@
   display: inline;
   width: 30%;
 }
-.card-body {
-  margin: 1rem;
-  width: 80vw;
-  background-color: white;
-  border-radius: 1rem;
+.card-precio-anterior {
+  font-weight: 300;
+  font-family: Roboto;
+  text-decoration: line-through;
+  font-size: 0.8rem;
+  color: #666;
 }
 .card-image {
   width: 100%;
   border-radius: 0.5rem;
   background-color: rgba(196, 196, 196, 0.33);
+  display: flex;
+  justify-content: center;
 }
 .card-image img {
-  width: 100%;
+  width: 14rem;
+  height: 14rem;
 }
-
 .card-datos {
-  border-top: 1px solid #ebebeb;
-  padding: 15px;
+  padding-top: 1rem;
   width: 100%;
   position: relative;
 }
@@ -83,15 +100,16 @@
     flex-direction: row;
     align-items: center;
     flex: wrap;
+    height: auto;
   }
   .card-body .card-desc {
-    transition: 2500ms;
+    transition: 500ms;
   }
   .card-body:hover .card-desc {
-    display: block;
+    opacity: 1;
   }
   .card-body {
-    width: 35vw;
+    max-width: 35vw;
     transition: 500ms;
   }
   .card-body:hover {
@@ -100,6 +118,6 @@
 }
 @media (min-width: 1279px) {
   .card-body {
-    width: 20vw;
+    max-width: 20vw;
   }
 }

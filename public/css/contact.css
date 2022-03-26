@@ -63,6 +63,12 @@
   border: 1px solid #909090;
   border-radius: 5px;
   padding: 0.5rem;
+  transition: 500ms;
+  cursor: pointer;
+}
+.faqs-btn:hover {
+  background-color: rgba(143, 143, 143, 0.3);
+  color: black;
 }
 
 /*<-- Email section -->*/
