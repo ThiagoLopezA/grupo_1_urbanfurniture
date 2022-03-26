@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Urban Funiture</title>
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/productCart.css" />
   </head>
@@ -24,16 +24,30 @@
             <img src="/img/products6.png" alt="Silla Bulgaria" />
           </div>
 
-          <div>
+          <div class="description-cant">
             <h3>BULGARIA</h3>
             <p>Precio Unitario</p>
+            <select name="cantidad" id="cant">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
           </div>
+
           <div>
             <p class="precio-anterior">$30.785</p>
-            <p>$27.690</p>
-            <p class="descuento">10% off</p>
-            <p>Subtotal</p>
-            <p>$27.690</p>
+            <div class="precio-descuento">
+              <p>$27.690</p>
+              <p class="descuento">10% off</p>
+            </div>
+            <div>
+              <div class="subtotal">
+                <p>Subtotal</p>
+                <p class="total">$27.690</p>
+              </div>
+            </div>
           </div>
         </article>
         <!-- Segundo articulo-->
@@ -41,22 +55,80 @@
           <div class="imagenes">
             <img src="/img/fav-icon.png" alt="Silla Ferragamo" />
           </div>
-          <div>
+          <div class="description-cant">
             <h3>FERRAGAMO</h3>
             <p>Precio Unitario</p>
+            <select name="cantidad" id="cant">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
           </div>
+
           <div>
             <p class="precio-anterior">$30.785</p>
-            <p>$27.690</p>
-            <p class="descuento">10% off</p>
+            <div class="precio-descuento">
+              <p>$27.690</p>
+              <p class="descuento">10% off</p>
+            </div>
+          </div>
+          <div class="subtotal">
             <p>Subtotal</p>
-            <p>$27.690</p>
+            <p class="total">$27.690</p>
           </div>
         </article>
       </section>
 
       <!-- Seccion total-->
-      <section></section>
+      <section class="your-shop">
+        <!-- Seccion 1 -->
+        <div class="section-shop">
+          <h3>TU COMPRA</h3>
+          <div class="section-before-total">
+            <div class="detail-name">
+              <p>Subtotal</p>
+              <p>Costo de envio</p>
+            </div>
+            <div class="detail-price">
+              <p>$55.380</p>
+              <p>$0</p>
+            </div>
+          </div>
+          <div class="section-total">
+            <p>TOTAL</p>
+            <p class="final">$55.380</p>
+          </div>
+          <div>
+            <p>Código Postal</p>
+            <div class="datos">
+              <form>
+                <input
+                  class="boton-postal"
+                  type="text"
+                  name="codigoPostal"
+                  placeholder="Ingresá tu código postal"
+                />
+              </form>
+            </div>
+            <form>
+              <button type="submit">COMENZAR COMPRA</button>
+            </form>
+            <p class="terminos-condiciones">
+              Al continuar con el proceso de compra usted está aceptando
+              automáticamente los términos y condiciones.
+            </p>
+          </div>
+        </div>
+        <!-- Seccion 2 -->
+        <div class="telephone-service">
+          <p>Atención telefónica</p>
+          <p class="contacto-tel">
+            Llamanos de Lunes a Sábados de 10 a 20hs. al 11 4631 2022
+          </p>
+        </div>
+      </section>
     </div>
     <!-- Fin del Main-->
 

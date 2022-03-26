@@ -18,12 +18,11 @@
   border-radius: 10px;
   display: flex;
   justify-content: center;
-  width: 80vw;
-  height: 80vw;
 }
 .imagenes img {
-  width: 100%;
   align-self: center;
+  width: 14rem;
+  height: 14rem;
 }
 .descuento {
   color: #39d54a;
@@ -37,4 +36,102 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  border-bottom: rgba(196, 196, 196, 0.33) solid 1px;
+}
+.precio-descuento {
+  display: flex;
+  justify-content: space-between;
+}
+.subtotal {
+  display: flex;
+  flex-direction: column;
+}
+#cant {
+  background-color: #fff;
+  border: none;
+  padding: 8px 20px;
+}
+.total {
+  font-weight: 900;
+  font-size: 22px;
+}
+.your-shop {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(196, 196, 196, 0.33);
+  padding: 3.36rem;
+}
+.your-shop h3 {
+  display: inline-block;
+  padding-bottom: 40px;
+}
+.section-shop {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.section-before-total {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: rgba(196, 196, 196, 0.33) solid 1px;
+  padding-bottom: 10px;
+}
+.section-total {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  padding-bottom: 50px;
+}
+.final {
+  font-weight: 900;
+  font-size: 20px;
+}
+.datos {
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+.boton-postal {
+  background-color: #fff;
+  color: rgba(196, 196, 196, 0.33);
+  font-size: 10px;
+  border: 1px rgba(196, 196, 196, 0.33) solid;
+  padding: 0.5rem 2rem;
+  border-radius: 0.2rem;
+  width: 100%;
+  text-align: center;
+}
+.terminos-condiciones {
+  font-size: 12px;
+  color: #909090;
+  margin-top: 1rem;
+}
+button {
+  width: 100%;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.2rem;
+  border: none;
+  background-color: #909090;
+}
+.telephone-service {
+  font-size: 12px;
+  border-radius: 0.2rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+.contacto-tel {
+  color: #ce5009;
+}
+
+@media (min-width: 769px) {
+  .product-wrapper {
+    width: 60%;
+    justify-content: center;
+    border: 1px solid red;
+  }
+  .product {
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid greenyellow;
+  }
 }
