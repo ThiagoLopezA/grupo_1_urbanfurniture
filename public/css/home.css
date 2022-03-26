@@ -99,7 +99,7 @@
   .product-area {
     flex-direction: row;
     align-items: center;
-    flex: wrap;
+    flex-wrap: wrap;
     height: auto;
   }
   .card-body .card-desc {
@@ -109,7 +109,7 @@
     opacity: 1;
   }
   .card-body {
-    max-width: 35vw;
+    width: 35vw;
     transition: 500ms;
   }
   .card-body:hover {
