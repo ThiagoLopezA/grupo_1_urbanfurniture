@@ -3,7 +3,14 @@
 * {
   font-family: Roboto;
 }
-
+h3 {
+  font-size: 1.3rem;
+  font-weight: 300;
+}
+.section-shop h3 {
+  font-size: 1.3rem;
+  font-weight: 400;
+}
 .main-cart {
   background-color: #ececec;
   margin-top: 2rem;
@@ -11,6 +18,8 @@
 .product {
   display: flex;
   flex-direction: column;
+  margin-bottom: 1.5rem;
+  border-bottom: rgba(196, 196, 196, 0.33) solid 1px;
 }
 .imagenes {
   background-color: rgba(196, 196, 196, 0.33);
@@ -28,9 +37,16 @@
   color: #39d54a;
   font-weight: 400;
 }
-
+.description-cant p {
+  color: #909090;
+  font-size: 0.9rem;
+}
 .precio-anterior {
   text-decoration: line-through;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: #909090;
+  font-size: 0.7rem;
 }
 .product-wrapper {
   display: flex;
@@ -41,10 +57,16 @@
 .precio-descuento {
   display: flex;
   justify-content: space-between;
+  color: #909090;
+  font-size: 0.9rem;
 }
 .subtotal {
   display: flex;
   flex-direction: column;
+}
+.letra-subtotal {
+  color: #909090;
+  font-size: 0.9rem;
 }
 #cant {
   background-color: #fff;
@@ -53,7 +75,8 @@
 }
 .total {
   font-weight: 900;
-  font-size: 22px;
+  font-size: 1.4rem;
+  margin-top: 0.3rem;
 }
 .your-shop {
   display: flex;
@@ -66,7 +89,6 @@
   padding-bottom: 40px;
 }
 .section-shop {
-  border-radius: 10px;
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
@@ -76,12 +98,21 @@
   justify-content: space-between;
   border-bottom: rgba(196, 196, 196, 0.33) solid 1px;
   padding-bottom: 10px;
+  color: #909090;
+  font-size: 0.9rem;
 }
 .section-total {
   display: flex;
   justify-content: space-between;
   padding-top: 10px;
   padding-bottom: 50px;
+}
+.word-total {
+  color: #909090;
+  font-size: 1.05rem;
+}
+.cp {
+  font-size: 0.9rem;
 }
 .final {
   font-weight: 900;
@@ -125,13 +156,60 @@ button {
 
 @media (min-width: 769px) {
   .product-wrapper {
-    width: 60%;
+    width: 70%;
     justify-content: center;
-    border: 1px solid red;
   }
   .product {
     flex-direction: row;
     justify-content: space-between;
-    border: 1px solid greenyellow;
+  }
+  .imagenes {
+    margin: 1.5rem;
+  }
+  .description-cant {
+    margin: 2rem;
+  }
+  .description-cant p {
+    margin-top: 0.8rem;
+    margin-bottom: 1.2rem;
+  }
+  .description-price {
+    margin: 2rem;
+  }
+  .imagenes img {
+    align-self: center;
+    width: 10rem;
+    height: 10rem;
+  }
+  .main-cart {
+    display: flex;
+    flex-direction: row;
+  }
+  .your-shop {
+    background-color: #ececec;
+    padding: 1.2rem 3rem;
+  }
+  .section-shop {
+    border-radius: 10px;
+    background-color: rgba(196, 196, 196, 0.33);
+    padding: 1.2rem;
+  }
+  .telephone-service {
+    border-radius: 10px;
+    background-color: rgba(196, 196, 196, 0.33);
+    padding: 1.2rem;
+  }
+  h3 {
+    font-size: 1rem;
+  }
+  .total {
+    font-size: 1rem;
+  }
+  .descuento {
+    font-size: 0.7rem;
+    padding-left: 0.2rem;
+  }
+  .precio-anterior {
+    margin-top: 0;
   }
 }
