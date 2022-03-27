@@ -78,6 +78,7 @@
   padding: 5%;
   width: 100%;
 }
+
 .email-title {
   font-family: "Open Sans";
   font-weight: 600;
@@ -94,6 +95,7 @@
   position: relative;
   display: flex;
   align-items: center;
+  margin-bottom: 1rem;
 }
 .button .faqs-btn {
   padding-left: 2.5rem;
@@ -104,12 +106,22 @@
   left: 0.5rem;
 }
 
+.map-section {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%;
+}
+
 iframe {
-  width: 80%;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  border-radius: 5px;
-  height: 55vh;
-  margin: 2rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /*
@@ -155,7 +167,10 @@ Larger desktops -> 1280+
   }
   /*<--Email section-->*/
   .email-section {
-    width: 50%;
+    width: 60%;
+  }
+  .map-section {
+    width: 60%;
   }
   .email {
     flex-direction: row;

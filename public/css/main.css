@@ -14,8 +14,7 @@ a {
 body {
   background-color: #f7f7f7;
 }
-
-header {
+npm header {
   position: sticky;
   z-index: 4;
   top: 0px;
