@@ -6,8 +6,50 @@
   margin: 0;
   padding: 0;
 }
+/*Carrousel*/
+.carrousel{
+  width: 100%;
+  max-width: 120rem;
+ 
+  overflow: hidden;
+}
+.carrousel .grande{
+  width: 600%;
+  
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  transition: all .5s ease;
+  transform: translateX(0%);
+  
+}
+.carrousel .img{
+  width: calc( 100% / 6 );
+  min-width: 10vh;
+  margin: 1rem;
+  
+}
+.carrousel .puntos{
+  width: 100%;
+  padding: .4rem;
+  margin: 1rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.carrousel .punto{
+  width: 1rem;
+  height: 1rem;
+  background-color: #85929E;
+  margin: 1rem 1rem 0;
+}
+.carrousel .punto.activo{
+  background-color: #03091c;
+}
 
-/*<-- Cards & Card-section -->*/
+  /*<-- Cards & Card-section -->*/
 .ofertas {
   padding: 2rem;
   width: 100%;
