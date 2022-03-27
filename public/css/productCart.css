@@ -150,13 +150,18 @@ button {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
+.atencion {
+  color: #909090;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
 .contacto-tel {
   color: #ce5009;
 }
 
 @media (min-width: 769px) {
   .product-wrapper {
-    width: 70%;
+    width: 80%;
     justify-content: center;
   }
   .product {
@@ -211,5 +216,75 @@ button {
   }
   .precio-anterior {
     margin-top: 0;
+  }
+  .telephone-service {
+    padding-top: 1.8rem;
+    padding-bottom: 1.8rem;
+  }
+  .terminos-condiciones {
+    margin-top: 1.4rem;
+    margin-bottom: 1.4rem;
+  }
+  .datos {
+    margin-top: 0.5rem;
+  }
+}
+@media (min-width: 1280px) {
+  .product-wrapper {
+    width: 100%;
+    justify-content: center;
+  }
+  .product {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .imagenes {
+    margin: 3rem;
+  }
+  .description-cant {
+    margin: 2rem;
+  }
+  .description-cant p {
+    margin-top: 0.8rem;
+    margin-bottom: 1.2rem;
+  }
+  .description-price {
+    margin: 2rem;
+  }
+  .imagenes img {
+    align-self: center;
+    width: 10rem;
+    height: 10rem;
+  }
+  .main-cart {
+    display: flex;
+    flex-direction: row;
+  }
+  .telephone-service {
+    margin-top: 1.5rem;
+  }
+  h3 {
+    font-size: 1rem;
+    margin-top: 1.5rem;
+  }
+  .total {
+    font-size: 1rem;
+  }
+  .descuento {
+    font-size: 0.7rem;
+    padding-left: 0.2rem;
+  }
+  .precio-anterior {
+    margin-top: 1.5rem;
+  }
+  button {
+    margin-top: 0.5rem;
+  }
+  .datos {
+    margin-top: 0.5rem;
+  }
+  .imagenes img {
+    width: 13rem;
+    height: 13rem;
   }
 }
