@@ -14,7 +14,7 @@ a {
 body {
   background-color: #f7f7f7;
 }
-npm header {
+header {
   position: sticky;
   z-index: 4;
   top: 0px;
@@ -24,7 +24,6 @@ npm header {
   background-color: #f7f7f7;
   width: 100%;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
- 
 }
 nav {
   width: 100%;
@@ -33,7 +32,6 @@ nav {
   justify-content: space-between;
   margin-top: -0.32rem;
   padding: 0.5rem;
-  
 }
 nav .logo {
   width: 60%;
@@ -54,33 +52,30 @@ ul {
   justify-content: space-between;
   display: none;
 }
-nav > ul > li > ul{
+nav > ul > li > ul {
   display: none;
   position: absolute;
   width: 9%;
   font-family: Roboto;
   z-index: 2;
   margin-top: 1rem;
-    
 }
-nav > ul > li:hover > ul{
-  display: block;   
+nav > ul > li:hover > ul {
+  display: block;
 }
 
-nav > ul > li:hover > ul > li{
+nav > ul > li:hover > ul > li {
   background-color: whitesmoke;
   border-bottom: 1px solid gray;
   box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.3);
   padding: 8px;
   font-size: 0.9rem;
-    
 }
-nav > ul > li:hover > ul > li a{
-  color:#606060;
+nav > ul > li:hover > ul > li a {
+  color: #606060;
 }
-nav > ul > li:hover > ul > li:hover a{
-  color:#606060;
-   
+nav > ul > li:hover > ul > li:hover a {
+  color: #606060;
 }
 .nav-item {
   font-family: "Roboto";
@@ -222,6 +217,7 @@ Larger desktops -> 1280+
   .footer-bottom {
     width: 100%;
     flex-direction: row;
+    padding-bottom: 2.5rem;
   }
   .footer-bottom article {
     margin-left: 10%;
