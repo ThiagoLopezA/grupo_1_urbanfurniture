@@ -5,15 +5,18 @@
   display: flex;
   flex-direction: column;
   margin: 5% 20%;
+  margin-left: 5%;
+  
 }
 .card-image {
   width: 50%;
+  margin-left: 32%;
 }
 .position-text {
   height: auto;
   margin-top: 8%;
   margin-left: 10%;
-  font-size: 22px;
+  font-size: 14px;
 }
 .position-product {
   width: 100%;
@@ -22,9 +25,26 @@
 
 .button-add-to-cart {
   margin-top: 15%;
-  margin-left: 60%;
-  font-size: 35px;
-  width: 50%;
+  margin-left: 5%;
+  font-size: 20px;
+  width: 100%;
   background-color: #03091c;
   color: aliceblue;
+}
+
+.number-price{
+  color: rgb(79, 158, 0);
+  margin-left: 30%;
+  margin-top: 5%;
+  font-size: 50px;
+}
+
+.cantidad-campo{
+  margin-top: 5%;
+}
+.number-price-x{
+  color: rgb(105, 105, 105);
+  margin-left: 50%;
+  font-size: 25px;
+  text-decoration: line-through;
 }
