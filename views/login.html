@@ -7,9 +7,8 @@
     <title>Urban Furniture</title>
     <!-- css -->
     <link rel="stylesheet" href="./css/normalize.css" />
-    <link rel="stylesheet" href="./css/home.css" />
     <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/login.css" />
+    <link rel="stylesheet" href="./css/forms.css" />
     <!-- Font Awesome -->
     <script
       src="https://kit.fontawesome.com/143040bb16.js"
@@ -19,17 +18,29 @@
   <body>
     <!-- Inicio del Header-->
     <header>
-      <img src="/img/Navbar.png" alt="Logo" />
+      <marquee behavior="" direction="">
+        Novedades en la categoria de sillones - Ofertas increibles este black
+        friday
+      </marquee>
+      <div class="navigator">
+        <nav>
+          <div class="logo">
+            <a href="/"
+              ><p>URBAN <span>FURNITURE</span></p></a
+            >
+          </div>
+        </nav>
+      </div>
     </header>
     <!-- Fin del Header-->
 
     <!-- Inicio del Main-->
     <main class="main-login">
-      <img src="/img/user-login.png" class="user-img" alt="user-img" />
       <div class="login-container">
+        <i class="fa-solid fa-circle-user user-icon"></i>
         <form action="/login" method="POST" class="login-form">
           <h3 class="login-title">Bienvenido</h3>
-          <div class="input-wraper">
+          <div class="input-wrapper">
             <input
               type="text"
               name="user"
@@ -37,7 +48,7 @@
               placeholder="Nombre de usuario"
             /><i class="fa-solid fa-user input-icon"></i>
           </div>
-          <div class="input-wraper">
+          <div class="input-wrapper">
             <input
               type="password"
               name="password"
@@ -57,6 +68,7 @@
             <a href="#"
               ><p class="recover-pass">¿Has olvidado tu contraseña?</p></a
             >
+            <a href="/register"><p class="recover-pass">Registrate</p></a>
           </div>
         </form>
       </div>
