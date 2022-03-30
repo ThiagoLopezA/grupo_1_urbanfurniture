@@ -30,7 +30,7 @@
 .carrousel .puntos {
   position: absolute;
   bottom: 8%;
-  z-index: 8;
+  z-index: 5;
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
@@ -59,7 +59,6 @@
 .ofertas {
   padding: 2rem;
   width: 100%;
-  height: auto;
 }
 .product-area {
   display: flex;

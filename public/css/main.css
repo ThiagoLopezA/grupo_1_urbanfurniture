@@ -16,7 +16,7 @@ body {
 }
 header {
   position: sticky;
-  z-index: 4;
+  z-index: 6;
   top: 0px;
 }
 /*<-- Nav config -->*/
