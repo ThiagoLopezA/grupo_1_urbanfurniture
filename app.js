@@ -15,20 +15,20 @@ app.set("view engine", "ejs");
 
 // <-- Rutas -->
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "./views/main.html"));
+  res.sendFile(path.join(__dirname, "./src/views/main.html"));
 });
 app.get("/contact", (req, res) => {
-  res.sendFile(path.join(__dirname, "./views/contact.html"));
+  res.sendFile(path.join(__dirname, "./src/views/contact.html"));
 });
 app.get("/login", (req, res) => {
-  res.sendFile(path.join(__dirname, "./views/login.html"));
+  res.sendFile(path.join(__dirname, "./src/views/login.html"));
 });
 app.get("/productCart", (req, res) => {
-  res.sendFile(path.join(__dirname, "./views/productCart.html"));
+  res.sendFile(path.join(__dirname, "./src/views/productCart.html"));
 });
 app.get("/register", (req, res) => {
-  res.sendFile(path.join(__dirname, "./views/register.html"));
+  res.sendFile(path.join(__dirname, "./src/views/register.html"));
 });
 app.get("/product", (req, res) => {
-  res.sendFile(path.join(__dirname, "./views/product.html"));
+  res.sendFile(path.join(__dirname, "./src/views/product.html"));
 });
