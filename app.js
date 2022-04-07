@@ -10,6 +10,9 @@ app.listen(3030, () =>
 // <-- Definiendo la carpeta estatica -->
 app.use(express.static("public"));
 
+// Motor de Plantilla EJS
+app.set("view engine", "ejs");
+
 // <-- Rutas -->
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "./views/main.html"));

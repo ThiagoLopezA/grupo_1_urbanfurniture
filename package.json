@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/ThiagoLopezA/grupo_1_urbanfurniture#readme",
   "dependencies": {
+    "ejs": "^3.1.6",
     "express": "^4.17.3",
     "nodemon": "^2.0.15",
     "path": "^0.12.7"
