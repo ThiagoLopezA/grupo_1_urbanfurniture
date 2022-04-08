@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const rutaHome = require ('./src/routes/main.js');
+
 
 // <-- Levantando el Servidor -->
 app.listen(3030, () =>
@@ -10,22 +12,13 @@ app.listen(3030, () =>
 // <-- Definiendo la carpeta estatica -->
 app.use(express.static("public"));
 
+// Motor de Plantilla EJS
+
+app.set("view engine", 'ejs');
+app.set('views', __dirname + '/src/views');
+
+
+
 // <-- Rutas -->
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "./views/main.html"));
-});
-app.get("/contact", (req, res) => {
-  res.sendFile(path.join(__dirname, "./views/contact.html"));
-});
-app.get("/login", (req, res) => {
-  res.sendFile(path.join(__dirname, "./views/login.html"));
-});
-app.get("/productCart", (req, res) => {
-  res.sendFile(path.join(__dirname, "./views/productCart.html"));
-});
-app.get("/register", (req, res) => {
-  res.sendFile(path.join(__dirname, "./views/register.html"));
-});
-app.get("/product", (req, res) => {
-  res.sendFile(path.join(__dirname, "./views/product.html"));
-});
+app.use('/', rutaHome);
+

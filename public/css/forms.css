@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  font-family: "Roboto";
+  box-sizing: border-box;
+}
+.main-login {
+  margin: 2.5rem 0;
+  display: flex;
+  justify-content: center;
+}
+.login-container {
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  justify-content: center;
+  background: #e1e1e1;
+  border-radius: 2rem;
+  padding: 1.5rem;
+}
+.user-icon {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 4.5rem;
+  color: #002749;
+}
+.login-title {
+  margin: 1rem 0;
+  font-size: 1.9rem;
+  font-weight: 100;
+  text-align: center;
+}
+.input-wrapper {
+  margin: auto;
+  position: relative;
+  width: 80%;
+}
+.input-icon {
+  position: absolute;
+  width: 1rem;
+  left: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.login-input {
+  padding: 15px 15px 15px 35px;
+  width: 100%;
+  height: 40px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  background: #fafafa;
+  border-radius: 109px;
+  border: none;
+}
+.login-input::placeholder {
+  color: #002749;
+  font-size: 0.9rem;
+  font-weight: lighter;
+  padding: 0.8rem;
+}
+.form-check-input {
+  margin-left: 12%;
+}
+.label-remember-user {
+  padding: 0.7rem;
+  font-weight: 400;
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  color: #002749;
+}
+.login-button {
+  margin: auto;
+  display: block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  width: 50%;
+  background: #002749;
+  color: white;
+  border-radius: 2rem;
+  font-size: 1.2rem;
+}
+form a {
+  text-decoration: none;
+  color: #002749;
+}
+.recover-pass {
+  margin-top: 1rem;
+  font-weight: lighter;
+}
+.ingresar {
+  text-align: center;
+  margin-top: 30px;
+}
+.links-login {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.links-login i {
+  transition: 500ms;
+}
+.links-login i:hover {
+  color: rgba(0, 39, 73, 0.8);
+}
+@media (min-width: 769px) {
+  .login-container {
+    width: 60vw;
+  }
+}
+@media (min-width: 1000px) {
+  .login-container {
+    width: 40vw;
+  }
+}
