@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const rutaHome = require ('./src/routes/main.js');
+const userRoutes = require ('./src/routes/userRoutes.js')
 
 
 
@@ -21,7 +22,6 @@ app.set('views', __dirname + '/src/views');
 
 // <-- Rutas -->
 app.use('/', rutaHome);
-
-
+app.use('/users', userRoutes);
 
 
