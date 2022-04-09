@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Urban Furniture</title>
+    <!-- css -->
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/forms.css" />
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/143040bb16.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <%- include('Template/header.ejs') %>
+
+    <!-- Inicio del Main-->
+    <main class="main-login">
+      <div class="login-container">
+        <i class="fa-solid fa-circle-user user-icon"></i>
+        <form action="/login" method="POST" class="login-form">
+          <h3 class="login-title">Bienvenido</h3>
+          <div class="input-wrapper">
+            <input
+              type="text"
+              name="user"
+              class="login-input"
+              placeholder="Nombre de usuario"
+            /><i class="fa-solid fa-user input-icon"></i>
+          </div>
+          <div class="input-wrapper">
+            <input
+              type="password"
+              name="password"
+              class="login-input"
+              placeholder="Contraseña"
+            /><i class="fa-solid fa-lock input-icon"></i>
+          </div>
+          <input
+            type="checkbox"
+            class="form-check-input"
+            name="remember-user"
+          /><label class="label-remember-user">Recordarme</label>
+
+          <div class="ingresar">
+            <button class="login-button" type="submit">Ingresar</button>
+
+            <a href="#"
+              ><p class="recover-pass">¿Has olvidado tu contraseña?</p></a
+            >
+            <a href="/users/register"><p class="recover-pass">Registrate</p></a>
+          </div>
+        </form>
+      </div>
+    </main>
+    <!-- Fin del Main-->
+
+    <%- include('Template/footer.ejs') %>
+
+  </body>
+</html>

@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width" />
     <title>Urban Furniture</title>
     <!-- css -->
-    <link rel="stylesheet" href="./css/normalize.css" />
-    <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/forms.css" />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/forms.css" />
     <!-- Font Awesome -->
     <script
       src="https://kit.fontawesome.com/143040bb16.js"
@@ -17,23 +17,7 @@
   </head>
 
   <body>
-    <!-- Inicio del Header-->
-    <header>
-      <marquee behavior="" direction="">
-        Novedades en la categoria de sillones - Ofertas increibles este black
-        friday
-      </marquee>
-      <div class="navigator">
-        <nav>
-          <div class="logo">
-            <a href="/"
-              ><p>URBAN <span>FURNITURE</span></p></a
-            >
-          </div>
-        </nav>
-      </div>
-    </header>
-    <!-- Fin del Header-->
+    <%- include('Template/header.ejs') %>
 
     <!-- Inicio del Main-->
     <main class="main-login">
@@ -87,50 +71,7 @@
     </main>
     <!-- Fin del Main-->
 
-    <!-- Inicio del Footer-->
-    <footer>
-      <section class="footer-bottom">
-        <article>
-          <div class="logo">
-            <h5>URBAN</h5>
-            <h6>furniture</h6>
-          </div>
-          <p>
-            Somos una empresa dedicada a poder alcanzar a nuestros clientes
-            muebles de la mejor calidad al mejor precio.
-          </p>
-        </article>
-
-        <article>
-          <h5 class="footer-title">Contacto</h5>
-          <h6 class="contacto">
-            <i class="fa-solid fa-location-dot"></i> Buenos Aires, Argentina
-          </h6>
-          <h6 class="contacto">
-            <i class="fa-solid fa-mobile-screen-button"></i> +54 333 1268347
-          </h6>
-          <h6 class="contacto">
-            <span class="fa-solid fa-envelope"></span>
-            contacto@urbanfuniture.com
-          </h6>
-        </article>
-
-        <article>
-          <h5 class="footer-title">Nuestras redes</h5>
-          <div class="contenedor-redes">
-            <a href="#" class="redes"
-              ><i class="fa-brands fa-facebook-square"></i
-            ></a>
-            <a href="#" class="redes"
-              ><i class="fa-brands fa-twitter-square"></i
-            ></a>
-            <a href="#" class="redes"
-              ><i class="fa-brands fa-instagram-square"></i
-            ></a>
-          </div>
-        </article>
-      </section>
-    </footer>
-    <!-- Fin del Footer-->
+    <%- include('Template/footer.ejs') %>
+   
   </body>
 </html>
