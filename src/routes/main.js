@@ -1,15 +1,17 @@
 const express = require('express');
 const router = express.Router();
-
-
-router.get("/", (req, res) => {
-    res.render ('main');
-});
+const otherController = require('../controller/otherController');
 
 
 
-
-
-
+router.get('/', otherController.main);
+router.get('/contact', otherController.contact);
 
 module.exports = router;
+
+
+
+
+
+
+
