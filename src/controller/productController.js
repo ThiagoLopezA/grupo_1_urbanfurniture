@@ -2,7 +2,7 @@ const cartController = {
     productCart: (req, res) => {
         let productData = [
             {
-              src : "../img/products2.png",
+              src : "../img/products6.png",
               precioAnt : 30785,
               precio : 27690,
               nombre : "Silla Bulgaria"
