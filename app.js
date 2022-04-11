@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const rutaHome = require ('./src/routes/main.js');
 const userRoutes = require ('./src/routes/userRoutes.js')
+const rutaProduct = require('./src/routes/productRoutes.js')
 
 
 
@@ -17,11 +18,13 @@ app.use(express.static("public"));
 
 app.set("view engine", 'ejs');
 app.set('views', __dirname + '/src/views');
+app.set("views engine", "ejs");
 
 
 
 // <-- Rutas -->
 app.use('/', rutaHome);
 app.use('/users', userRoutes);
+app.use('/productCart', rutaProduct);
 
 
