@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Urban Furniture</title>
+    <!-- css -->
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/home.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/143040bb16.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <%- include ('../partials/navigator.ejs') %>
+
+    <!-- Inicio del Main-->
+    <main>
+      <!--Carrousel-->
+      <div class="carrousel">
+        <div class="grande">
+          <img src="./img/Comedor.jpg" alt="" class="img" />
+          <img src="./img/habitacion.jpg" alt="" class="img" />
+          <img src="./img/Cocina.jpg" alt="" class="img" />
+          <img src="./img/Cama.jpg" alt="" class="img" />
+          <img src="./img/comedor 2.jpg" alt="" class="img" />
+          <img src="./img/Sala.jpg" alt="" class="img" />
+        </div>
+        <ul class="puntos">
+          <li class="punto activo"></li>
+          <li class="punto"></li>
+          <li class="punto"></li>
+          <li class="punto"></li>
+          <li class="punto"></li>
+          <li class="punto"></li>
+        </ul>
+      </div>
+      <!--fin Carrusel-->
+      <section class="ofertas">
+        <h2>
+          Nuestras ofertas
+          <a href="#"><span class="ver-todas">ver todas</span></a>
+        </h2>
+        <div class="product-area">
+          <% data.forEach( card => { %>
+            <article class="card-body">
+              <div class="card-image">
+                <img src="<%= card.src %>" alt="estante" />
+              </div>
+              <div class="card-datos">
+                <% if(card.precioAnt){ %> 
+                  <% let descuento = parseInt(100 - (card.precio * 100 / card.precioAnt)) %>
+                <h3 class="card-precio-anterior">$<%= card.precioAnt %></h3>
+                <h3 class="card-precio">$<%= card.precio %></h3>
+                <h3 class="card-descuento"><%= descuento %>% OFF</h3>
+                <p class="card-desc"><%= card.desc %></p>
+                <% } else {%>
+                <h3 class="card-precio">$<%= card.precio %></h3>
+                <p class="card-desc"><%=card.desc%></p>
+                <% } %>
+              </div>
+            </article> 
+          <% }) %>
+        </div>
+      </section>
+
+      <section class="ofertas">
+        <h2>
+          Ultimas publicaciones
+          <a href="#"><span class="ver-todas">ver todas</span></a>
+        </h2>
+        <div class="product-area">
+          <% data.forEach( card => { %>
+            <article class="card-body">
+              <div class="card-image">
+                <img src="<%= card.src %>" alt="estante" />
+              </div>
+              <div class="card-datos">
+                <% if(card.precioAnt){ %> 
+                  <% let descuento = parseInt(100 - (card.precio * 100 / card.precioAnt)) %>
+                <h3 class="card-precio-anterior">$<%= card.precioAnt %></h3>
+                <h3 class="card-precio">$<%= card.precio %></h3>
+                <h3 class="card-descuento"><%= descuento %>% OFF</h3>
+                <p class="card-desc"><%= card.desc %></p>
+                <% } else {%>
+                <h3 class="card-precio">$<%= card.precio %></h3>
+                <p class="card-desc"><%=card.desc%></p>
+                <% } %>
+              </div>
+            </article> 
+          <% }) %>
+        </div>
+      </section>
+
+      <section class="card-redirect-wrapper">
+        <a href="./users/register">
+          <article class="card-redirect">
+            <img src="./img/pexels-emre-can-acer-2079246.jpg" alt="" />
+            <div class="card-redirect-content">
+              <h2>Venta mayorista</h2>
+              <p>
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>REGISTRATE
+              </p>
+            </div>
+          </article>
+        </a>
+        <a href="./contact">
+          <article class="card-redirect">
+            <img src="./img/Hire-A-Carpenter1.jpeg" alt="" />
+            <div class="card-redirect-content">
+              <h2>Proyectos a medida</h2>
+              <p><i class="fa-solid fa-paper-plane"></i>ESCRIBINOS</p>
+            </div>
+          </article>
+        </a>
+      </section>
+
+      <section class="datos-empresa">
+        <article class="dato">
+          <i class="fa-solid fa-credit-card"></i>
+          <h2>HASTA 24 CUOTAS</h2>
+          <p>Visa, Mastercard, Amex, Mercado Pago.</p>
+        </article>
+        <article class="dato">
+          <i class="fa-solid fa-truck-fast"></i>
+          <h2>ENVIOS A TODO EL PAÍS</h2>
+          <p>A todo el país en tiempo record.</p>
+        </article>
+        <article class="dato">
+          <i class="fa-solid fa-list-check"></i>
+          <h2>ENTREGA INMEDIATA</h2>
+          <p>Disponibilidad de stock permanente.</p>
+        </article>
+        <article class="dato">
+          <i class="fa-solid fa-phone"></i>
+          <h2>VENTA TELEFÓNICA</h2>
+          <p>Tel. 4631-2022 Lun a Sab de 10 a 20hs.</p>
+        </article>
+      </section>
+    </main>
+    <!-- Fin del Main-->
+
+    <%- include ('../partials/footer.ejs') %>
+  </body>
+</html>
