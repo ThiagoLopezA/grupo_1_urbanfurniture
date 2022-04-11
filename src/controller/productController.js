@@ -17,7 +17,7 @@ const cartController = {
           ]
         res.render('product/productCart', {data: productData});
     },
-    
+    product: (req, res) => {     res.render("product/product");   },
 }
 
 module.exports = cartController;
