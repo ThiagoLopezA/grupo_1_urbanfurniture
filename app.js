@@ -25,6 +25,6 @@ app.set("views engine", "ejs");
 // <-- Rutas -->
 app.use('/', rutaHome);
 app.use('/users', userRoutes);
-app.use('/productCart', rutaProduct);
+app.use('/product', rutaProduct);
 
 
