@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin dashboard</title>
+    <!-- css -->
+    <link rel="stylesheet" href="../css/home.css" />
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <link rel="stylesheet" href="../css/adminDash.css" />
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/143040bb16.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <%- include('../partials/verticalNav.ejs') %>
+    <section class="content-area">
+      <div>
+        <form class="formBusqueda">
+          <div class="wrapper">
+            <input
+              class="barraBusqueda inputText"
+              type="text"
+              name="buscador"
+              placeholder="Buscar el producto a modificar"
+            />
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+        </form>
+      </div>
+      <div class="product-area">
+        <% data.forEach( card => { %>
+        <article class="card-body">
+          <div class="card-image">
+            <img src="<%= card.src %>" alt="estante" />
+          </div>
+          <div class="card-datos">
+            <% if(card.precioAnt){ %> <% let descuento = parseInt(100 -
+            (card.precio * 100 / card.precioAnt)) %>
+            <h3 class="card-precio-anterior">$<%= card.precioAnt %></h3>
+            <h3 class="card-precio">$<%= card.precio %></h3>
+            <h3 class="card-descuento"><%= descuento %>% OFF</h3>
+            <p class="card-desc"><%= card.desc %></p>
+            <% } else {%>
+            <h3 class="card-precio">$<%= card.precio %></h3>
+            <p class="card-desc"><%=card.desc%></p>
+            <% } %>
+          </div>
+        </article>
+        <% }) %>
+      </div>
+    </section>
+  </body>
+</html>

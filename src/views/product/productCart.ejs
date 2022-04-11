@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Urban Funiture</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/productCart.css" />
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/143040bb16.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <%- include('../partials/navigator.ejs') %>
+    <div class="main-cart">
+      <!-- Seccion primer producto-->
+      <section class="product-wrapper">
+        <% data.forEach(product=>{ %>
+        <!-- Segundo articulo-->
+
+        <article class="product">
+          <div class="imagenes">
+            <img src="<%= product.src %>" />
+          </div>
+
+          <div class="description-cant">
+            <h3><%= product.nombre %></h3>
+            <p>Precio Unitario</p>
+            <select name="cantidad" id="cant">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+
+          <div class="description-price">
+            <p class="precio-anterior"><%= product.precioAnt%></p>
+            <div class="precio-descuento">
+              <p><%= product.precio %></p>
+              <% let descuento = parseInt(100 - (product.precio * 100 /
+              product.precioAnt)) %>
+              <p class="descuento"><%= descuento %>% OFF</p>
+            </div>
+            <div class="subtotal">
+              <p class="letra-subtotal">Subtotal</p>
+              <p class="total"><%= product.precio %></p>
+            </div>
+          </div>
+        </article>
+        <% }) %>
+      </section>
+
+      <!-- Seccion total-->
+      <section class="your-shop">
+        <!-- Seccion 1 -->
+        <div class="section-shop">
+          <h3>TU COMPRA</h3>
+          <div class="section-before-total">
+            <div class="detail-name">
+              <p>Subtotal</p>
+              <p>Costo de envio</p>
+            </div>
+            <div class="detail-price">
+              <p>$55.380</p>
+              <p>$0</p>
+            </div>
+          </div>
+
+          <div class="section-total">
+            <p class="word-total">TOTAL</p>
+            <p class="final">$55.380</p>
+          </div>
+          <div>
+            <p class="cp">Código Postal</p>
+            <div class="datos">
+              <form>
+                <input
+                  class="boton-postal"
+                  type="text"
+                  name="codigoPostal"
+                  placeholder="Ingresá tu código postal"
+                />
+              </form>
+            </div>
+            <form>
+              <button type="submit">COMENZAR COMPRA</button>
+            </form>
+            <p class="terminos-condiciones">
+              Al continuar con el proceso de compra usted está aceptando
+              automáticamente los términos y condiciones.
+            </p>
+          </div>
+        </div>
+        <!-- Seccion 2 -->
+        <div class="telephone-service">
+          <p class="atencion">Atención telefónica</p>
+          <p class="contacto-tel">
+            Llamanos de Lunes a Sábados de 10 a 20hs. al 11 4631 2022
+          </p>
+        </div>
+      </section>
+    </div>
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>

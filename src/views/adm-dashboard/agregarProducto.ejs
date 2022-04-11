@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin dashboard</title>
+    <!-- css -->
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <link rel="stylesheet" href="../css/adminDash.css" />
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/143040bb16.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <%- include('../partials/verticalNav.ejs') %>
+    <section class="content-area">
+      <form class="formAgregar">
+        <label class="formitem" for="name">Nombre del producto</label>
+        <input class="formitem inputText" type="text" name="name" id="name" />
+        <label class="formitem" for="descripcion"
+          >Descripcion del producto</label
+        >
+        <input
+          class="formitem inputText"
+          type="text"
+          name="description"
+          id="descripcion"
+        />
+        <label class="formitem" for="image">Imagenes del producto</label>
+        <div class="inputFile">
+          <i class="fa-solid fa-circle-arrow-up uploadIcon"></i>
+          <input class="formitem" type="file" name="image" id="image" />
+        </div>
+        <label class="formitem" for="category">Categoria</label>
+        <select class="formitem inputText" name="category" id="category">
+          <option value="sillones">Sillones</option>
+          <option value="mesas">Mesas</option>
+        </select>
+        <label class="formitem" for="color">Colores</label>
+        <input
+          class="formitem itemColor"
+          type="color"
+          name="color"
+          id="color"
+        />
+        <label class="formitem" for="price">Precio</label>
+        <input
+          class="formitem inputText"
+          type="number"
+          name="price"
+          id="price"
+        />
+        <button class="formButton formitem" type="submit">
+          Agregar un producto
+        </button>
+      </form>
+    </section>
+  </body>
+</html>

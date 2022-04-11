@@ -17,14 +17,14 @@
   </head>
 
   <body>
-    <%- include('Template/header.ejs') %>
+    <%- include('../partials/header.ejs') %>
 
     <!-- Inicio del Main-->
     <main class="main-login">
       <div class="login-container">
-        <i class="fa-solid fa-circle-user user-icon"></i>
+        <i class="fa-solid fa-circle-question user-icon"></i>
         <form action="/login" method="POST" class="login-form">
-          <h3 class="login-title">Bienvenido</h3>
+          <h3 class="login-title">Registrate</h3>
           <div class="input-wrapper">
             <input
               type="text"
@@ -35,32 +35,42 @@
           </div>
           <div class="input-wrapper">
             <input
+              type="email"
+              name="user-email"
+              class="login-input"
+              placeholder="Correo electrónico"
+            /><i class="fa-solid fa-user input-icon"></i>
+          </div>
+          <div class="input-wrapper">
+            <input
               type="password"
               name="password"
               class="login-input"
               placeholder="Contraseña"
             /><i class="fa-solid fa-lock input-icon"></i>
           </div>
-          <input
-            type="checkbox"
-            class="form-check-input"
-            name="remember-user"
-          /><label class="label-remember-user">Recordarme</label>
+          <div class="input-wrapper">
+            <input
+              type="password"
+              name="password-confirm"
+              class="login-input"
+              placeholder="Confirmar contraseña"
+            /><i class="fa-solid fa-lock input-icon"></i>
+          </div>
 
           <div class="ingresar">
-            <button class="login-button" type="submit">Ingresar</button>
-
-            <a href="#"
-              ><p class="recover-pass">¿Has olvidado tu contraseña?</p></a
-            >
-            <a href="/users/register"><p class="recover-pass">Registrate</p></a>
+            <button class="login-button" type="submit">Registrarme</button>
+            <p class="recover-pass">Registrarme con</p>
+            <div class="links-login">
+              <a href="#"><i class="fa-brands fa-google"></i></a>
+              <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            </div>
           </div>
         </form>
       </div>
     </main>
     <!-- Fin del Main-->
 
-    <%- include('Template/footer.ejs') %>
-
+    <%- include('../partials/footer.ejs') %>
   </body>
 </html>
