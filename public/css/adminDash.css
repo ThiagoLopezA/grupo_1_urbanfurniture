@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto;
+}
+
+body{
+    background-color: #f7f7f7;
+    display: flex;
+}
+
+/* Navbar */
+.navbar-vertical{
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    padding: .5rem;
+    height: 100vh;
+    align-items: center;
+    background-color: white;
+}
+nav{
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.logo {
+    margin-top: 1rem;
+    color: #03091c;
+    text-align: center;
+}
+.logo-top {
+    font-size: .8rem;
+    font-weight: 700;
+}
+.logo-bottom {
+    font-size: .5rem;
+    font-weight: 400;
+}
+ul{
+   list-style: none; 
+}
+a{
+    text-decoration: none;
+    color: #606060;
+}
+.nav-title{
+    display: none;
+}
+.nav-subtitle{
+    margin-left: .5rem;
+    display: none;
+}
+.nav-item{
+    margin-bottom: 1rem;
+    transition: 500ms;
+}
+.nav-item a:hover{
+    color: black;
+}
+.nav-item:hover{
+    color: black;
+}
+.nav-item a{
+    transition: 500ms;
+}
+.nav-item a{
+    display: flex;
+    align-items: center;
+}
+.fa-solid{
+    font-size: 1.5rem;
+}
+section .class-area{
+    display: flex;
+}
+
+@media (min-width: 769px) {
+.navbar-vertical{
+    width: 25%;
+}
+.logo-top{
+    font-size: 1.2rem;
+}
+.logo-bottom{
+    font-size: 0.7rem;
+}
+.fa-solid{
+    font-size: 1.3rem;
+}
+.nav-title{
+     display: inline;
+     font-size: .7rem;
+     color: #707070;
+ }
+ .nav-subtitle{
+     display: inline;
+     font-size: .9rem;
+     font-weight: 400;
+ }
+
+}
