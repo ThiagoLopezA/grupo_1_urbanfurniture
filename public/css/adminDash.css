@@ -1,106 +1,159 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Roboto;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto;
 }
 
-body{
-    background-color: #f7f7f7;
-    display: flex;
+body {
+  background-color: #f7f7f7;
+  display: flex;
 }
 
 /* Navbar */
-.navbar-vertical{
-    display: flex;
-    flex-direction: column;
-    width: 15%;
-    padding: .5rem;
-    height: 100vh;
-    align-items: center;
-    background-color: white;
+.navbar-vertical {
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+  padding: 0.5rem;
+  height: 100vh;
+  align-items: center;
+  background-color: white;
 }
-nav{
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+nav {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 .logo {
-    margin-top: 1rem;
-    color: #03091c;
-    text-align: center;
+  margin-top: 1rem;
+  color: #03091c;
+  text-align: center;
 }
 .logo-top {
-    font-size: .8rem;
-    font-weight: 700;
+  font-size: 0.8rem;
+  font-weight: 700;
 }
 .logo-bottom {
-    font-size: .5rem;
-    font-weight: 400;
+  font-size: 0.5rem;
+  font-weight: 400;
 }
-ul{
-   list-style: none; 
+ul {
+  list-style: none;
 }
-a{
-    text-decoration: none;
-    color: #606060;
+a {
+  text-decoration: none;
+  color: #606060;
 }
-.nav-title{
-    display: none;
+.nav-title {
+  display: none;
 }
-.nav-subtitle{
-    margin-left: .5rem;
-    display: none;
+.nav-subtitle {
+  margin-left: 0.5rem;
+  display: none;
 }
-.nav-item{
-    margin-bottom: 1rem;
-    transition: 500ms;
+.nav-item {
+  margin-bottom: 1rem;
+  transition: 500ms;
 }
-.nav-item a:hover{
-    color: black;
+.nav-item a:hover {
+  color: black;
 }
-.nav-item:hover{
-    color: black;
+.nav-item:hover {
+  color: black;
 }
-.nav-item a{
-    transition: 500ms;
+.nav-item a {
+  transition: 500ms;
 }
-.nav-item a{
-    display: flex;
-    align-items: center;
+.nav-item a {
+  display: flex;
+  align-items: center;
 }
-.fa-solid{
-    font-size: 1.5rem;
+.fa-solid {
+  font-size: 1.5rem;
 }
-section .class-area{
-    display: flex;
+section .class-area {
+  display: flex;
 }
-
+.content-area {
+  width: 85%;
+}
+/* vista agregar producto*/
+.formAgregar {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+.formitem {
+  margin: 0.5rem;
+}
+.formButton {
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  border: none;
+  background-color: #03091c;
+  color: #fff;
+}
+.inputText {
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  border: #909090 1px solid;
+}
+.inputFile {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.inputFile::before {
+  margin: 0.2rem 0.5rem;
+  background-color: #03091c;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.3rem;
+  content: "Cargar";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.inputFile input {
+  opacity: 0;
+  display: inline-block;
+}
+.uploadIcon {
+  position: absolute;
+  color: #f7f7f7;
+  left: 32%;
+  font-size: 1rem;
+  top: 30%;
+}
 @media (min-width: 769px) {
-.navbar-vertical{
+  .navbar-vertical {
     width: 25%;
-}
-.logo-top{
+  }
+  .logo-top {
     font-size: 1.2rem;
-}
-.logo-bottom{
+  }
+  .logo-bottom {
     font-size: 0.7rem;
-}
-.fa-solid{
+  }
+  .fa-solid {
     font-size: 1.3rem;
-}
-.nav-title{
-     display: inline;
-     font-size: .7rem;
-     color: #707070;
- }
- .nav-subtitle{
-     display: inline;
-     font-size: .9rem;
-     font-weight: 400;
- }
-
+  }
+  .nav-title {
+    display: inline;
+    font-size: 0.7rem;
+    color: #707070;
+  }
+  .nav-subtitle {
+    display: inline;
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
 }

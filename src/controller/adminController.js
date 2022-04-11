@@ -6,7 +6,7 @@ const adminController = {
         res.render("adm-dashboard/modificar.ejs");
     },
     agregarProducto : (req, res) => {
-        res.render("adm-dashboard/agregar.ejs");
+        res.render("adm-dashboard/agregarProducto.ejs");
     },
     usuarios : (req, res) => {
         res.render("adm-dashboard/usuarios.ejs")
