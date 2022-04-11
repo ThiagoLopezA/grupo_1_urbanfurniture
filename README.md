@@ -16,6 +16,10 @@ Nos proponemos captar la atención de quienes buscan muebles de un estilo sobrio
 - [Dogus](https://en.dogusegitim.com/)
 - [Urban Ladder](https://www.urbanladder.com/)
 
+## Link al tablero de Trello
+
+- https://trello.com/b/nHrntkml/urban-furniture
+
 ## Miembros
 
 - **Ronald Palacios :** Estudiante de Programacion Full Stack, Estar familiarizado con las última tecnologías disponibles, y seguir aprendiendo.
