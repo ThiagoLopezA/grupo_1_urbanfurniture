@@ -129,9 +129,40 @@ section .class-area {
 .uploadIcon {
   position: absolute;
   color: #f7f7f7;
-  left: 32%;
+  left: 1rem;
   font-size: 1rem;
-  top: 30%;
+  top: 0.65rem;
+}
+.itemColor {
+  border-radius: 0.2rem;
+  padding: 0.05rem 0.2rem;
+  border: solid 1px #909090;
+}
+label {
+  color: #303030;
+  font-weight: 600;
+}
+/* vista modificar producto*/
+.formBusqueda {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.formBusqueda i {
+  position: absolute;
+  right: 0.8rem;
+  font-size: 1.3rem;
+  top: 0.4rem;
+  color: #909090;
+}
+.barraBusqueda {
+  width: 100%;
+}
+.wrapper {
+  width: 80%;
+  position: relative;
 }
 @media (min-width: 769px) {
   .navbar-vertical {
