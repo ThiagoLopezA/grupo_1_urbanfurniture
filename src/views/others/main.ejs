@@ -1,106 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Urban Furniture</title>
-    <!-- css -->
-    <link rel="stylesheet" href="./css/normalize.css" />
-    <link rel="stylesheet" href="./css/home.css" />
-    <link rel="stylesheet" href="./css/main.css" />
-    <!-- Font Awesome -->
-    <script
-      src="https://kit.fontawesome.com/143040bb16.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-
+  <!-- head -->
+  <%- include('../partials/head', {route:'home.css', title:'Urban furniture'})%>
   <body>
-    <%- include ('../partials/navigator.ejs') %>
-
-    <!-- Inicio del Main-->
+    <!-- navbar -->
+    <%- include ('../partials/navbar.ejs') %>
+    <!-- main-->
     <main>
-      <!--Carrousel-->
+      <!--carrousel-->
       <div class="carrousel">
-        <div class="grande">
-          <img src="./img/Comedor.jpg" alt="" class="img" />
-          <img src="./img/habitacion.jpg" alt="" class="img" />
-          <img src="./img/Cocina.jpg" alt="" class="img" />
-          <img src="./img/Cama.jpg" alt="" class="img" />
-          <img src="./img/comedor 2.jpg" alt="" class="img" />
-          <img src="./img/Sala.jpg" alt="" class="img" />
+        <div class="carrousel__container">
+          <img
+            src="./img/backgrounds/background-2.jpg"
+            alt=""
+            class="carrousel__image"
+          />
+          <img
+            src="./img/backgrounds/background-1.jpg"
+            alt=""
+            class="carrousel__image"
+          />
+          <img
+            src="./img/backgrounds/background-4.jpg"
+            alt=""
+            class="carrousel__image"
+          />
+          <img
+            src="./img/backgrounds/background-5.jpg"
+            alt=""
+            class="carrousel__image"
+          />
+          <img
+            src="./img/backgrounds/background-6.jpg"
+            alt=""
+            class="carrousel__image"
+          />
+          <img
+            src="./img/backgrounds/background-3.jpg"
+            alt=""
+            class="carrousel__image"
+          />
         </div>
-        <ul class="puntos">
-          <li class="punto activo"></li>
-          <li class="punto"></li>
-          <li class="punto"></li>
-          <li class="punto"></li>
-          <li class="punto"></li>
-          <li class="punto"></li>
+        <ul class="carrousel__control">
+          <li class="control control--active"></li>
+          <li class="control"></li>
+          <li class="control"></li>
+          <li class="control"></li>
+          <li class="control"></li>
+          <li class="control"></li>
         </ul>
       </div>
-      <!--fin Carrusel-->
-      <section class="ofertas">
-        <h2>
-          Nuestras ofertas
-          <a href="#"><span class="ver-todas">ver todas</span></a>
-        </h2>
-        <div class="product-area">
-          <% data.forEach( card => { %>
-            <article class="card-body">
-              <div class="card-image">
-                <img src="<%= card.src %>" alt="estante" />
-              </div>
-              <div class="card-datos">
-                <% if(card.precioAnt){ %> 
-                  <% let descuento = parseInt(100 - (card.precio * 100 / card.precioAnt)) %>
-                <h3 class="card-precio-anterior">$<%= card.precioAnt %></h3>
-                <h3 class="card-precio">$<%= card.precio %></h3>
-                <h3 class="card-descuento"><%= descuento %>% OFF</h3>
-                <p class="card-desc"><%= card.desc %></p>
-                <% } else {%>
-                <h3 class="card-precio">$<%= card.precio %></h3>
-                <p class="card-desc"><%=card.desc%></p>
-                <% } %>
-              </div>
-            </article> 
-          <% }) %>
+
+      <!-- in-sale section -->
+      <section class="section">
+        <h2 class="section__title">Nuestras ofertas</h2>
+        <button class="section__button">ver todas</button>
+        <div class="section__products">
+          <!-- product list -->
+          <%- include('../partials/product_list', {data:data}) %>
         </div>
       </section>
 
-      <section class="ofertas">
-        <h2>
-          Ultimas publicaciones
-          <a href="#"><span class="ver-todas">ver todas</span></a>
-        </h2>
-        <div class="product-area">
-          <% data.forEach( card => { %>
-            <article class="card-body">
-              <div class="card-image">
-                <img src="<%= card.src %>" alt="estante" />
-              </div>
-              <div class="card-datos">
-                <% if(card.precioAnt){ %> 
-                  <% let descuento = parseInt(100 - (card.precio * 100 / card.precioAnt)) %>
-                <h3 class="card-precio-anterior">$<%= card.precioAnt %></h3>
-                <h3 class="card-precio">$<%= card.precio %></h3>
-                <h3 class="card-descuento"><%= descuento %>% OFF</h3>
-                <p class="card-desc"><%= card.desc %></p>
-                <% } else {%>
-                <h3 class="card-precio">$<%= card.precio %></h3>
-                <p class="card-desc"><%=card.desc%></p>
-                <% } %>
-              </div>
-            </article> 
-          <% }) %>
+      <!-- last-products section -->
+      <section class="section">
+        <h2 class="section__title">Ultimas publicaciones</h2>
+        <button class="section__button">ver todas</button>
+        <div class="section__products">
+          <!-- product list -->
+          <%- include('../partials/product_list', {data:data}) %>
         </div>
       </section>
 
       <section class="card-redirect-wrapper">
         <a href="./users/register">
           <article class="card-redirect">
-            <img src="./img/pexels-emre-can-acer-2079246.jpg" alt="" />
+            <img src="./img/backgrounds/background-3.jpg" alt="" />
             <div class="card-redirect-content">
               <h2>Venta mayorista</h2>
               <p>
@@ -111,7 +85,7 @@
         </a>
         <a href="./contact">
           <article class="card-redirect">
-            <img src="./img/Hire-A-Carpenter1.jpeg" alt="" />
+            <img src="./img/backgrounds/background-6.jpeg" alt="" />
             <div class="card-redirect-content">
               <h2>Proyectos a medida</h2>
               <p><i class="fa-solid fa-paper-plane"></i>ESCRIBINOS</p>
@@ -143,8 +117,8 @@
         </article>
       </section>
     </main>
-    <!-- Fin del Main-->
 
+    <!-- footer -->
     <%- include ('../partials/footer.ejs') %>
   </body>
 </html>

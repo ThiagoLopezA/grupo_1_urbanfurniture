@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "image": "../img/products/product-1.png",
+    "discount": 10,
+    "price": 10000,
+    "description": "Estante"
+  },
+  {
+    "id": 2,
+    "image": "../img/products/product-2.png",
+    "discount": 25,
+    "price": 10000,
+    "description": "Mesa"
+  },
+  {
+    "id": 3,
+    "image": "../img/products/product-4.png",
+    "discount": 0,
+    "price": 10000,
+    "description": "Mueble con cajones"
+  },
+  {
+    "id": 4,
+    "image": "../img/products/product-5.png",
+    "discount": 19,
+    "price": 10000,
+    "description": "Mesa y juego de sillas"
+  }
+]

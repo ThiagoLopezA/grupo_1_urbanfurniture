@@ -4,53 +4,42 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!-- css -->
-    <link rel="stylesheet" href="../css/normalize.css" />
-    <link rel="stylesheet" href="../css/product.css" />
-    <link rel="stylesheet" href="../css/main.css" />
+    <title>Urban Funiture</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/product.css" />
     <!-- Font Awesome -->
     <script
       src="https://kit.fontawesome.com/143040bb16.js"
       crossorigin="anonymous"
     ></script>
   </head>
-<body>
-    <%- include('../partials/navigator.ejs') %>
-
-<main>
-    <section class="card-body">
-      <div class="card-image">
-        <img
-          class="position-product"
-          src="/img/popular4.png"
-          alt="Producto"
-        />
-      </div>
-      <div class="position-text">
-        <h1>Sillón Swan de T. Lopez</h1>
-        <p>
-          Esta réplica del sillón Swan de Arne Jacobsen, diseñado en 1958
-          forma parte de uno de los clásicos del diseño del siglo XX. La silla
-          Swan, fue fabricada para el vestíbulo y el bar del hotel Royal
-          Radisson SAS de Copenhague. Esta elegante pieza se adapta
-          perfectamente a cualquier atmósfera ofreciendo una gran comodidad y
-          funcionalidad. Este modelo está expuesto en múltiples museos y
-          espacios de relevancia de todo el mundo. Es un infaltable en tu
-          espacio privado.
-        </p>
-        <div class="seleccion-color">
-          <div class="color rojo activa"></div>
-          <div class="color azul"></div>
-          <div class="color verde"></div>
+  <body>
+    <%- include('../partials/navbar.ejs') %>
+    <main>
+      <section class="card-body">
+        <div class="card-image">
+          <img
+            class="position-product"
+            src="<%= product.image %>"
+            alt="Producto"
+          />
         </div>
-        <h2 class="number-price">$3.600</h2>
-        <button class="button-add-to-cart">
-          <i class="fa-solid fa-cart-plus"></i> Agregar
-        </button>
-      </div>
-    </section>
-  </main>
-  <%- include('../partials/footer.ejs') %>
-</body>
+        <div class="position-text">
+          <h1><%= product.name %></h1>
+          <p><%= product.description %></p>
+          <div class="seleccion-color">
+            <div class="color rojo activa"></div>
+            <div class="color azul"></div>
+            <div class="color verde"></div>
+          </div>
+          <h2 class="number-price"><%= product.finalPrice %></h2>
+          <button class="button-add-to-cart">
+            <i class="fa-solid fa-cart-plus"></i> Agregar
+          </button>
+        </div>
+      </section>
+    </main>
+    <%- include('../partials/footer.ejs') %>
+  </body>
 </html>
