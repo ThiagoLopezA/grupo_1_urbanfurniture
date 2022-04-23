@@ -10,12 +10,13 @@
     <main class="main-login">
       <div class="login-container">
         <i class="fa-solid fa-circle-question user-icon"></i>
-        <form action="/login" method="POST" class="login-form">
+        <form action="/users/login" method="POST" class="login-form">
           <h3 class="login-title">Registrate</h3>
           <div class="input-wrapper">
             <input
               type="text"
               name="user"
+              id="user"
               class="login-input"
               placeholder="Nombre de usuario"
             /><i class="fa-solid fa-user input-icon"></i>
@@ -24,6 +25,7 @@
             <input
               type="email"
               name="user-email"
+              id="user-email"
               class="login-input"
               placeholder="Correo electrónico"
             /><i class="fa-solid fa-user input-icon"></i>
@@ -32,6 +34,7 @@
             <input
               type="password"
               name="password"
+              id="password"
               class="login-input"
               placeholder="Contraseña"
             /><i class="fa-solid fa-lock input-icon"></i>
@@ -40,6 +43,7 @@
             <input
               type="password"
               name="password-confirm"
+              id="password-confirm"
               class="login-input"
               placeholder="Confirmar contraseña"
             /><i class="fa-solid fa-lock input-icon"></i>
