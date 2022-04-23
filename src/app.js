@@ -11,6 +11,12 @@ const adminRoutes = require("./routes/adminRoutes");
 app.listen(3030, () =>
   console.log("Servidor levantado con exito en el puerto 3030")
 );
+app.use(
+  express.urlencoded({
+    extended: false,
+  })
+);
+app.use(express.json());
 
 // <-- Definiendo la carpeta estatica -->
 // app.use(express.static(path.join(__dirname, "../public")));

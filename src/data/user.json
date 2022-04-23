@@ -1,1 +1,14 @@
-[]
+[
+ {
+  "user": "Thiago",
+  "email": "thiago@hotmail.com",
+  "password": "123",
+  "password-confirm": "123"
+ },
+ {
+  "user": "Thiago",
+  "email": "thiagolopezalderete@hotmail.com",
+  "password": "123",
+  "password-confirm": "123"
+ }
+]
