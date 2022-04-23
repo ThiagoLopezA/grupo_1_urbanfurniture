@@ -40,26 +40,26 @@ const productController = {
     let product = data.find(product => product.id == req.params.id);
     res.render("product/detail", { product: product });
   },
-  list:(req, res)=>{
+  list: (req, res) => {
     let data = productController.getProducts();
-    res.render("product/products", { data: data});
+    res.render("product/products", { data: data });
   },
-  crear:(req,res)=>{
+  crear: (req, res) => {
     let data = productController.getProducts();
     let nuevoProducto = {};
-    for(let prop in req.body){
-      if(prop != 'image'){
+    for (let prop in req.body) {
+      if (prop != 'image') {
         //push de una propiedad de objetos
-        nuevoProducto[prop] = req.body[prop]; 
+        nuevoProducto[prop] = req.body[prop];
       }
     }
-    if(req.file != undefined){
+    if (req.file != undefined) {
       //push de la propiedad imagen del objeto
       nuevoProducto.image = req.file.filename;
     }
     let temp = [];
-    data.forEach(product=>temp.push(product.id));
-    nuevoProducto.id = Math.max(temp)+1;
+    data.forEach(product => temp.push(product.id));
+    nuevoProducto.id = Math.max(temp) + 1;
     data.push(nuevoProducto);
 
     fs.writeFileSync(productsFilePath, JSON.stringify(data, null, " "));
@@ -75,7 +75,7 @@ const productController = {
     res.render("adm-dashboard/agregarProducto");
   },
   // Guardar producto nuevo en json
-  store: (req, req) => {
+  store: (req, res) => {
     let data = productController.getProducts();
     let newProduct = {
       id: data.length + 1,
