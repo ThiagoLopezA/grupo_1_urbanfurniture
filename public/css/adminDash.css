@@ -11,9 +11,12 @@ body {
   background-color: #f7f7f7;
   display: flex;
 }
-
+a {
+  text-decoration: none;
+  color: #606060;
+}
 /* Navbar */
-.navbar-vertical {
+.section__navbar {
   display: flex;
   flex-direction: column;
   width: 15%;
@@ -24,59 +27,53 @@ body {
   position: sticky;
   top:0;
 }
-nav {
+.navbar__logo {
+  margin-top: 1rem;
+  color: #03091c;
+  text-align: center;
+}
+.logo__top {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.logo__bottom {
+  font-size: 0.5rem;
+  font-weight: 400;
+}
+.nav {
   height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
-.logo {
-  margin-top: 1rem;
-  color: #03091c;
-  text-align: center;
+.nav__title {
+  display: none;
+  font-size: 0.7rem;
+  color: #707070;
 }
-.logo-top {
-  font-size: 0.8rem;
-  font-weight: 700;
-}
-.logo-bottom {
-  font-size: 0.5rem;
-  font-weight: 400;
-}
-ul {
+.nav__container {
   list-style: none;
 }
-a {
-  text-decoration: none;
-  color: #606060;
-}
-.nav-title {
-  display: none;
-}
-.nav-subtitle {
-  margin-left: 0.5rem;
-  display: none;
-}
-.nav-item {
+.container__item {
   margin-bottom: 1rem;
   transition: 500ms;
 }
-.nav-item a:hover {
-  color: black;
-}
-.nav-item:hover {
-  color: black;
-}
-.nav-item a {
-  transition: 500ms;
-}
-.nav-item a {
+.container__item a {
   display: flex;
   align-items: center;
+  transition: 500ms;
 }
-.fa-solid {
+.container__item a:hover {
+  color: black;
+}
+.item__title {
+  margin-left: 0.5rem;
+  display: none;
+}
+.item__icon {
   font-size: 1.5rem;
 }
+
 section .class-area {
   display: flex;
 }
@@ -88,7 +85,7 @@ section .class-area {
 }
 /* vista agregar producto*/
 .section{
-  width: 100%;
+  width: 85%;
   padding: 2rem;
 }
 .section__form{
@@ -164,12 +161,14 @@ section .class-area {
   border: none;
   border-radius: .3rem;
 }
-.search__icon{
+.search__button{
+  background-color: transparent;
+  border: none;
   position: absolute;
   font-size: 1rem;
   color: #707070;
   right: 1rem;
-  top: 25%;
+  top: 20%;
 }
 /* card */
 .product__area{
@@ -244,27 +243,24 @@ section .class-area {
   .card{
     width: 25vw;
   }
-  .navbar-vertical {
+  .section__navbar {
     width: 25%;
   }
-  .logo-top {
+  .logo__top {
     font-size: 1.2rem;
   }
-  .logo-bottom {
+  .logo__bottom {
     font-size: 0.7rem;
   }
-  .fa-solid {
+  .item__icon {
     font-size: 1.3rem;
   }
-  .nav-title {
+  .item__title {
     display: inline;
-    font-size: 0.7rem;
-    color: #707070;
   }
-  .nav-subtitle {
+  .nav__title {
     display: inline;
     font-size: 0.9rem;
-    font-weight: 400;
   }
   .card, .info__description {
     transition: 500ms;

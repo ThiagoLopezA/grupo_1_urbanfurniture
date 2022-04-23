@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('../partials/head', {route:'adminDash.css',
-  title:'Admin-Dashboard'})%>
+  <%- include ('../partials/head.ejs', {route:'adminDash.css', main:'', title:
+  'Admin'}) %>
   <body>
     <%- include('../partials/navbar_dashboard.ejs') %>
     <section class="content-area">
       <div>
-        <form class="form__search" method="GET" action="/admin">
+        <form
+          class="form__search"
+          method="GET"
+          action="/admin/modificar/search"
+        >
           <input
             class="search__input"
             type="text"
             name="search"
             placeholder="Buscar el producto a modificar"
           />
-          <i class="fa-solid fa-magnifying-glass search__icon"></i>
+          <button class="search__button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
         </form>
       </div>
       <div class="product__area">
-        <%- include('../partials/product_list', {data:data}) %>
+        <%- include('../partials/product_list', {data:data, mode:'admin'}) %>
       </div>
     </section>
   </body>

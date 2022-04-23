@@ -1,19 +1,27 @@
-<% data.forEach( product => { %>
-<a href="/product/detail/<%= product.id %>">
-  <article class="card">
-    <div class="card__container">
-      <img class="container__image" src="<%= product.image %>" alt="estante" />
-    </div>
-    <div class="card__info">
-      <% if(product.discount > 0) { %>
-      <h3 class="info__price">$<%= product.price %></h3>
-      <h3 class="info__finalPrice">$<%= product.finalPrice %></h3>
-      <h3 class="info__discount"><%= product.discount %>% OFF</h3>
-      <% } else { %>
-      <h3 class="info__finalPrice">$<%= product.price %></h3>
-      <% } %>
-      <p class="info__description"><%= product.description %></p>
-    </div>
-  </article>
+<% data.forEach( product => { %> <% if(mode == 'admin') { %>
+<a href="/admin/modificar/<%= product.id %>">
+  <% } else { %>
+  <a href="/product/detail/<%= product.id %>">
+    <% } %>
+    <article class="card">
+      <div class="card__container">
+        <img
+          class="container__image"
+          src="/img/products/<%= product.image %>"
+          alt="estante"
+        />
+      </div>
+      <div class="card__info">
+        <% if(product.discount > 0) { %>
+        <h3 class="info__price">$<%= product.price %></h3>
+        <h3 class="info__finalPrice">$<%= product.finalPrice %></h3>
+        <h3 class="info__discount"><%= product.discount %>% OFF</h3>
+        <% } else { %>
+        <h3 class="info__finalPrice">$<%= product.price %></h3>
+        <% } %>
+        <p class="info__description"><%= product.description %></p>
+      </div>
+    </article>
+  </a>
+  <% }) %>
 </a>
-<% }) %>

@@ -4,7 +4,7 @@
   "description": "E-commerce de muebles de interior y decoración del hogar.",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon ./app.js",
+    "start": "nodemon ./src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

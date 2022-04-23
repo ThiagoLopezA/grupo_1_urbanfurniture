@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <!-- head -->
-  <%- include('../partials/head', {route:'home.css', title:'Urban furniture'})%>
+  <%- include('../partials/head', {route:'home.css', main:'main.css',
+  title:'Inicio'})%>
   <body>
     <!-- navbar -->
     <%- include ('../partials/navbar.ejs') %>
@@ -57,7 +58,10 @@
         <button class="section__button">ver todas</button>
         <div class="section__products">
           <!-- product list -->
-          <%- include('../partials/product_list', {data:data}) %>
+          <%- include('../partials/product_list', {data:data, mode:'user'}) %>
+          <div class="products__button">
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
         </div>
       </section>
 
@@ -67,7 +71,10 @@
         <button class="section__button">ver todas</button>
         <div class="section__products">
           <!-- product list -->
-          <%- include('../partials/product_list', {data:data}) %>
+          <%- include('../partials/product_list', {data:data, mode:'user'}) %>
+          <div class="products__button">
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
         </div>
       </section>
 

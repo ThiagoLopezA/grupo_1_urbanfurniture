@@ -1,19 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Urban Funiture</title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="/css/main.css" />
-    <link rel="stylesheet" href="/css/product.css" />
-    <!-- Font Awesome -->
-    <script
-      src="https://kit.fontawesome.com/143040bb16.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
+  <%- include('../partials/head', {route:'product.css', main:'main.css',
+  title:'Detalle'})%>
   <body>
     <%- include('../partials/navbar.ejs') %>
     <main>
@@ -21,7 +9,7 @@
         <div class="card-image">
           <img
             class="position-product"
-            src="<%= product.image %>"
+            src="/img/products/<%=product.image%>"
             alt="Producto"
           />
         </div>
@@ -33,7 +21,7 @@
             <div class="color azul"></div>
             <div class="color verde"></div>
           </div>
-          <h2 class="number-price"><%= product.finalPrice %></h2>
+          <h2 class="number-price">$<%= product.finalPrice %></h2>
           <button class="button-add-to-cart">
             <i class="fa-solid fa-cart-plus"></i> Agregar
           </button>

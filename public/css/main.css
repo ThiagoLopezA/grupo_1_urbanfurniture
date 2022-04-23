@@ -20,6 +20,8 @@ header {
   top: 0px;
 }
 /*<-- Nav config -->*/
+
+
 .navigator {
   background-color: #f7f7f7;
   width: 100%;
@@ -119,7 +121,7 @@ marquee {
   background-color: #03091c;
   font-family: "Roboto";
   color: white;
-  font-weight: 500;
+  font-weight: 400;
   padding: 2px;
 }
 

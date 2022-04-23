@@ -1,8 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+  <%- include ('../partials/head.ejs', {route:'adminDash.css', main:'', title:
+  'Admin'}) %>
   <!-- head -->
-  <%- include('../partials/head', {route:'adminDash.css',
-  title:'AdminDashboard'})%>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin dashboard</title>
+    <!-- css -->
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="../css/adminDash.css" />
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/143040bb16.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
   <body>
     <%- include('../partials/navbar_dashboard.ejs') %>
@@ -32,7 +46,7 @@
         <div class="form__container">
           <label for="" class="form__label">Imagen</label>
           <label for="image" class="form__label--image">
-            <img src="../img/icons/upload.png" alt="asd" />
+            <img src="/img/icons/upload.png" alt="asd" />
             Haz click para cargar tu imagen
           </label>
           <input class="form__file" type="file" name="image" id="image" />
