@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 
+
 const rutaHome = require("./routes/main.js");
 const userRoutes = require("./routes/userRoutes.js");
 const rutaProduct = require("./routes/productRoutes.js");

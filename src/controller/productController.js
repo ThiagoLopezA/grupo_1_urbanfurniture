@@ -34,10 +34,35 @@ const productController = {
     ];
     res.render("product/productCart", { data: productData });
   },
-  product: (req, res) => {
+  detail: (req, res) => {
     let data = productController.getProducts();
     let product = data.find(product => product.id == req.params.id);
-    res.render("product/product", { product: product });
+    res.render("product/detail", { product: product });
+  },
+  list:(req, res)=>{
+    let data = productController.getProducts();
+    res.render("product/products", { data: data});
+  },
+  crear:(req,res)=>{
+    let data = productController.getProducts();
+    let nuevoProducto = {};
+    for(let prop in req.body){
+      if(prop != 'image'){
+        //push de una propiedad de objetos
+        nuevoProducto[prop] = req.body[prop]; 
+      }
+    }
+    if(req.file != undefined){
+      //push de la propiedad imagen del objeto
+      nuevoProducto.image = req.file.filename;
+    }
+    let temp = [];
+    data.forEach(product=>temp.push(product.id));
+    nuevoProducto.id = Math.max(temp)+1;
+    data.push(nuevoProducto);
+
+    fs.writeFileSync(productsFilePath, JSON.stringify(data, null, " "));
+    res.redirect('/product')
   },
 };
 

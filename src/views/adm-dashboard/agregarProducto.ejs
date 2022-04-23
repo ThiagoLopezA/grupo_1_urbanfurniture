@@ -3,26 +3,12 @@
   <%- include ('../partials/head.ejs', {route:'adminDash.css', main:'', title:
   'Admin'}) %>
   <!-- head -->
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin dashboard</title>
-    <!-- css -->
-    <link rel="stylesheet" href="./css/normalize.css" />
-    <link rel="stylesheet" href="../css/adminDash.css" />
-    <!-- Font Awesome -->
-    <script
-      src="https://kit.fontawesome.com/143040bb16.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
 
   <body>
     <%- include('../partials/navbar_dashboard.ejs') %>
     <section class="section">
-      <h1>Crear un producto</h1>
-      <form action="" class="section__form">
+      <h1>Agregar un producto</h1>
+      <form action="/product" class="section__form" method="POST">
         <div class="form__container">
           <label for="name" class="form__label">Nombre</label>
           <input type="text" class="form__input" name="name" id="name" />

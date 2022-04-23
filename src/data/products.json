@@ -1,34 +1,60 @@
 [
-  {
-    "id": 1,
-    "image": "product-1.png",
-    "discount": 10,
-    "price": 10000,
-    "description": "Sofa amarillo",
-    "name": "Sofa amarillo"
-  },
-  {
-    "id": 2,
-    "image": "product-2.png",
-    "discount": 25,
-    "price": 10000,
-    "description": "Sofa moderno",
-    "name": "Sofa moderno"
-  },
-  {
-    "id": 3,
-    "image": "product-4.png",
-    "discount": 0,
-    "price": 10000,
-    "description": "Mesa redonda",
-    "name": "Mesa redonda"
-  },
-  {
-    "id": 4,
-    "image": "product-5.png",
-    "discount": 19,
-    "price": 10000,
-    "description": "Sofa naranja",
-    "name": "Sofa naranja"
-  }
+ {
+  "id": 1,
+  "image": "product-1.png",
+  "discount": 10,
+  "price": "10.000",
+  "description": "Sofa amarillo",
+  "name": "Sofa amarillo",
+  "finalPrice": "9"
+ },
+ {
+  "id": 2,
+  "image": "product-2.png",
+  "discount": 25,
+  "price": "10.000",
+  "description": "Sofa moderno",
+  "name": "Sofa moderno",
+  "finalPrice": "7.5"
+ },
+ {
+  "id": 3,
+  "image": "product-4.png",
+  "discount": 0,
+  "price": "10.000",
+  "description": "Mesa redonda",
+  "name": "Mesa redonda"
+ },
+ {
+  "id": 4,
+  "image": "product-5.png",
+  "discount": 19,
+  "price": "10.000",
+  "description": "Sofa naranja",
+  "name": "Sofa naranja",
+  "finalPrice": "8.1"
+ },
+ {
+  "name": "Tecnologia",
+  "category": "",
+  "description": "esta es una prueba",
+  "price": "3",
+  "id": null,
+  "finalPrice": "NaN"
+ },
+ {
+  "name": "Tecnologia",
+  "category": "",
+  "description": "esta es una prueba",
+  "price": "121",
+  "id": null,
+  "finalPrice": "NaN"
+ },
+ {
+  "name": "Informatica",
+  "category": "",
+  "description": "Esta es otra prueba",
+  "price": "789",
+  "id": null
+ }
 ]

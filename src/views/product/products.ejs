@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head', {route:'home.css', main:'main.css',
+  title:'Productos'})%>
+  <body>
+    <%- include('../partials/navbar.ejs') %>
+    <main>
+      <h2 class="section__title">Productos</h2>
+      <div class="section__products">
+        <%- include('../partials/product_list', {data: data, mode:'usuario'})%>
+      </div>
+    </main>
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>
