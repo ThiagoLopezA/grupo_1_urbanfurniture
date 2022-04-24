@@ -33,16 +33,5 @@
   "description": "Sofa naranja",
   "name": "Sofa naranja",
   "finalPrice": "8.1"
- },
- {
-  "name": "Tecnologia",
-  "category": "sofas",
-  "description": "esta es una prueba",
-  "color1": "#000000",
-  "color2": "#000000",
-  "color3": "#000000",
-  "price": 4567,
-  "image": "product-1650828891980.PNG",
-  "id": 8
  }
 ]
