@@ -88,6 +88,17 @@ const productController = {
     product.description = req.body.description;
     fs.writeFileSync(productsFilePath, JSON.stringify(data, null, 4));
     res.redirect("product/products");
+  },
+  // Eliminar producto
+  destroy: (req, res) => {
+    let data = productController.getProducts();
+    data = data.filter(product => product.id != req.params.id);
+    for (let i = req.params.id - 1; i < products.length; i++) {
+      products[i].id = products[i].id - 1;
+    }
+    fs.writeFileSync(productsFilePath, JSON.stringify(data, null, 4));
+    res.redirect('/products');
+
   }
 */
 };
