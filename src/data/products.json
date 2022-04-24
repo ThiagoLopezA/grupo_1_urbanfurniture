@@ -35,13 +35,14 @@
   "finalPrice": "8.1"
  },
  {
-  "name": "Informatica",
+  "name": "Tecnologia",
   "category": "sofas",
-  "description": "Esta es otra prueba",
-  "color1": "#b46922",
-  "color2": "#298894",
-  "color3": "#558014",
-  "price": 13131,
-  "id": 5
+  "description": "esta es una prueba",
+  "color1": "#000000",
+  "color2": "#000000",
+  "color3": "#000000",
+  "price": 4567,
+  "image": "product-1650828891980.PNG",
+  "id": 8
  }
 ]

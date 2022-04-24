@@ -4,6 +4,7 @@ const path = require("path");
 const productsFilePath = path.join(__dirname, "../data/products.json");
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
+
 const productController = {
   getProducts: () => {
     let data = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
@@ -61,9 +62,7 @@ const productController = {
     data.forEach(product=>temp.push(parseInt(product.id)));
     nuevoProducto.id = parseInt(Math.max(...temp))+1;
     nuevoProducto.price = parseInt(nuevoProducto.price);
-
     data.push(nuevoProducto);
-     console.log(temp);
     fs.writeFileSync(productsFilePath, JSON.stringify(data, null, " "));
     res.redirect('/product')
   },
