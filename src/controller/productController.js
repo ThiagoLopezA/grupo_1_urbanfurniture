@@ -40,20 +40,20 @@ const productController = {
     let product = data.find(product => product.id == req.params.id);
     res.render("product/detail", { product: product });
   },
-  list:(req, res)=>{
+  list: (req, res) => {
     let data = productController.getProducts();
-    res.render("product/products", { data: data});
+    res.render("product/products", { data: data });
   },
-  crear:(req,res)=>{
+  crear: (req, res) => {
     let data = productController.getProducts();
     let nuevoProducto = {};
-    for(let prop in req.body){
-      if(prop != 'image'){
+    for (let prop in req.body) {
+      if (prop != 'image') {
         //push de una propiedad de objetos
-        nuevoProducto[prop] = req.body[prop]; 
+        nuevoProducto[prop] = req.body[prop];
       }
     }
-    if(req.file != undefined){
+    if (req.file != undefined) {
       //push de la propiedad imagen del objeto
       nuevoProducto.image = req.file.filename;
     }
@@ -61,13 +61,14 @@ const productController = {
     data.forEach(product=>temp.push(parseInt(product.id)));
     nuevoProducto.id = parseInt(Math.max(...temp))+1;
     nuevoProducto.price = parseInt(nuevoProducto.price);
+
     data.push(nuevoProducto);
      console.log(temp);
     fs.writeFileSync(productsFilePath, JSON.stringify(data, null, " "));
     res.redirect('/product')
   },
+
   /*
-  
   // Enviar vista de modificar producto
   edit: (req, res) => {
     let data = productController.getProducts();
