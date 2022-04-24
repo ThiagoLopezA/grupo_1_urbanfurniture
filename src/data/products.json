@@ -29,32 +29,19 @@
   "id": 4,
   "image": "product-5.png",
   "discount": 19,
-  "price": "10.000",
+  "price": "10",
   "description": "Sofa naranja",
   "name": "Sofa naranja",
   "finalPrice": "8.1"
  },
  {
-  "name": "Tecnologia",
-  "category": "",
-  "description": "esta es una prueba",
-  "price": "3",
-  "id": null,
-  "finalPrice": "NaN"
- },
- {
-  "name": "Tecnologia",
-  "category": "",
-  "description": "esta es una prueba",
-  "price": "121",
-  "id": null,
-  "finalPrice": "NaN"
- },
- {
   "name": "Informatica",
-  "category": "",
+  "category": "sofas",
   "description": "Esta es otra prueba",
-  "price": "789",
-  "id": null
+  "color1": "#b46922",
+  "color2": "#298894",
+  "color3": "#558014",
+  "price": 13131,
+  "id": 5
  }
 ]

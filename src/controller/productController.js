@@ -58,36 +58,16 @@ const productController = {
       nuevoProducto.image = req.file.filename;
     }
     let temp = [];
-    data.forEach(product=>temp.push(product.id));
-    nuevoProducto.id = Math.max(temp)+1;
+    data.forEach(product=>temp.push(parseInt(product.id)));
+    nuevoProducto.id = parseInt(Math.max(...temp))+1;
+    nuevoProducto.price = parseInt(nuevoProducto.price);
     data.push(nuevoProducto);
-
+     console.log(temp);
     fs.writeFileSync(productsFilePath, JSON.stringify(data, null, " "));
     res.redirect('/product')
   },
-  // Enviar vista de todos los productos con array de productos
-  products: (req, res) => {
-    let data = productController.getProducts();
-    res.render("product/products", { data: data });
-  },
-  // Enviar vista de crear producto
-  create: (req, res) => {
-    res.render("adm-dashboard/agregarProducto");
-  },
-  // Guardar producto nuevo en json
-  store: (req, req) => {
-    let data = productController.getProducts();
-    let newProduct = {
-      id: data.length + 1,
-      discount: req.body.discount,
-      price: req.body.price,
-      description: req.body.description,
-      name: req.body.name,
-    }
-    data.push(newProduct);
-    fs.writeFileSync(productsFilePath, JSON.stringify(data, null, 4));
-    res.redirect("product/products");
-  },
+  /*
+  
   // Enviar vista de modificar producto
   edit: (req, res) => {
     let data = productController.getProducts();
@@ -108,7 +88,7 @@ const productController = {
     fs.writeFileSync(productsFilePath, JSON.stringify(data, null, 4));
     res.redirect("product/products");
   }
-
+*/
 };
 
 module.exports = productController;
