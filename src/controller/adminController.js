@@ -13,7 +13,7 @@ const adminController = {
   },
   search: (req, res) => {
     let database = products.getProducts();
-    let search = req.query.search.toLowerCase();
+    let search = req.query.keywords.toLowerCase();
     let results = database.filter(product =>
       product.name.toLowerCase().includes(search)
     );

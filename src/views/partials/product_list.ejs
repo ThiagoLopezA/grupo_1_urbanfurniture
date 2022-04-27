@@ -1,5 +1,5 @@
 <% data.forEach( product => { %> <% if(mode == 'admin') { %>
-<a href="/admin/modificar/<%= product.id %>">
+<a href="/product/edit/<%= product.id %>">
   <% } else { %>
   <a href="/product/detail/<%= product.id %>">
     <% } %>

@@ -4,7 +4,6 @@ const path = require("path");
 const productsFilePath = path.join(__dirname, "../data/products.json");
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-
 const productController = {
   getProducts: () => {
     let data = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
@@ -49,7 +48,7 @@ const productController = {
     let data = productController.getProducts();
     let nuevoProducto = {};
     for (let prop in req.body) {
-      if (prop != 'image') {
+      if (prop != "image") {
         //push de una propiedad de objetos
         nuevoProducto[prop] = req.body[prop];
       }
@@ -59,47 +58,48 @@ const productController = {
       nuevoProducto.image = req.file.filename;
     }
     let temp = [];
-    data.forEach(product=>temp.push(parseInt(product.id)));
-    nuevoProducto.id = parseInt(Math.max(...temp))+1;
+    data.forEach(product => temp.push(parseInt(product.id)));
+    nuevoProducto.id = parseInt(Math.max(...temp)) + 1;
     nuevoProducto.price = parseInt(nuevoProducto.price);
     data.push(nuevoProducto);
     fs.writeFileSync(productsFilePath, JSON.stringify(data, null, " "));
-    res.redirect('/product')
+    res.redirect("/product");
   },
-
-  /*
-  // Enviar vista de modificar producto
   edit: (req, res) => {
     let data = productController.getProducts();
-    let idProduct = req.params.id;
-    let product = data.find(product => product.id == idProduct);
+    let product = data.find(product => product.id == req.params.id);
     res.render("adm-dashboard/modificarForm", { product: product });
   },
-  // Modificar producto
   update: (req, res) => {
     let data = productController.getProducts();
-    let idProduct = req.params.id;
-    let product = data.find(product => product.id == idProduct);
-    product.name = req.body.name;
-    product.price = req.body.price;
-    product.discount = req.body.discount;
-    product.category = req.body.category;
-    product.description = req.body.description;
+    let product = data.find(product => product.id == req.params.id);
+    let pos = data.indexOf(product);
+
+    for (let prop in req.body) {
+      if (req.body[prop] != "" && req.body[prop] != "image") {
+        product[prop] = req.body[prop];
+      }
+    }
+    if (req.file != undefined) {
+      product.image = req.file.filename;
+    }
+    data[pos] = product;
     fs.writeFileSync(productsFilePath, JSON.stringify(data, null, 4));
     res.redirect("product/products");
   },
-  // Eliminar producto
-  destroy: (req, res) => {
+  delete: (req, res) => {
     let data = productController.getProducts();
     data = data.filter(product => product.id != req.params.id);
+    /* Error : si se elimina el producto de id 2, el producto con id 1 pasaria a 0 y si luego
+        se eliminara el de id 3 el de id 0 pasaria a -1, tendiendo a un id negativo siempre que se elimine
+        cualquiera de los elementos.
+    */
     for (let i = req.params.id - 1; i < products.length; i++) {
       products[i].id = products[i].id - 1;
     }
     fs.writeFileSync(productsFilePath, JSON.stringify(data, null, 4));
-    res.redirect('/products');
-
-  }
-*/
+    res.redirect("/products");
+  },
 };
 
 module.exports = productController;

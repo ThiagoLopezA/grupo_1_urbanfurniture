@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
-
+const methodOverride = require("method-override");
 
 const rutaHome = require("./routes/main.js");
 const userRoutes = require("./routes/userRoutes.js");
@@ -18,9 +18,8 @@ app.use(
   })
 );
 app.use(express.json());
-
+app.use(methodOverride("_method"));
 // <-- Definiendo la carpeta estatica -->
-// app.use(express.static(path.join(__dirname, "../public")));
 app.use("/css", express.static(path.join(__dirname, "../public/css")));
 app.use("/img", express.static(path.join(__dirname, "../public/img")));
 

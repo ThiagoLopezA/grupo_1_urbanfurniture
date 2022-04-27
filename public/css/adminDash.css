@@ -146,6 +146,16 @@ section .class-area {
   border: none;
   color: white;
   border-radius: .2rem;
+  cursor: pointer;
+}
+.form__button--delete{
+  background-color: transparent;
+  color: #03091c;
+  font-weight: 700;
+  transition: 500ms;
+}
+.form__button--delete:hover{
+  background-color: rgba(3, 9, 28, 5%);
 }
 
 /* vista modificar producto*/
