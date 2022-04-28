@@ -85,20 +85,13 @@ const productController = {
     }
     data[pos] = product;
     fs.writeFileSync(productsFilePath, JSON.stringify(data, null, 4));
-    res.redirect("product/products");
+    res.redirect("/product");
   },
   delete: (req, res) => {
     let data = productController.getProducts();
     data = data.filter(product => product.id != req.params.id);
-    /* Error : si se elimina el producto de id 2, el producto con id 1 pasaria a 0 y si luego
-        se eliminara el de id 3 el de id 0 pasaria a -1, tendiendo a un id negativo siempre que se elimine
-        cualquiera de los elementos.
-    */
-    for (let i = req.params.id - 1; i < products.length; i++) {
-      products[i].id = products[i].id - 1;
-    }
     fs.writeFileSync(productsFilePath, JSON.stringify(data, null, 4));
-    res.redirect("/products");
+    res.redirect("/admin");
   },
 };
 
