@@ -16,17 +16,13 @@ let storage = multer.diskStorage({
 });
 let upload = multer({ storage });
 
-/*
-router.get("/edit/:id/", productController.edit);
-router.put("/edit/:id", productController.update);
-router.delete('/delete/:id', productsController.destroy);
-*/
 router.get("/productCart", productController.productCart);
 router.get("/detail/:id/", productController.detail);
-router.get("/", productController.list);
+router.get("/", productController.listAll);
 router.post("/", upload.single("image"), productController.crear);
 router.get("/edit/:id", productController.edit);
 router.put("/update/:id", upload.single("image"), productController.update);
 router.delete("/delete/:id", productController.delete);
-
+router.get("/category/:category", productController.listCategory);
+router.get("/search", productController.listBySearch);
 module.exports = router;

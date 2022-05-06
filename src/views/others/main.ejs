@@ -7,55 +7,50 @@
     <!-- navbar -->
     <%- include ('../partials/navbar.ejs') %>
     <!-- main-->
-    <main>
-      <!--carrousel-->
-      <div class="carrousel">
-        <div class="carrousel__container">
+    <main class="main">
+      <section class="section__header">
+        <article class="header__text">
+          <h1 class="header__title">
+            Encuentra los<br />
+            mejores muebles <br />al mejor precio
+          </h1>
+          <p class="header__parragraph">
+            En nuestra tienda podras encontrar una gran variedad de productos
+            que se adecuen a tu gusto de manera facil, rapida y comoda
+          </p>
+          <form action="/product/search" class="header__form">
+            <input
+              name="keywords"
+              class="form__input"
+              type="text"
+              placeholder="Buscar productos..."
+            />
+            <button class="form__button">Buscar</button>
+          </form>
+        </article>
+        <article class="header__image">
+          <img class="image__item" src="./img/products/product-2.png" alt="" />
           <img
-            src="./img/backgrounds/background-2.jpg"
+            class="image__floor"
+            src="./img/backgrounds/background.png"
             alt=""
-            class="carrousel__image"
           />
-          <img
-            src="./img/backgrounds/background-1.jpg"
-            alt=""
-            class="carrousel__image"
-          />
-          <img
-            src="./img/backgrounds/background-4.jpg"
-            alt=""
-            class="carrousel__image"
-          />
-          <img
-            src="./img/backgrounds/background-5.jpg"
-            alt=""
-            class="carrousel__image"
-          />
-          <img
-            src="./img/backgrounds/background-4.jpg"
-            alt=""
-            class="carrousel__image"
-          />
-          <img
-            src="./img/backgrounds/background-3.jpg"
-            alt=""
-            class="carrousel__image"
-          />
-        </div>
-        <ul class="carrousel__control">
-          <li class="control control--active"></li>
-          <li class="control"></li>
-          <li class="control"></li>
-          <li class="control"></li>
-          <li class="control"></li>
-          <li class="control"></li>
-        </ul>
-      </div>
+          <div class="image__controls">
+            <div class="control__point"></div>
+            <div class="control__point"></div>
+            <div class="control__point"></div>
+            <div class="control__point"></div>
+            <div class="control__point"></div>
+          </div>
+        </article>
+      </section>
 
       <!-- in-sale section -->
       <section class="section">
-        <h2 class="section__title">Nuestras ofertas</h2>
-        <button class="section__button">ver todas</button>
+        <div class="section__title__wrapper">
+          <h2 class="section__title">Nuestras ofertas</h2>
+          <button class="section__button">ver todas</button>
+        </div>
         <div class="section__products">
           <!-- product list -->
           <%- include('../partials/product_list', {data:data, mode:'user'}) %>
@@ -67,8 +62,10 @@
 
       <!-- last-products section -->
       <section class="section">
-        <h2 class="section__title">Ultimas publicaciones</h2>
-        <button class="section__button">ver todas</button>
+        <div class="section__title__wrapper">
+          <h2 class="section__title">Ultimas cargas</h2>
+          <button class="section__button">ver todas</button>
+        </div>
         <div class="section__products">
           <!-- product list -->
           <%- include('../partials/product_list', {data:data, mode:'user'}) %>
@@ -77,50 +74,35 @@
           </div>
         </div>
       </section>
-
-      <section class="card-redirect-wrapper">
-        <a href="./users/register">
-          <article class="card-redirect">
-            <img src="./img/backgrounds/background-3.jpg" alt="" />
-            <div class="card-redirect-content">
-              <h2>Venta mayorista</h2>
-              <p>
-                <i class="fa-solid fa-arrow-right-from-bracket"></i>REGISTRATE
-              </p>
-            </div>
-          </article>
-        </a>
-        <a href="./contact">
-          <article class="card-redirect">
-            <img src="./img/backgrounds/background-6.jpeg" alt="" />
-            <div class="card-redirect-content">
-              <h2>Proyectos a medida</h2>
-              <p><i class="fa-solid fa-paper-plane"></i>ESCRIBINOS</p>
-            </div>
-          </article>
-        </a>
-      </section>
-
-      <section class="datos-empresa">
-        <article class="dato">
-          <i class="fa-solid fa-credit-card"></i>
-          <h2>HASTA 24 CUOTAS</h2>
-          <p>Visa, Mastercard, Amex, Mercado Pago.</p>
+      <!-- info -->
+      <section class="section__information">
+        <article class="information__item">
+          <img src="./img/icons/credit-card.png" alt="" />
+          <h3 class="information__title">Hasta 24 cuotas</h3>
+          <p class="information__description">
+            Visa, Mastercard, Amex, Mercado Pago.
+          </p>
         </article>
-        <article class="dato">
-          <i class="fa-solid fa-truck-fast"></i>
-          <h2>ENVIOS A TODO EL PAÍS</h2>
-          <p>A todo el país en tiempo record.</p>
+        <article class="information__item">
+          <img src="./img/icons/delivery.png" alt="" />
+          <h3 class="information__title">Envio a todo el país</h3>
+          <p class="information__description">
+            A todo el país en tiempo record.
+          </p>
         </article>
-        <article class="dato">
-          <i class="fa-solid fa-list-check"></i>
-          <h2>ENTREGA INMEDIATA</h2>
-          <p>Disponibilidad de stock permanente.</p>
+        <article class="information__item">
+          <img src="./img/icons/list.png" alt="" />
+          <h3 class="information__title">Entrega inmediata</h3>
+          <p class="information__description">
+            Disponibilidad de stock permanente.
+          </p>
         </article>
-        <article class="dato">
-          <i class="fa-solid fa-phone"></i>
-          <h2>VENTA TELEFÓNICA</h2>
-          <p>Tel. 4631-2022 Lun a Sab de 10 a 20hs.</p>
+        <article class="information__item">
+          <img src="./img/icons/phone.png" alt="" />
+          <h3 class="information__title">Venta telefonica</h3>
+          <p class="information__description">
+            Tel. 4631-2022 Lun a Sab de 10 a 20hs.
+          </p>
         </article>
       </section>
     </main>

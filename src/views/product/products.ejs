@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('../partials/head', {route:'home.css', main:'main.css',
+  <%- include('../partials/head', {route:'product.css', main:'main.css',
   title:'Productos'})%>
   <body>
     <%- include('../partials/navbar.ejs') %>
-    <main>
-      <h2 class="section__title">Productos</h2>
-      <div class="section__products">
-        <%- include('../partials/product_list', {data: data, mode:'usuario'})%>
-      </div>
+    <main class="main">
+      <section class="section__category">
+        <div>
+          <h2><%=filtro%></h2>
+          <h4>(<%=data.length%> Resultados)</h4>
+          <h5 class="category__subtitle">categorias</h5>
+          <% for(let prop in categories){ %>
+          <a href="/product/category/<%=prop%>"
+            ><p class="category__item"><%=prop%> (<%=categories[prop]%>)</p></a
+          >
+          <% } %>
+        </div>
+      </section>
+
+      <section class="section__container">
+        <form action="/product/search" class="searchbar">
+          <input
+            type="text"
+            class="searchbar__input"
+            placeholder="Buscar productos..."
+            name="keywords"
+          />
+          <button class="searchbar__button">
+            <img src="./img/icons/search-icon.png" alt="" />
+          </button>
+        </form>
+        <div class="section__products">
+          <%- include('../partials/product_list', {data: data,
+          mode:'usuario'})%>
+        </div>
+      </section>
     </main>
     <%- include('../partials/footer.ejs') %>
   </body>

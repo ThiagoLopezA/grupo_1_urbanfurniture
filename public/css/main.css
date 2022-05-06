@@ -1,5 +1,5 @@
 /* <-- Estilos compartidos por las vistas -->*/
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@100;300;400;500;700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -20,73 +20,50 @@ header {
   top: 0px;
 }
 /*<-- Nav config -->*/
-
-
-.navigator {
+.navbar {
   background-color: #f7f7f7;
   width: 100%;
+  padding: 1rem 10%;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  margin-top: -0.32rem;
 }
 nav {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: -0.32rem;
-  padding: 0.5rem;
 }
-nav .logo {
-  width: 60%;
+.navbar__logo {
+  width: 50%;
   font-size: 1.3rem;
   color: #03091c;
   font-family: Roboto;
 }
-nav .logo p {
+.navbar__logo p {
   font-weight: 700;
 }
-nav .logo span {
+.navbar__logo span {
   font-weight: 400;
 }
 ul {
-  width: 50%;
+  width: 60%;
   list-style: none;
   display: flex;
   justify-content: space-between;
   display: none;
 }
-nav > ul > li > ul {
-  display: none;
-  position: absolute;
-  width: 9%;
-  font-family: Roboto;
-  z-index: 2;
-  margin-top: 1rem;
-}
-nav > ul > li:hover > ul {
-  display: block;
-}
 
-nav > ul > li:hover > ul > li {
-  background-color: whitesmoke;
-  border-bottom: 1px solid gray;
-  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.3);
-  padding: 8px;
-  font-size: 0.9rem;
-}
-nav > ul > li:hover > ul > li a {
-  color: #606060;
-}
-nav > ul > li:hover > ul > li:hover a {
-  color: #606060;
-}
 .nav-item {
-  font-family: "Roboto";
+  font-family: Montserrat;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 0.9rem;
   font-weight: 500;
   color: #606060;
   transition: 500ms;
+}
+.nav-item-lg{
+display: none;
 }
 .nav-item:hover {
   color: #202020;
@@ -113,7 +90,6 @@ nav > ul > li:hover > ul > li:hover a {
   width: 40%;
   display: flex;
   justify-content: flex-end;
-  padding: 1rem;
 }
 
 /*<-- Marquee tag config -->*/
@@ -204,13 +180,21 @@ Larger desktops -> 1280+
 */
 
 @media (min-width: 769px) {
+  header{
+    position: static;
+  }
+  .navbar{
+    box-shadow: none;
+  }
   ul {
+    width: 45%;
     display: flex;
   }
   .menu-small-devices {
     display: none;
   }
   .user-options {
+    width: 25%;
     display: inline;
   }
   nav .logo {
@@ -235,4 +219,7 @@ Larger desktops -> 1280+
   .user-options {
     width: 15%;
   }
+  .nav-item-lg{
+    display: inline;
+    }
 }

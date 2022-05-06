@@ -8,7 +8,7 @@ const productController = {
   getProducts: () => {
     let data = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     data.forEach(product => {
-      if (product.discount != 0) {
+      if (product.discount != 0 && !product.hasOwnProperty("finalPrice")) {
         product.finalPrice =
           product.price - (product.discount * product.price) / 100;
         // Calcula cuanto vale el descuento y se lo resta al precio original
@@ -17,6 +17,18 @@ const productController = {
       product.price = toThousand(product.price);
     });
     return data;
+  },
+  getCategories: () => {
+    let data = productController.getProducts();
+    let categoryList = {};
+    data.forEach(product => {
+      if (!categoryList.hasOwnProperty(product.category)) {
+        categoryList[product.category] = 1;
+      } else {
+        categoryList[product.category]++;
+      }
+    });
+    return categoryList;
   },
   productCart: (req, res) => {
     let productData = [
@@ -40,9 +52,40 @@ const productController = {
     let product = data.find(product => product.id == req.params.id);
     res.render("product/detail", { product: product });
   },
-  list: (req, res) => {
+  listAll: (req, res) => {
     let data = productController.getProducts();
-    res.render("product/products", { data: data });
+    let categoryList = productController.getCategories();
+    res.render("product/products", {
+      data: data,
+      filtro: "Todos los productos",
+      categories: categoryList,
+    });
+  },
+  listCategory: (req, res) => {
+    let data = productController.getProducts();
+    let byCategory = data.filter(
+      product => product.category == req.params.category
+    );
+    let categoryList = productController.getCategories();
+    res.render("product/products", {
+      data: byCategory,
+      filtro: req.params.category,
+      categories: categoryList,
+    });
+  },
+  listBySearch: (req, res) => {
+    let data = productController.getProducts();
+    if (!req.query.keywords == 0) {
+      data = data.filter(product =>
+        product.name.toLowerCase().includes(req.query.keywords.toLowerCase())
+      );
+    }
+    let categoryList = productController.getCategories();
+    res.render("product/products", {
+      data: data,
+      filtro: req.query.keywords,
+      categories: categoryList,
+    });
   },
   crear: (req, res) => {
     let data = productController.getProducts();

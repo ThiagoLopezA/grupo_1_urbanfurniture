@@ -3,7 +3,8 @@ const products = require("./productController");
 const otherController = {
   main: (req, res) => {
     let database = products.getProducts();
-    res.render("others/main", { data: database });
+    let fragmentData = database.slice(0, 4);
+    res.render("others/main", { data: fragmentData });
   },
   contact: (req, res) => {
     res.render("others/contact");
