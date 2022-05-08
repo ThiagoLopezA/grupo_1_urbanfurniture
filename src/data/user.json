@@ -10,5 +10,11 @@
   "email": "joel@mail.com",
   "password": "$2a$10$ccbJVDSh7NAUP/GH62dCjOo3q3joCIQHQ2Wt6ExVE.90Yv6FTnEK2",
   "password_confirm": "$2a$10$aO6XJkmbAY/VrfU90fsU7OUrcYBQ9UfN9eInOA45wHNLrzbWtfQ.K"
+ },
+ {
+  "user": "test",
+  "email": "test@test.com",
+  "password": "$2a$10$Uvr4QpSp5qPllRzJeR4F8OGsZaPgGeNXCx6Im3M8nZr5JL79lokJW",
+  "password_confirm": "$2a$10$D.oHNyt3AnbBigBeaZyvxexXs.FtbS./3LuKhg9lmhSiTXhm3Q0mu"
  }
 ]
