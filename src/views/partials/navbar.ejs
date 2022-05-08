@@ -23,10 +23,20 @@
         <a href="/product/productCart"
           ><i class="fa-solid fa-cart-shopping nav-item"></i
         ></a>
-        <a href="/users/login">
-          <i class="fa-solid fa-arrow-right-to-bracket"></i>
-        </a>
       </div>
+
+      <div>
+        <% if (locals.isLogged) { %>
+							<p class="user-options">Hola <%= locals.userLogged.user.toUpperCase() %> !</p>
+							<a class="user-options" href="/users/logout">Logout</a>
+        <% } else { %>
+					<a class="user-options" href="/users/register">Creá tu cuenta</a>
+					<a class="user-options" href="/users/login">Ingresá</a>        
+        <!-- <a href="/users/login">
+          <i class="fa-solid fa-arrow-right-to-bracket"></i>
+        </a> -->
+      <% } %>
+    </div>
 
       <div class="menu-small-devices">
         <i class="fa-solid fa-bars"></i>

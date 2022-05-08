@@ -17,36 +17,62 @@
               type="text"
               name="user"
               id="user"
-              class="login-input"
+              class="login-input form-control <%= locals.errors && errors.user ? 'is-invalid' : null %>"
+              value="<%= locals.oldData ? oldData.user : null %>"
               placeholder="Nombre de usuario"
-            /><i class="fa-solid fa-user input-icon"></i>
+            />
+            <!-- <i class="fa-solid fa-user input-icon"></i> -->
+            <% if (locals.errors && errors.user) { %>
+              <div class="text-danger">
+                <%= errors.user.msg %> 
+              </div>
+            <% } %>            
           </div>
           <div class="input-wrapper">
             <input
               type="email"
               name="email"
               id="user-email"
-              class="login-input"
+              class="login-input form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>"
               placeholder="Correo electrónico"
-            /><i class="fa-solid fa-user input-icon"></i>
+							value="<%= locals.oldData ? oldData.email : null %>"
+            />
+            <!-- <i class="fa-solid fa-user input-icon"></i> -->
+            <% if (locals.errors && errors.email) { %>
+              <div class="text-danger">
+                <%= errors.email.msg %>
+              </div>
+            <% } %>            
           </div>
           <div class="input-wrapper">
             <input
               type="password"
               name="password"
               id="password"
-              class="login-input"
+              class="login-input form-control <%= locals.errors && errors.password ? 'is-invalid' : null %>"
               placeholder="Contraseña"
-            /><i class="fa-solid fa-lock input-icon"></i>
+            />
+            <!-- <i class="fa-solid fa-lock input-icon"></i> -->
+            <% if (locals.errors && errors.password) { %>
+              <div class="text-danger">
+                <%= errors.password.msg %>
+              </div>
+            <% } %>            
           </div>
           <div class="input-wrapper">
             <input
               type="password"
-              name="password-confirm"
-              id="password-confirm"
-              class="login-input"
+              name="password_confirm"
+              id="password_confirm"
+              class="login-input form-control <%= locals.errors && errors.password_confirm ? 'is-invalid' : null %>"
               placeholder="Confirmar contraseña"
-            /><i class="fa-solid fa-lock input-icon"></i>
+            />
+            <!-- <i class="fa-solid fa-lock input-icon"></i> -->
+            <% if (locals.errors && errors.password_confirm) { %>
+              <div class="text-danger">
+                <%= errors.password_confirm.msg %>
+              </div>
+            <% } %>                  
           </div>
 
           <div class="ingresar">

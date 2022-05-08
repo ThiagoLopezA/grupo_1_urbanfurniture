@@ -10,23 +10,36 @@
     <main class="main-login">
       <div class="login-container">
         <i class="fa-solid fa-circle-user user-icon"></i>
-        <form action="/login" method="POST" class="login-form">
+        <form action="/users/login" method="POST" class="login-form">
           <h3 class="login-title">Bienvenido</h3>
           <div class="input-wrapper">
             <input
-              type="text"
-              name="user"
-              class="login-input"
-              placeholder="Nombre de usuario"
-            /><i class="fa-solid fa-user input-icon"></i>
+              type="email"
+              name="email"
+              class="login-input form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>"
+							value="<%= locals.oldData ? oldData.email : null %>"
+              placeholder="Correo electrónico"
+            />
+            <!-- <i class="fa-solid fa-user input-icon"></i> -->
+            <% if (locals.errors && errors.email) { %>
+              <div class="text-danger">
+                <%= errors.email.msg %> 
+              </div>
+            <% } %>              
           </div>
           <div class="input-wrapper">
             <input
               type="password"
               name="password"
-              class="login-input"
+              class="login-input form-control <%= locals.errors && errors.password ? 'is-invalid' : null %>"
               placeholder="Contraseña"
-            /><i class="fa-solid fa-lock input-icon"></i>
+            />
+            <!-- <i class="fa-solid fa-lock input-icon"></i> -->
+            <% if (locals.errors && errors.password) { %>
+              <div class="text-danger">
+                <%= errors.password.msg %>
+              </div>
+            <% } %>              
           </div>
           <input
             type="checkbox"
