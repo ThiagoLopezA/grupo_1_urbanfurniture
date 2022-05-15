@@ -31,8 +31,16 @@ const userController = {
       if (isOkThePassword) {
         delete userToLogin.password; // elimino la propiedad password de la session por seguridad
         req.session.userLogged = userToLogin; // el usuario de la session es el usuario que se logueó
+        
+        //  Configuro la cookie y la valido si esta tildado el checkbox
+        if (req.body.remember_user == 'on'){
+          res.cookie('userEmail', req.session.userLogged.email, { maxAge: (1000 * 60) * 2 })
+          console.log(req.cookies)
+        }
+       
         return res.redirect('/')
       }
+      
       return res.render('users/login', { // ejecuta en caso de que la comparación de password dio false
         errors: {
           email: {
