@@ -20,7 +20,6 @@ a {
   display: flex;
   flex-direction: column;
   width: 15%;
-  padding: 0.5rem;
   height: 100vh;
   align-items: center;
   background-color: white;
@@ -44,14 +43,18 @@ a {
   height: 80%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-around;
 }
 .nav__title {
   display: none;
   font-size: 0.7rem;
+  font-weight: 800;
   color: #707070;
 }
 .nav__container {
+  margin: 0;
+  padding: 0;
   list-style: none;
 }
 .container__item {
@@ -67,11 +70,12 @@ a {
   color: black;
 }
 .item__title {
-  margin-left: 0.5rem;
   display: none;
+  font-size: .9rem;
 }
 .item__icon {
   font-size: 1.5rem;
+  margin-right: .5rem;
 }
 
 section .class-area {
@@ -243,6 +247,9 @@ section .class-area {
 }
 
 @media (min-width: 769px) {
+  .nav{
+    align-items: flex-start
+  }
   .product__area {
     flex-direction: row;
     justify-content: center;
@@ -263,14 +270,14 @@ section .class-area {
     font-size: 0.7rem;
   }
   .item__icon {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
   .item__title {
     display: inline;
   }
   .nav__title {
     display: inline;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
   .card, .info__description {
     transition: 500ms;
