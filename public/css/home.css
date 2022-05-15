@@ -152,8 +152,10 @@
   color: white;
   font-size: 1.2rem;
   background-color: #03091c;
+  width: 3.5rem;
+  height: 3.5rem;
   padding: 1rem;
-  border-radius: 70%;
+  border-radius: 50%;
   right: 0;
   top: 35%;
   cursor: pointer;
@@ -182,7 +184,7 @@
 }
 .container__image{
    position: absolute;
-   top:-100%;
+   top:-110%;
    left:0;
    width: 100%;
    height: 200%;
@@ -202,6 +204,9 @@
   display: inline;
   font-size: 1.5rem;
 }
+.a:hover{
+  color: black;
+}
 .info__discount{
   color: #39d54a;
   display: inline;
@@ -213,9 +218,10 @@
   font-size: 1rem;
   color: #666;
   opacity: 0;
-  margin-top: .5rem;
+  margin: .5rem 0 0 0 ;
   font-weight: 300;
   font-family: Roboto;
+
 }
 /* Info section */
 .section__information{
@@ -320,7 +326,9 @@
     margin-top: 1rem;
   }
   .products__button{
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .section{
     display: flex;

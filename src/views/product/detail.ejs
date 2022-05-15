@@ -4,16 +4,21 @@
   title:'Detalle'})%>
   <body>
     <%- include('../partials/navbar.ejs') %>
-    <main>
-      <section class="card-body">
-        <div class="card-image">
+    <main class="main">
+      <section class="card__body">
+        <div class="card__image">
+          <img
+            class="card__decoration"
+            src="/img/backgrounds/background2.png"
+            alt=""
+          />
           <img
             class="position-product"
             src="/img/products/<%=product.image%>"
             alt="Producto"
           />
         </div>
-        <div class="position-text">
+        <div class="card__text">
           <h1><%= product.name %></h1>
           <p><%= product.description %></p>
           <div class="seleccion-color">

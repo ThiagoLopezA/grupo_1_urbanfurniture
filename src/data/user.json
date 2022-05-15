@@ -16,5 +16,11 @@
   "email": "test@test.com",
   "password": "$2a$10$Uvr4QpSp5qPllRzJeR4F8OGsZaPgGeNXCx6Im3M8nZr5JL79lokJW",
   "password_confirm": "$2a$10$D.oHNyt3AnbBigBeaZyvxexXs.FtbS./3LuKhg9lmhSiTXhm3Q0mu"
+ },
+ {
+  "user": "test",
+  "email": "test2@hotmail.com",
+  "password": "$2a$10$dOu0lIJMwklYNIokegzaFeKT1eAXMkBn6x2nWeunbTySo1epEckK6",
+  "password_confirm": "$2a$10$oRm.SYSNUx2eCxUOOda3DOjz2NG.tqBVjprc/3vaZ/i8JyIeUaGuK"
  }
 ]

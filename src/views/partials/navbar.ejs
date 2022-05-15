@@ -1,45 +1,80 @@
 <header>
-  <marquee behavior="" direction="">
-    Novedades en la categoria de sillones - Ofertas increibles este black friday
+  <marquee>
+    Novedades en la categoria de sillones • Los mejores productos al mejor
+    precio • Aprovecha los descuentos de este mes • Nuevos productos para la
+    oficina
   </marquee>
-
   <div class="navbar">
-    <nav>
-      <div class="navbar__logo">
-        <a href="/">
+    <nav class="nav">
+      <div class="navbar__logo__container">
+        <a class="navbar__logo" href="/">
           <p>URBAN <span>FURNITURE</span></p>
         </a>
       </div>
-
       <ul>
-        <li><a class="active nav-item" href="/">Inicio</a></li>
-        <li><a class="nav-item" href="/contact">Contacto</a></li>
-        <li><a class="nav-item" href="/product">Productos</a></li>
-        <li><a class="nav-item nav-item-lg" href="/product">Categorias</a></li>
+        <li><a class="active nav__item" href="/">Inicio</a></li>
+        <li><a class="nav__item" href="/contact">Contacto</a></li>
+        <li><a class="nav__item" href="/product">Productos</a></li>
+        <li><a class="nav__item" href="/product">Categorias</a></li>
       </ul>
-
-      <div class="user-options">
-        <i class="fa-solid fa-magnifying-glass nav-item"></i>
+      <div class="user__options">
+        <i class="fa-solid fa-magnifying-glass nav__item .user__icon"></i>
         <a href="/product/productCart"
-          ><i class="fa-solid fa-cart-shopping nav-item"></i
+          ><i class="fa-solid fa-cart-shopping nav__item .user__icon"></i
         ></a>
+        <% if (locals.isLogged) { %>
+        <div class="dropdown" data-dropdown>
+          <button class="dropdown__toggler" data-dropdown-button>
+            <img src="/img/avatars/unknown.png" alt="" class="user__avatar" />
+          </button>
+          <div class="dropdown__menu">
+            <div class="dropdown__decoration"></div>
+            <a class="dropdown__item"
+              ><i class="fa-solid fa-gear dropdown__icon"></i>Configuración</a
+            >
+            <a class="dropdown__item" href="/users/logout"
+              ><i class="fa-solid fa-arrow-right-to-bracket dropdown__icon"></i
+              >Cerrar sesión</a
+            >
+          </div>
+        </div>
+        <% } else { %>
+        <a href="/users/login">
+          <i class="fa-solid fa-arrow-right-to-bracket nav__item"></i>
+        </a>
+        <% } %>
+
+        <!--
+          <% if (locals.isLogged) { %>
+          <a class="user__options" href="/users/logout">
+            <img
+              class="user__avatar"
+              src="<%= locals.userLogged.user.image != undefined ? locals.userLogged.user.image : '/img/avatars/guests.png'%>"
+              alt=""
+            />
+          </a>
+          <% } else { %>
+          <a href="/users/login">
+            <i class="fa-solid fa-arrow-right-to-bracket nav__item"></i>
+          </a>
+          <% } %>
+        -->
       </div>
 
-      <div>
-        <% if (locals.isLogged) { %>
-							<p class="user-options">Hola <%= locals.userLogged.user.toUpperCase() %> !</p>
-							<a class="user-options" href="/users/logout">Logout</a>
-        <% } else { %>
-					<a class="user-options" href="/users/register">Creá tu cuenta</a>
-					<a class="user-options" href="/users/login">Ingresá</a>        
-        <!-- <a href="/users/login">
-          <i class="fa-solid fa-arrow-right-to-bracket"></i>
-        </a> -->
-      <% } %>
-    </div>
-
-      <div class="menu-small-devices">
-        <i class="fa-solid fa-bars"></i>
+      <div class="menu__sm dropdown" data-dropdown>
+        <button class="dropdown__toggler" data-dropdown-button>
+          <i class="fa-solid fa-bars"></i>
+          <div class="dropdown__menu">
+            <div class="dropdown__decoration"></div>
+            <a class="dropdown__item"
+              ><i class="fa-solid fa-gear dropdown__icon"></i>Configuración</a
+            >
+            <a class="dropdown__item" href="/users/logout"
+              ><i class="fa-solid fa-arrow-right-to-bracket dropdown__icon"></i
+              >Cerrar sesión</a
+            >
+          </div>
+        </button>
       </div>
     </nav>
   </div>
