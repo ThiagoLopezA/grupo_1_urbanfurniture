@@ -4,7 +4,7 @@ const app = express();
 const path = require("path");
 const methodOverride = require("method-override");
 const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware");
-const cookie = require ('cookie-parser')
+const cookies = require ('cookie-parser')
 
 const rutaHome = require("./routes/main.js");
 const userRoutes = require("./routes/userRoutes.js");
@@ -29,11 +29,12 @@ app.listen(3030, () =>
   console.log("Servidor levantado con exito en el puerto 3030")
 );
 
+app.use(cookies());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(methodOverride("_method"));
 app.use(userLoggedMiddleware);
-app.use(cookie());
+
 
 // Motor de Plantilla EJS
 app.set("view engine", "ejs");

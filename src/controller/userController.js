@@ -34,8 +34,8 @@ const userController = {
         
         //  Configuro la cookie y la valido si esta tildado el checkbox
         if (req.body.remember_user == 'on'){
-          res.cookie('userEmail', req.session.userLogged.email, { maxAge: (1000 * 60) * 2 })
-          console.log(req.cookies)
+          res.cookie('userEmail', req.session.userLogged.email, { maxAge: (1000 * 60) * 20 })
+          
         }
        
         return res.redirect('/')
@@ -110,6 +110,7 @@ const userController = {
     return res.redirect('login');
   },
   logout: (req, res) => {
+    res.clearCookies('userEmail'); //para eliminar la cookies
     req.session.destroy();
     return res.redirect('/');
   }
