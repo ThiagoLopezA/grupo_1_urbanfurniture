@@ -4,12 +4,13 @@ const app = express();
 const path = require("path");
 const methodOverride = require("method-override");
 const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware");
-const cookies = require ('cookie-parser')
+const cookies = require("cookie-parser");
 
 const rutaHome = require("./routes/main.js");
 const userRoutes = require("./routes/userRoutes.js");
 const rutaProduct = require("./routes/productRoutes.js");
 const adminRoutes = require("./routes/adminRoutes");
+const adminMiddleware = require("./middlewares/adminMiddleware");
 
 app.use(
   session({
@@ -35,7 +36,6 @@ app.use(express.json());
 app.use(methodOverride("_method"));
 app.use(userLoggedMiddleware);
 
-
 // Motor de Plantilla EJS
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "./views"));
@@ -44,4 +44,4 @@ app.set("views", path.join(__dirname, "./views"));
 app.use("/", rutaHome);
 app.use("/users", userRoutes);
 app.use("/product", rutaProduct);
-app.use("/admin", adminRoutes);
+app.use("/admin", adminMiddleware, adminRoutes);

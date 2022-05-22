@@ -10,7 +10,8 @@
     "color1": "#000000",
     "color2": "#000000",
     "color3": "#000000",
-    "category": "Sofas"
+    "category": "Sofas",
+    "rating": "5"
   },
   {
     "id": 3,
@@ -22,7 +23,8 @@
     "color1": "#000000",
     "color2": "#000000",
     "color3": "#000000",
-    "category": "Mesas"
+    "category": "Mesas",
+    "rating": "5"
   },
   {
     "id": 4,
@@ -32,7 +34,8 @@
     "description": "Sofa naranja",
     "name": "Sofa naranja",
     "finalPrice": "8.100",
-    "category": "Sofas"
+    "category": "Sofas",
+    "rating": "5"
   },
   {
     "name": "Sofa ",
@@ -43,7 +46,8 @@
     "color3": "#000000",
     "price": 10000,
     "image": "product-1651106188511.png",
-    "id": 5
+    "id": 5,
+    "rating": "5"
   },
   {
     "id": 6,
@@ -56,7 +60,8 @@
     "color1": "#000000",
     "color2": "#000000",
     "color3": "#000000",
-    "category": "Sofas"
+    "category": "Sofas",
+    "rating": "5"
   },
   {
     "id": 7,
@@ -68,7 +73,8 @@
     "color1": "#000000",
     "color2": "#000000",
     "color3": "#000000",
-    "category": "Mesas"
+    "category": "Mesas",
+    "rating": "5"
   },
   {
     "id": 8,
@@ -78,7 +84,8 @@
     "description": "Sofa naranja",
     "name": "Sofa naranja",
     "finalPrice": "8.100",
-    "category": "Sofas"
+    "category": "Sofas",
+    "rating": "5"
   },
   {
     "name": "Sofa ",
@@ -89,6 +96,7 @@
     "color3": "#000000",
     "price": 10000,
     "image": "product-1651106188511.png",
-    "id": 9
+    "id": 9,
+    "rating": "5"
   }
 ]

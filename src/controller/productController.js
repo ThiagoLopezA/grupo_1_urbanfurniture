@@ -50,7 +50,11 @@ const productController = {
   detail: (req, res) => {
     let data = productController.getProducts();
     let product = data.find(product => product.id == req.params.id);
-    res.render("product/detail", { product: product });
+    let sameCategory = data.filter(p => p.category == product.category);
+    res.render("product/detail", {
+      product: product,
+      suggestions: sameCategory,
+    });
   },
   listAll: (req, res) => {
     let data = productController.getProducts();

@@ -1,26 +1,30 @@
 [
  {
-  "user": "Thiago",
-  "email": "thiago@hotmail.com",
-  "password": "$2a$10$Hil38WFZ41rKMO260KI/muCsuZDvZPiv5OMr4xx8itBdebrq2VJz2",
-  "password_confirm": "$2a$10$S6YSo.m/Pj0DkeRE8VCDMeAke/2SY9z7pba6D122LfopFlwUrX.kC"
- },
- {
   "user": "joel",
   "email": "joel@mail.com",
   "password": "$2a$10$ccbJVDSh7NAUP/GH62dCjOo3q3joCIQHQ2Wt6ExVE.90Yv6FTnEK2",
-  "password_confirm": "$2a$10$aO6XJkmbAY/VrfU90fsU7OUrcYBQ9UfN9eInOA45wHNLrzbWtfQ.K"
+  "password_confirm": "$2a$10$aO6XJkmbAY/VrfU90fsU7OUrcYBQ9UfN9eInOA45wHNLrzbWtfQ.K",
+  "access": "0"
  },
  {
   "user": "test",
   "email": "test@test.com",
   "password": "$2a$10$Uvr4QpSp5qPllRzJeR4F8OGsZaPgGeNXCx6Im3M8nZr5JL79lokJW",
-  "password_confirm": "$2a$10$D.oHNyt3AnbBigBeaZyvxexXs.FtbS./3LuKhg9lmhSiTXhm3Q0mu"
+  "password_confirm": "$2a$10$D.oHNyt3AnbBigBeaZyvxexXs.FtbS./3LuKhg9lmhSiTXhm3Q0mu",
+  "access": "1"
  },
  {
   "user": "test",
   "email": "test2@hotmail.com",
   "password": "$2a$10$dOu0lIJMwklYNIokegzaFeKT1eAXMkBn6x2nWeunbTySo1epEckK6",
-  "password_confirm": "$2a$10$oRm.SYSNUx2eCxUOOda3DOjz2NG.tqBVjprc/3vaZ/i8JyIeUaGuK"
+  "password_confirm": "$2a$10$oRm.SYSNUx2eCxUOOda3DOjz2NG.tqBVjprc/3vaZ/i8JyIeUaGuK",
+  "access": "1"
+ },
+ {
+  "user": "test",
+  "email": "test3@test.com",
+  "password": "$2a$10$M/yvh1aYX7fqx4omkrSOVOeMYY7RlFFQs8Zs7hweqVnnWpqzMKkVe",
+  "password_confirm": "$2a$10$MUqT3GWZz6/88IkqHedZbeaNuwQOQWGoFElcTXoZAzh0./WM2iyUK",
+  "access": 0
  }
 ]

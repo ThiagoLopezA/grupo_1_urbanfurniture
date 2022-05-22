@@ -4,35 +4,50 @@
   title:'Detalle'})%>
   <body>
     <%- include('../partials/navbar.ejs') %>
-    <main class="main">
-      <section class="card__body">
-        <div class="card__image">
+    <main class="main-detail">
+      <section class="section__product-detail">
+        <article class="article__image-section">
           <img
-            class="card__decoration"
-            src="/img/backgrounds/background2.png"
+            class="image-section__image"
+            src="/img/products/<%=product.image%>"
             alt=""
           />
-          <img
-            class="position-product"
-            src="/img/products/<%=product.image%>"
-            alt="Producto"
-          />
-        </div>
-        <div class="card__text">
-          <h1><%= product.name %></h1>
-          <p><%= product.description %></p>
-          <div class="seleccion-color">
-            <div class="color rojo activa"></div>
-            <div class="color azul"></div>
-            <div class="color verde"></div>
+        </article>
+        <article class="article__detail">
+          <h2 class="detail__title"><%= product.name %></h2>
+          <a
+            href="/product/category/<%= product.category %>"
+            class="detail__category"
+            ><%= product.category %></a
+          >
+          <p class="detail__description"><%= product.description %></p>
+          <div class="detail__bottom">
+            <p class="detail__rating">
+              <i class="fa-regular fa-star"></i><%= product.rating %>/5
+            </p>
+            <% if (product.discount > 0 ) { %>
+            <h4 class="detail__price--original">$<%= product.price %></h4>
+            <h3 class="detail__price">
+              $<%= product.finalPrice %>
+              <span class="detail__discount">%<%= product.discount %></span>
+            </h3>
+            <%} else {%>
+            <h3 class="detail__price">$<%= product.price %></h3>
+            <%} %>
+            <button class="detail__button">Agregar al carrito</button>
           </div>
-          <h2 class="number-price">$<%= product.finalPrice %></h2>
-          <button class="button-add-to-cart">
-            <i class="fa-solid fa-cart-plus"></i> Agregar
-          </button>
+        </article>
+      </section>
+      <section class="section__suggestions">
+        <h2 class="suggestions__title">Sugerencias basadas en este articulo</h2>
+        <div class="suggestions__products">
+          <%- include('../partials/product_list', {data: suggestions,
+          mode:'usuario'})%>
         </div>
       </section>
+      <section class="section__comments"></section>
     </main>
+
     <%- include('../partials/footer.ejs') %>
   </body>
 </html>

@@ -32,6 +32,12 @@
             <a href="/users/config" class="dropdown__item"
               ><i class="fa-solid fa-gear dropdown__icon"></i>Configuración</a
             >
+            <% if(locals.userLogged.access == "1") { %>
+            <a href="/admin" class="dropdown__item"
+              ><i class="fa-solid fa-screwdriver-wrench dropdown__icon"></i
+              >Dashboard</a
+            >
+            <% } %>
             <a class="dropdown__item" href="/users/logout"
               ><i class="fa-solid fa-arrow-right-to-bracket dropdown__icon"></i
               >Cerrar sesión</a

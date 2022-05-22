@@ -1,7 +1,7 @@
 /* <-- Google fonts --> */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@100;300;400;500;700&display=swap');
 
-.main{
+.main, .main-detail{
   padding: 0 10%;
   display: flex;
   flex-direction: column;
@@ -129,85 +129,122 @@
   font-weight: 300;
   font-family: Roboto;
 }
-/* --- */
-.card__body {
+/* Detail css */
+
+.section__product-detail{
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 100%;
 }
-.card__image {
-  width: 60%;
-  position: relative;
-}
-.card__decoration{
-  z-index: -1;
+.article__image-section{
   width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.image-section__image{
+  width: 80%;
   height: auto;
-  position: absolute;
 }
-.card__text{
+.article__detail{
+  width: 100%;
+  background-color: #fff;
+  border-radius: .5rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+}
+.detail__title{
+  font-size: 1.3rem;
+  color: #404040;
+  font-family: Montserrat;
+  font-weight: 700;
+  margin: 0;
+}
+.detail__category{
+  display: inline;
+  color: white;
+  font-family: Montserrat;
+  font-size: .85rem;
+  background-color: #03091c;
+  padding: .1rem .4rem;
+  border-radius: .5rem;
+}
+.detail__description{
+  margin-top: 1rem;
+  font-size: .95rem;
+  font-family: Roboto;
+  color: #606060;
+}
+.detail__price--original{
+  text-decoration: line-through;
+  font-size: .9rem;
+  color: #707070;
+  font-family: Roboto;
+  font-weight: 400;
+}
+.detail__price{
+  font-size: 1.4rem;
+  color: #303030;
+  font-family: Roboto;
+  font-weight: 600;
+}
+.detail__discount{
+  font-size: 1rem;
+  font-family: Roboto;
+  font-weight: 400;
+  color: #39d54a;
+}
+.detail__rating{
+  font-family: Roboto;
+  font-size: 1rem;
+}
+.detail__rating i {
+  margin-right: .5rem;
+}
+.detail__button{
+  width: 100%;
+  background-color: #03091c;
+  border: none;
+  border-radius: .2rem;
+  color: white;
+  font-family: Roboto;
+  font-weight: 600;
   padding: .5rem;
 }
-.position-text h1 {
-  font-family: "Open Sans";
-  font-size: 2rem;
-}
-.position-text p {
+.suggestions__title{
+  margin-top: 4rem;
   font-family: Roboto;
-  color: #909090;
-  font-weight: 300;
+  color: #303030;
+  font-size: 1.3rem;
 }
-.seleccion-color {
-  margin-top: 1rem;
+.suggestions__products{
   display: flex;
-  gap: 1rem;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  padding-top: 2.5rem;
 }
-.color {
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 50%;
-}
-.rojo {
-  background-color: #a90022;
-}
-.azul {
-  background-color: #4a6da3;
-}
-.verde {
-  background-color: #339548;
-}
-.activa {
-  transform: scale(1.1);
-  box-shadow: 0px 5px 10px rgba(100, 100, 100, 0.5);
-}
-.position-product {
-  width: 100%;
-  height: auto;
-}
-.button-add-to-cart {
-  margin: .5rem 0;
-  border: 1px solid #03091c;
-  background-color: transparent;
-  font-family: Roboto;
-  color: #03091c;
-  padding: 0.8rem 1.2rem;
-  border-radius: 0.5rem;
-  font-size: 1.1rem;
-  transition: 400ms;
-  cursor: pointer;
-}
+/* ---------- */
 
-.button-add-to-cart:hover {
-  background-color: rgba(255, 255, 255, 0.5);
-}
-.number-price {
-  font-family: Roboto;
-  margin-top: 1rem;
-  font-size: 2.5rem;
-  font-weight: 500;
-}
 @media (min-width: 830px){
+  .section__product-detail{
+    flex-direction: row;
+  }
+  .article__image-section{
+    max-height: 70vh;
+  }
+  .image-section__image{
+    object-fit: contain;
+  }
+  .article__detail{
+    position: relative;
+  }
+  .detail__bottom{
+    position: absolute;
+    bottom: 1rem;
+  }
+  .detail__bottom{
+    width: 94%;
+  }
   .section__products {
     flex-direction: row;
     align-items: center;
@@ -227,18 +264,11 @@
     box-shadow: 0px 5px 10px rgba(100, 100, 100, 0.5);
     transform: scale(1.02);
   }
-  .card__body {
-    flex-direction: row;
-  }
+
   .card__image {
     width: 50%;
   }
-  .card__decoration{
-    width: 80%;
-  }
-  .position-product{
-    width: 80%;
-  }
+
 }
 @media (min-width: 1000px) {
   .main{
@@ -255,9 +285,6 @@
   }
   .searchbar{
     margin-bottom: 2.5rem;
-  }
-  .position-text {
-    width: 50%;
   }
   .section__products{
     width: 95%;
