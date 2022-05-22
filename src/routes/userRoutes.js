@@ -19,4 +19,7 @@ router.post('/register', validationsRegister, userController.registerProcess);
 // Logout
 router.get('/logout', userController.logout);
 
+// Config
+router.get('/config', userController.config);
+
 module.exports = router;

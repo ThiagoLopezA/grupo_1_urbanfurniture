@@ -113,6 +113,9 @@ const userController = {
     res.clearCookie('userEmail'); //para eliminar la cookies
     req.session.destroy();
     return res.redirect('/');
+  },
+  config: (req, res) => {
+    res.render("users/config")
   }
 };
 
