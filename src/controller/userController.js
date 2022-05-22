@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const userFilePath = path.join(__dirname, "../data/user.json");
-const { validationResult } = require('express-validator');
+const {validationResult} = require('express-validator');
 const User = require('../models/User');
 const bcryptjs = require('bcryptjs');
 
@@ -31,16 +31,16 @@ const userController = {
       if (isOkThePassword) {
         delete userToLogin.password; // elimino la propiedad password de la session por seguridad
         req.session.userLogged = userToLogin; // el usuario de la session es el usuario que se logueó
-        
+
         //  Configuro la cookie y la valido si esta tildado el checkbox
-        if (req.body.remember_user == 'on'){
-          res.cookie('userEmail', req.session.userLogged.email, { maxAge: (1000 * 60) * 20 })
-          
+        if (req.body.remember_user == 'on') {
+          res.cookie('userEmail', req.session.userLogged.email, {maxAge: (1000 * 60) * 20})
+
         }
-       
+
         return res.redirect('/')
       }
-      
+
       return res.render('users/login', { // ejecuta en caso de que la comparación de password dio false
         errors: {
           email: {
@@ -90,14 +90,14 @@ const userController = {
     if (req.body.password !== req.body.password_confirm) {
       return res.render('users/register', {
         // errors: resultValidation.mapped(),
-        oldData: req.body,        
+        oldData: req.body,
         errors: {
           password: {
             msg: 'Las contraseñas no coinciden'
           }
         }
-      })      
-      }    
+      })
+    }
 
     // Creo un nuevo usuario con los datos que llegan del body y hasheo el password
     let userToCreate = {
@@ -110,7 +110,7 @@ const userController = {
     return res.redirect('login');
   },
   logout: (req, res) => {
-    res.clearCookies('userEmail'); //para eliminar la cookies
+    res.clearCookie('userEmail'); //para eliminar la cookies
     req.session.destroy();
     return res.redirect('/');
   }
