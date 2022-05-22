@@ -1,0 +1,101 @@
+* {
+  box-sizing: border-box;
+}
+section {
+  display: block;
+  font-size: 100%;
+  text-decoration: none;
+}
+#mis-datos {
+  padding-top: 60px;
+  padding-bottom: 90px;
+  min-height: 50vh;
+}
+#mis-datos .box-title {
+  text-align: left;
+  padding-bottom: 20px;
+  margin-bottom: 40px;
+}
+#mis-datos .box-title h1 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #000;
+  vertical-align: baseline;
+  padding-bottom: 1vh;
+}
+#mis-datos .box-title p {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+}
+#mis-datos .box-configuration {
+  padding: 30px 0;
+  margin-bottom: 3vh;
+  border-radius: 7px;
+}
+#mis-datos .box-configuration .box-configuration--title {
+  margin-bottom: 2.5vh;
+}
+#mis-datos .box-configuration .box-configuration--title h1 {
+  font-weight: 600;
+  font-size: 16px;
+  color: #000;
+  vertical-align: baseline;
+  margin-bottom: 1.5vh;
+}
+#mis-datos .box-configuration .box-configuration--title p {
+  font-weight: 500;
+  font-size: 11px;
+  color: #9a9da1;
+  line-height: 1.7;
+}
+#mis-datos .box-configuration .box-field {
+  margin-bottom: 20px;
+}
+#mis-datos .box-configuration .box-field h2 {
+  font-weight: 500;
+  font-size: 13px;
+  color: #2b2b2b;
+  margin-bottom: 12px;
+}
+#mis-datos .box-configuration .box-field label {
+  display: block;
+  font-weight: 600;
+  font-size: 11px;
+  color: #333;
+  padding-top: 4px;
+  padding-bottom: 8px;
+  letter-spacing: 0px;
+}
+#mis-datos .box-configuration .box-field input[type="text"],
+#mis-datos .box-configuration .box-field input[type="password"],
+#mis-datos .box-configuration .box-field input[type="email"],
+#mis-datos .box-configuration .box-field select {
+  font-weight: 500;
+  font-size: 12px;
+  color: #2b2b2b;
+  width: 100%;
+  padding: 14px 14px;
+  border: 1px solid #c3c3c3;
+  border-radius: 50px;
+}
+#mis-datos .box-configuration .box-field select {
+  padding: 14px 14px;
+  background-position: calc(100% - 15px) calc(50% + 1px);
+  border-radius: 50px;
+}
+.btn-primary-ecommerce {
+  width: auto;
+  display: inline-block;
+  background-color: #091129;
+  padding: 18px 50px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.btn-primary-ecommerce:hover {
+  background-color: #b91919;
+}
