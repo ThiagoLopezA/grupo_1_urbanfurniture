@@ -11,3 +11,11 @@ Dejar de hacer: Que nos vean debiles.
 **_-Continuar haciendo:_** Seguir con el mismo compromiso.  
 **_-Hacer menos:_** Menos charla de otros temas en las reuniones.  
 **_-Dejar de hacer:_** Consideramos que no debemos dejar de hacer nada, venimos bien asi.
+
+### _Entregable 5_ :trophy:
+
+**_-Comenzar a hacer:_** Dos reuniones a la semana. :1st_place_medal:  
+**_-Hacer más:_** Mas weekly.  
+**_-Continuar haciendo:_** Seguir con el mismo compromiso, dedicación y ganas.  
+**_-Hacer menos:_** Menos charla de otros temas en las reuniones y durante la clase sincronica.  
+**_-Dejar de hacer:_**Consideramos que no debemos dejar de hacer nada, venimos bien asi.
