@@ -1,4 +1,4 @@
-**21/05/2022:** speech_balloon:
+**21/05/2022** :speech_balloon:
 
 :triangular_flag_on_post: Thiago
 - [x] Resideñar el dashboard
