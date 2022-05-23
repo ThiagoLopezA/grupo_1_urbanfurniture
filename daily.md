@@ -1,7 +1,7 @@
 **21/05/2022** :speech_balloon:
 
 :triangular_flag_on_post: Thiago
-- [x] Resideñar el dashboard
+- [ ] Resideñar el dashboard
 
 :triangular_flag_on_post: Joel 
 - [x] Realizar la vista configuración del usuario
