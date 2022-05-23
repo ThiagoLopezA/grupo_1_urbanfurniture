@@ -1,101 +1,119 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-section {
-  display: block;
-  font-size: 100%;
-  text-decoration: none;
+.main{
+  min-height: 100vh;
+  padding: 0% 10%
 }
-#mis-datos {
-  padding-top: 60px;
-  padding-bottom: 90px;
-  min-height: 50vh;
-}
-#mis-datos .box-title {
-  text-align: left;
-  padding-bottom: 20px;
-  margin-bottom: 40px;
-}
-#mis-datos .box-title h1 {
-  font-size: 28px;
-  font-weight: 600;
-  color: #000;
-  vertical-align: baseline;
-  padding-bottom: 1vh;
-}
-#mis-datos .box-title p {
-  font-size: 14px;
-  color: #333;
-  line-height: 1.5;
-}
-#mis-datos .box-configuration {
-  padding: 30px 0;
-  margin-bottom: 3vh;
-  border-radius: 7px;
-}
-#mis-datos .box-configuration .box-configuration--title {
-  margin-bottom: 2.5vh;
-}
-#mis-datos .box-configuration .box-configuration--title h1 {
-  font-weight: 600;
-  font-size: 16px;
-  color: #000;
-  vertical-align: baseline;
-  margin-bottom: 1.5vh;
-}
-#mis-datos .box-configuration .box-configuration--title p {
-  font-weight: 500;
-  font-size: 11px;
-  color: #9a9da1;
-  line-height: 1.7;
-}
-#mis-datos .box-configuration .box-field {
-  margin-bottom: 20px;
-}
-#mis-datos .box-configuration .box-field h2 {
-  font-weight: 500;
-  font-size: 13px;
-  color: #2b2b2b;
-  margin-bottom: 12px;
-}
-#mis-datos .box-configuration .box-field label {
-  display: block;
-  font-weight: 600;
-  font-size: 11px;
-  color: #333;
-  padding-top: 4px;
-  padding-bottom: 8px;
-  letter-spacing: 0px;
-}
-#mis-datos .box-configuration .box-field input[type="text"],
-#mis-datos .box-configuration .box-field input[type="password"],
-#mis-datos .box-configuration .box-field input[type="email"],
-#mis-datos .box-configuration .box-field select {
-  font-weight: 500;
-  font-size: 12px;
-  color: #2b2b2b;
+.section__header{
   width: 100%;
-  padding: 14px 14px;
-  border: 1px solid #c3c3c3;
-  border-radius: 50px;
+  background-color: white;
+  padding: 1rem;
+  border-radius: .2rem;
 }
-#mis-datos .box-configuration .box-field select {
-  padding: 14px 14px;
-  background-position: calc(100% - 15px) calc(50% + 1px);
-  border-radius: 50px;
+.header__title, .header__paragraph{
+  margin: 0;
 }
-.btn-primary-ecommerce {
-  width: auto;
-  display: inline-block;
-  background-color: #091129;
-  padding: 18px 50px;
-  font-size: 13px;
+.header__title{
+  font-family: Montserrat;
   font-weight: 600;
-  color: #fff;
-  text-align: center;
-  cursor: pointer;
-  border-radius: 4px;
+  font-size: 1.5rem;
+  color: #404040
 }
-.btn-primary-ecommerce:hover {
-  background-color: #b91919;
+.header__paragraph{
+  margin-top: .9rem;
+  font-family: Roboto;
+  color: #909090;
+}
+.section__information{
+  background-color: #03091c;
+  padding: 1rem;
+  color: #f3f3f3;
+  border-radius: .2rem;
+  margin-top: 1rem;
+}
+.information__title{
+  font-family: Montserrat;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+.information__paragraph{
+  font-size: .9rem;
+  font-family: Roboto;
+}
+.information__paragraph i{
+  font-size: .75rem;
+}
+.section__form{
+  width: 100%;
+  background-color: white;
+  padding: 1rem;
+}
+.form__group, .input__group{
+  display: flex;
+  flex-direction: column;
+}
+.form__label{
+  font-size: 1rem;
+  font-family: Roboto;
+  font-weight: 400;
+  margin-top: 1rem;
+}
+.form__input{
+  margin-top: .5rem;
+  border: 1px solid #ececec;
+  padding: .5rem;
+  border-radius: .2rem;
+}
+.form__button{
+  width: 100%;
+  background-color: #03091c;
+  padding: 0.5rem;
+  border: none;
+  color: #f3f3f3;
+  font-family: Roboto;
+  font-weight: 600;
+  border-radius: .2rem;
+  margin-top: 1rem;
+}
+.form__subgroup{
+  display: flex;
+  justify-content: space-around;
+}
+.form__subgroup .form__input{
+  width: 100%;
+}
+.section__password-config{
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 900px){
+  .section__personal-data-config, .section__home-config, .section__password-config{
+    display: flex;
+  }
+  .section__information{
+    width: 40%;
+  }
+  .section__form{
+    margin-top: 1rem;
+    width: 60%;
+  }
+  .input__group{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .form__input{
+    width: 100%;
+  }
+  .form__group{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .form__group .form__input{
+    width: 99%;
+  }
 }

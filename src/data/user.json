@@ -1,30 +1,19 @@
 [
  {
-  "user": "joel",
-  "email": "joel@mail.com",
-  "password": "$2a$10$ccbJVDSh7NAUP/GH62dCjOo3q3joCIQHQ2Wt6ExVE.90Yv6FTnEK2",
-  "password_confirm": "$2a$10$aO6XJkmbAY/VrfU90fsU7OUrcYBQ9UfN9eInOA45wHNLrzbWtfQ.K",
-  "access": "0"
- },
- {
-  "user": "test",
+  "first_name": "test",
+  "last_name": "test_apellido",
   "email": "test@test.com",
-  "password": "$2a$10$Uvr4QpSp5qPllRzJeR4F8OGsZaPgGeNXCx6Im3M8nZr5JL79lokJW",
-  "password_confirm": "$2a$10$D.oHNyt3AnbBigBeaZyvxexXs.FtbS./3LuKhg9lmhSiTXhm3Q0mu",
-  "access": "1"
- },
- {
-  "user": "test",
-  "email": "test2@hotmail.com",
-  "password": "$2a$10$dOu0lIJMwklYNIokegzaFeKT1eAXMkBn6x2nWeunbTySo1epEckK6",
-  "password_confirm": "$2a$10$oRm.SYSNUx2eCxUOOda3DOjz2NG.tqBVjprc/3vaZ/i8JyIeUaGuK",
-  "access": "1"
- },
- {
-  "user": "test",
-  "email": "test3@test.com",
-  "password": "$2a$10$M/yvh1aYX7fqx4omkrSOVOeMYY7RlFFQs8Zs7hweqVnnWpqzMKkVe",
-  "password_confirm": "$2a$10$MUqT3GWZz6/88IkqHedZbeaNuwQOQWGoFElcTXoZAzh0./WM2iyUK",
-  "access": 0
+  "password": "$2a$10$SQf7vizpt8l4PbURCx8KduerjF/RvxN0tYh9uMVLJFlu0tu2Ds2YC",
+  "password_confirm": "test",
+  "access": "1",
+  "phone": "",
+  "dni": "123",
+  "street": "",
+  "street_number": "",
+  "floor": "",
+  "apartment": "",
+  "province": "",
+  "town": "",
+  "CP": ""
  }
 ]

@@ -19,13 +19,26 @@
             <img src="../img/icons/user.png" alt="" class="input__image" />
             <input
               type="text"
-              name="user"
-              class="form__input <%= locals.errors && errors.user ? 'form__input--error' : null %>"
-              placeholder="Nombre de usuario"
-              value="<%= locals.oldData ? oldData.user : null %>"
+              name="first_name"
+              class="form__input <%= locals.errors && errors.first_name ? 'form__input--error' : null %>"
+              placeholder="Nombre"
+              value="<%= locals.oldData ? oldData.first_name : null %>"
             />
-            <% if (locals.errors && errors.user) { %>
-            <div class="text-danger"><%= errors.user.msg %></div>
+            <% if (locals.errors && errors.first_name) { %>
+            <div class="text-danger"><%= errors.first_name.msg %></div>
+            <% } %>
+          </div>
+          <div class="input__container">
+            <img src="../img/icons/user.png" alt="" class="input__image" />
+            <input
+              type="text"
+              name="last_name"
+              class="form__input <%= locals.errors && errors.last_name ? 'form__input--error' : null %>"
+              placeholder="Apellido"
+              value="<%= locals.oldData ? oldData.last_name : null %>"
+            />
+            <% if (locals.errors && errors.last_name) { %>
+            <div class="text-danger"><%= errors.last_name.msg %></div>
             <% } %>
           </div>
           <div class="input__container">

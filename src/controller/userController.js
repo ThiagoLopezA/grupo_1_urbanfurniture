@@ -110,8 +110,16 @@ const userController = {
     let userToCreate = {
       ...req.body,
       password: bcryptjs.hashSync(req.body.password, 10),
-      password_confirm: bcryptjs.hashSync(req.body.password_confirm, 10),
       access: "0",
+      phone: "",
+      dni: "",
+      street: "",
+      street_number: "",
+      floor: "",
+      apartment: "",
+      province: "",
+      town: "",
+      CP: "",
     };
 
     User.create(userToCreate);
@@ -123,8 +131,39 @@ const userController = {
     return res.redirect("/");
   },
   config: (req, res) => {
-    res.render("users/config");
+    let provinces = [
+      "Buenos Aires",
+      "Capital Federal",
+      "Catamarca",
+      "Chaco",
+      "Chubut",
+      "Córdoba",
+      "Corrientes",
+      "Entre Ríos",
+      "Formosa",
+      "Gran Bs As Norte",
+      "Gran Bs As Oeste",
+      "Gran Bs As Sur",
+      "Jujuy",
+      "La Pampa",
+      "La Rioja",
+      "Mendoza",
+      "Misiones",
+      "Neuquen",
+      "Rio Negro",
+      "Salta",
+      "San Juan",
+      "San Luis",
+      "Santa Cruz",
+      "Santa Fé",
+      "Santiago del Estero",
+      "Tierra del Fuego",
+      "Tucumán",
+    ];
+    res.render("users/config", {
+      user: req.session.userLogged,
+      provinces: provinces,
+    });
   },
 };
-
 module.exports = userController;

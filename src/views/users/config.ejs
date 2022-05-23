@@ -7,302 +7,531 @@
     <!-- navbar -->
     <%- include ('../partials/navbar.ejs') %>
 
-    <section id="mis-datos">
-      <div class="container">
-        <div class="box-title">
-          <h1>Mi Cuenta</h1>
-          <p>Desde acá podés editar la información personal de tu cuenta.</p>
+    <main class="main">
+      <section class="section__header">
+        <h2 class="header__title">Mi cuenta</h2>
+        <p class="header__paragraph">
+          Desde acá podes editar la información personal de tu cuenta.
+        </p>
+      </section>
+      <section class="section__personal-data-config">
+        <article class="section__information">
+          <h2 class="information__title">Datos personales</h2>
+          <p class="information__paragraph">
+            <i class="fa fa-lock"></i>
+            Tu información personal nunca será publicada o vista por otros
+            usuarios.
+          </p>
+        </article>
+        <article class="section__form">
+          <form action="/users/config" method="POST" class="form">
+            <div class="form__group">
+              <div class="input__group">
+                <label class="form__label" for="first_name">Nombre</label>
+                <input
+                  type="text"
+                  class="form__input"
+                  id="first_name"
+                  name="first_name"
+                  value="<%= user.first_name %>"
+                />
+              </div>
+              <div class="input__group">
+                <label class="form__label" for="last_name">Apellido</label>
+                <input
+                  type="text"
+                  class="form__input"
+                  id="last_name"
+                  name="last_name"
+                  value="<%= user.last_name %>"
+                />
+              </div>
+            </div>
+            <div class="input__group">
+              <label for="email" class="form__label">Email</label>
+              <input
+                type="email"
+                class="form__input"
+                name="email"
+                id="email"
+                value="<%= user.email %>"
+                readonly
+              />
+            </div>
+            <div class="form__group">
+              <div class="input__group">
+                <label class="form__label" for="phone">Celular</label>
+                <input
+                  type="text"
+                  class="form__input"
+                  value="<%= user.phone != '' ? user.phone : null%>"
+                  placeholder="Insertar tu numero de telefono"
+                  name="phone"
+                  id="phone"
+                />
+              </div>
+              <div class="input__group">
+                <label for="DNI" class="form__label">DNI</label>
+                <input
+                  type="text"
+                  class="form__input"
+                  name="dni"
+                  id="dni"
+                  value="<%= user.dni != '' ? user.dni : null%>"
+                  placeholder="Ingrese su DNI"
+                />
+              </div>
+            </div>
+            <button class="form__button" type="submit">Guardar cambios</button>
+          </form>
+        </article>
+      </section>
+      <section class="section__home-config">
+        <article class="section__information">
+          <h2 class="information__title">Domicilio</h2>
+          <p class="information__paragraph">
+            <i class="fa fa-truck"></i>
+            Tu información personal nunca será publicada o vista por otros
+            usuarios.
+          </p>
+        </article>
+        <article class="section__form">
+          <form action="" class="form">
+            <div class="form__group">
+              <div class="input__group">
+                <label for="street" class="form__label">Calle</label>
+                <input
+                  type="text"
+                  class="form__input"
+                  name="street"
+                  id="street"
+                  value="<%= user.street != '' ? user.street : null%>"
+                  placeholder="Ingrese su calle"
+                />
+              </div>
+              <div class="form__subgroup">
+                <div class="input__group">
+                  <label for="street__number" class="form__label">Numero</label>
+                  <input
+                    type="text"
+                    class="form__input"
+                    name="street_number"
+                    id="street_number"
+                    value="<%= user.street_number != '' ? user.street_number : null%>"
+                    placeholder="Altura de su domicilio"
+                  />
+                </div>
+
+                <div class="input__group">
+                  <label for="floor" class="form__label">Piso</label>
+                  <input
+                    type="text"
+                    class="form__input"
+                    name="floor"
+                    id="floor"
+                    value="<%= user.floor != '' ? user.floor : null%>"
+                    placeholder="Número de piso"
+                  />
+                </div>
+
+                <div class="input__group">
+                  <label for="apartment" class="form__label">Depto</label>
+                  <input
+                    type="text"
+                    class="form__input"
+                    name="apartment"
+                    id="apartment"
+                    value="<%= user.apartment != '' ? user.apartment : null%>"
+                    placeholder="Número de departamento"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="form__group">
+              <div class="input__group">
+                <label for="province" class="form__label">Provincia</label>
+                <select name="province" id="province" class="form__input">
+                  <option value="">Seleccionar una provincia</option>
+                  <% provinces.forEach( prov => { %>
+                  <option value="<%=prov%>"><%=prov%></option>
+                  <% }) %>
+                </select>
+              </div>
+              <div class="input__group">
+                <label for="town" class="form__label">Barrio/Localidad</label>
+                <input
+                  type="text"
+                  class="form__input"
+                  name="town"
+                  id="town"
+                  value="<%= user.town != '' ? user.town : null%>"
+                  placeholder="Ingrese su localidad/barrio"
+                />
+              </div>
+              <div class="input__group">
+                <label for="CP" class="form__label">CP</label>
+                <input
+                  type="text"
+                  class="form__input"
+                  name="CP"
+                  id="CP"
+                  value="<%= user.CP != '' ? user.CP : null%>"
+                  placeholder="Código postal"
+                />
+              </div>
+            </div>
+            <button class="form__button" type="submit">Guardar cambios</button>
+          </form>
+        </article>
+      </section>
+      <section class="section__password-config">
+        <article class="section__information">
+          <h2 class="information__title">Contraseña</h2>
+          <p class="information__paragraph">
+            <i class="fa-solid fa-key"></i>
+            Deja el campo de contraseña en blanco si no deseas cambiarla.
+          </p>
+        </article>
+        <article class="section__form">
+          <form action="" class="form">
+            <div class="form__group">
+              <div class="input__group">
+                <label for="current_password" class="form__label"
+                  >Contraseña actual</label
+                >
+                <input
+                  type="password"
+                  class="form__input"
+                  name="current__password"
+                  id="current_password"
+                />
+              </div>
+              <div class="input__group">
+                <label for="new_password" class="form__label"
+                  >Nueva contraseña</label
+                >
+                <input
+                  type="password"
+                  class="form__input"
+                  name="new_password"
+                  id="new_password"
+                />
+              </div>
+              <div class="input__group">
+                <label for="confirm_password" class="form__label"
+                  >Repetir nueva contraseña</label
+                >
+                <input
+                  type="password"
+                  class="form__input"
+                  name="confirm_password"
+                  id="confirm_password"
+                />
+              </div>
+            </div>
+            <button class="form__button" type="submit">Guardar cambios</button>
+          </form>
+        </article>
+      </section>
+    </main>
+
+    <!--
+      <section id="mis-datos">
+        <div class="container">
+          <div class="box-title">
+            <h1>Mi Cuenta</h1>
+            <p>Desde acá podés editar la información personal de tu cuenta.</p>
+          </div>
+  
+          <form action="/users/config" method="POST" name="config" id="config">
+            <div class="box-configuration">
+              <div class="row">
+                <div class="col-lg-3">
+                  <div class="box-configuration--title">
+                    <h1>Datos Personales</h1>
+                    <p>
+                      <i class="fa fa-lock"></i> Tu información personal nunca
+                      será publicada o vista por otros usuarios.
+                    </p>
+                  </div>
+                </div>
+                <div class="col-lg-9">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="box-field">
+                        <label>Nombre *</label>
+                        <input
+                          type="text"
+                          name="data[nombre]"
+                          class="required"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="box-field">
+                        <label>Apellido *</label>
+                        <input
+                          type="text"
+                          name="data[apellido]"
+                          class="required"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="box-field">
+                        <label>E-mail *</label>
+                        <input
+                          type="email"
+                          name="data[email]"
+                          class="required email"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="box-field">
+                        <label>Celular *</label>
+                        <input
+                          type="text"
+                          name="data[celular]"
+                          class="required"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="box-field">
+                        <label>DNI *</label>
+                        <input
+                          type="text"
+                          name="data[dni]"
+                          class="required"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12 text-left">
+                      <div class="btn-primary-ecommerce submit">
+                        Guardar cambios
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="box-configuration">
+              <div class="row">
+                <div class="col-lg-3">
+                  <div class="box-configuration--title">
+                    <h1>Domicilio</h1>
+                    <p>
+                      <i class="fa fa-truck"></i> Tu información personal nunca
+                      será publicada o vista por otros usuarios.
+                    </p>
+                  </div>
+                </div>
+                <div class="col-lg-9">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="box-field">
+                        <label for="calle">Calle *</label>
+                        <input
+                          type="text"
+                          class="¿"
+                          id="calle"
+                          name="data[calle]"
+                          value=""
+                          placeholder=""
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="box-field">
+                        <label for="calle_numero">Número *</label>
+                        <input
+                          type="text"
+                          class="number"
+                          id="calle_numero"
+                          name="data[calle_numero]"
+                          maxlength="5"
+                          value=""
+                          placeholder=""
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="box-field">
+                        <label for="piso">Piso</label>
+                        <input
+                          type="text"
+                          class=""
+                          id="piso"
+                          name="data[piso]"
+                          value=""
+                          placeholder=""
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="box-field">
+                        <label for="depto">Depto</label>
+                        <input
+                          type="text"
+                          class=""
+                          id="depto"
+                          name="data[depto]"
+                          value=""
+                          placeholder=""
+                        />
+                      </div>
+                    </div>
+  
+                    <div class="col-md-6">
+                      <div class="box-field">
+                        <label for="provincia_id">Provincia *</label>
+                        <select
+                          id="provincia_id"
+                          name="data[provincia_id]"
+                          class=""
+                        >
+                          <option value="" selected>Provincia *</option>
+                          <option value="2">Buenos Aires</option>
+                          <option value="1">Capital Federal</option>
+                          <option value="24">Catamarca</option>
+                          <option value="7">Chaco</option>
+                          <option value="21">Chubut</option>
+                          <option value="9">Córdoba</option>
+                          <option value="5">Corrientes</option>
+                          <option value="4">Entre Ríos</option>
+                          <option value="8">Formosa</option>
+                          <option value="25">Gran Bs As Norte</option>
+                          <option value="27">Gran Bs As Oeste</option>
+                          <option value="26">Gran Bs As Sur</option>
+                          <option value="11">Jujuy</option>
+                          <option value="18">La Pampa</option>
+                          <option value="13">La Rioja</option>
+                          <option value="16">Mendoza</option>
+                          <option value="6">Misiones</option>
+                          <option value="19">Neuquén</option>
+                          <option value="20">Río Negro</option>
+                          <option value="12">Salta</option>
+                          <option value="14">San Juan</option>
+                          <option value="17">San Luis</option>
+                          <option value="22">Santa Cruz</option>
+                          <option value="3">Santa Fé</option>
+                          <option value="10">Santiago del Estero</option>
+                          <option value="23">Tierra del Fuego</option>
+                          <option value="15">Tucumán</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="box-field">
+                        <label for="localidad">Barrio / Localidad</label>
+                        <input
+                          type="text"
+                          class=""
+                          id="localidad"
+                          name="data[localidad]"
+                          value=""
+                          placeholder=""
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="box-field">
+                        <label for="cp">CP *</label>
+                        <input
+                          type="text"
+                          class=""
+                          id="cp"
+                          name="data[cp]"
+                          minlength="4"
+                          maxlength="4"
+                          value=""
+                          placeholder="Cod. Postal"
+                        />
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="row">
+                    <div class="col-lg-12 text-left">
+                      <div class="btn-primary-ecommerce submit">
+                        Guardar cambios
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="box-configuration">
+              <div class="row">
+                <div class="col-lg-3">
+                  <div class="box-configuration--title">
+                    <h1>Contraseña</h1>
+                    <p>
+                      Deja el campo de contraseña en blanco si no deseas
+                      cambiarla.
+                    </p>
+                  </div>
+                </div>
+                <div class="col-lg-9">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="box-field">
+                        <h2>Contraseña actual:</h2>
+                        <input
+                          type="text"
+                          name="data[password_current]"
+                          value=""
+                          onfocus="this.setAttribute('type', 'password')"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="box-field">
+                        <h2>Nueva contraseña:</h2>
+                        <input
+                          type="text"
+                          name="data[password_new]"
+                          value=""
+                          onfocus="this.setAttribute('type', 'password')"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="box-field">
+                        <h2>Repertir contraseña:</h2>
+                        <input
+                          type="text"
+                          name="data[password_confirm]"
+                          value=""
+                          onfocus="this.setAttribute('type', 'password')"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12 text-left">
+                      <div class="btn-primary-ecommerce submit">
+                        Cambiar contraseña
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
-
-        <form action="/users/config" method="POST" name="config" id="config">
-
-          <div class="box-configuration">
-            <div class="row">
-              <div class="col-lg-3">
-                <div class="box-configuration--title">
-                  <h1>Datos Personales</h1>
-                  <p>
-                    <i class="fa fa-lock"></i> Tu información personal nunca
-                    será publicada o vista por otros usuarios.
-                  </p>
-                </div>
-              </div>
-              <div class="col-lg-9">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="box-field">
-                      <label>Nombre *</label>
-                      <input
-                        type="text"
-                        name="data[nombre]"
-                        class="required"
-                        value=""
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="box-field">
-                      <label>Apellido *</label>
-                      <input
-                        type="text"
-                        name="data[apellido]"
-                        class="required"
-                        value=""
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="box-field">
-                      <label>E-mail *</label>
-                      <input
-                        type="email"
-                        name="data[email]"
-                        class="required email"
-                        value=""
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="box-field">
-                      <label>Celular *</label>
-                      <input
-                        type="text"
-                        name="data[celular]"
-                        class="required"
-                        value=""
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="box-field">
-                      <label>DNI *</label>
-                      <input
-                        type="text"
-                        name="data[dni]"
-                        class="required"
-                        value=""
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-lg-12 text-left">
-                    <div class="btn-primary-ecommerce submit">
-                      Guardar cambios
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="box-configuration">
-            <div class="row">
-              <div class="col-lg-3">
-                <div class="box-configuration--title">
-                  <h1>Domicilio</h1>
-                  <p>
-                    <i class="fa fa-truck"></i> Tu información personal
-                    nunca será publicada o vista por otros usuarios.
-                  </p>
-                </div>
-              </div>
-              <div class="col-lg-9">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="box-field">
-                      <label for="calle">Calle *</label>
-                      <input
-                        type="text"
-                        class="¿"
-                        id="calle"
-                        name="data[calle]"
-                        value=""
-                        placeholder=""
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md-2">
-                    <div class="box-field">
-                      <label for="calle_numero">Número *</label>
-                      <input
-                        type="text"
-                        class="number"
-                        id="calle_numero"
-                        name="data[calle_numero]"
-                        maxlength="5"
-                        value=""
-                        placeholder=""
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md-2">
-                    <div class="box-field">
-                      <label for="piso">Piso</label>
-                      <input
-                        type="text"
-                        class=""
-                        id="piso"
-                        name="data[piso]"
-                        value=""
-                        placeholder=""
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md-2">
-                    <div class="box-field">
-                      <label for="depto">Depto</label>
-                      <input
-                        type="text"
-                        class=""
-                        id="depto"
-                        name="data[depto]"
-                        value=""
-                        placeholder=""
-                      />
-                    </div>
-                  </div>
-
-                  <div class="col-md-6">
-                    <div class="box-field">
-                      <label for="provincia_id">Provincia *</label>
-                      <select
-                        id="provincia_id"
-                        name="data[provincia_id]"
-                        class=""
-                      >
-                        <option value="" selected>Provincia *</option>
-                        <option value="2">Buenos Aires</option>
-                        <option value="1">Capital Federal</option>
-                        <option value="24">Catamarca</option>
-                        <option value="7">Chaco</option>
-                        <option value="21">Chubut</option>
-                        <option value="9">Córdoba</option>
-                        <option value="5">Corrientes</option>
-                        <option value="4">Entre Ríos</option>
-                        <option value="8">Formosa</option>
-                        <option value="25">Gran Bs As Norte</option>
-                        <option value="27">Gran Bs As Oeste</option>
-                        <option value="26">Gran Bs As Sur</option>
-                        <option value="11">Jujuy</option>
-                        <option value="18">La Pampa</option>
-                        <option value="13">La Rioja</option>
-                        <option value="16">Mendoza</option>
-                        <option value="6">Misiones</option>
-                        <option value="19">Neuquén</option>
-                        <option value="20">Río Negro</option>
-                        <option value="12">Salta</option>
-                        <option value="14">San Juan</option>
-                        <option value="17">San Luis</option>
-                        <option value="22">Santa Cruz</option>
-                        <option value="3">Santa Fé</option>
-                        <option value="10">Santiago del Estero</option>
-                        <option value="23">Tierra del Fuego</option>
-                        <option value="15">Tucumán</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="box-field">
-                      <label for="localidad">Barrio / Localidad</label>
-                      <input
-                        type="text"
-                        class=""
-                        id="localidad"
-                        name="data[localidad]"
-                        value=""
-                        placeholder=""
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md-2">
-                    <div class="box-field">
-                      <label for="cp">CP *</label>
-                      <input
-                        type="text"
-                        class=""
-                        id="cp"
-                        name="data[cp]"
-                        minlength="4"
-                        maxlength="4"
-                        value=""
-                        placeholder="Cod. Postal"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-lg-12 text-left">
-                    <div class="btn-primary-ecommerce submit">
-                      Guardar cambios
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="box-configuration">
-            <div class="row">
-              <div class="col-lg-3">
-                <div class="box-configuration--title">
-                  <h1>Contraseña</h1>
-                  <p>
-                    Deja el campo de contraseña en blanco si no deseas
-                    cambiarla.
-                  </p>
-                </div>
-              </div>
-              <div class="col-lg-9">
-                <div class="row">
-                  <div class="col-md-4">
-                    <div class="box-field">
-                      <h2>Contraseña actual:</h2>
-                      <input
-                        type="text"
-                        name="data[password_current]"
-                        value=""
-                        onfocus="this.setAttribute('type', 'password')"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="box-field">
-                      <h2>Nueva contraseña:</h2>
-                      <input
-                        type="text"
-                        name="data[password_new]"
-                        value=""
-                        onfocus="this.setAttribute('type', 'password')"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="box-field">
-                      <h2>Repertir contraseña:</h2>
-                      <input
-                        type="text"
-                        name="data[password_confirm]"
-                        value=""
-                        onfocus="this.setAttribute('type', 'password')"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-lg-12 text-left">
-                    <div class="btn-primary-ecommerce submit">
-                      Cambiar contraseña
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
-    </section>
+      </section>
+    -->
 
     <%-include('../partials/footer.ejs') %>
   </body>

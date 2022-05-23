@@ -111,6 +111,7 @@ ul {
   padding: 0;
 }
 .dropdown__menu{
+  z-index: 2;
   position:absolute;
   background-color: #03091c;
   border-radius: .3rem;
