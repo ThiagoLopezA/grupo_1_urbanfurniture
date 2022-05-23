@@ -18,4 +18,4 @@ Dejar de hacer: Que nos vean debiles.
 **_-Hacer más:_** Mas weekly.  
 **_-Continuar haciendo:_** Seguir con el mismo compromiso, dedicación y ganas.  
 **_-Hacer menos:_** Menos charla de otros temas en las reuniones y durante la clase sincronica.  
-**_-Dejar de hacer:_**Consideramos que no debemos dejar de hacer nada, venimos bien asi.
+**_-Dejar de hacer:_** Consideramos que no debemos dejar de hacer nada, venimos bien asi.
