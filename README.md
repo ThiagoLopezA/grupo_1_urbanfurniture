@@ -1,3 +1,4 @@
+![plot](/imgReadme/Imagen.jpg)
 ## Temática del sitio
 
 E-commerce de muebles de interior y decoración del hogar.
