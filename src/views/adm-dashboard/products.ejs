@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include ('../partials/head.ejs', {route:'adminDash.css', main:'', title:
+  'Admin'}) %>
+  <body>
+    <%- include('../partials/navbar_dashboard.ejs', {url : url}) %>
+    <section class="section__content">
+      <article class="card__group">
+        <div class="card__resume">
+          <div class="resume__information">
+            <h2 class="information__quantity">1234</h2>
+            <h4 class="information__title">Cantidad de productos</h4>
+          </div>
+          <i class="fa-solid fa-boxes-stacked information__icon"></i>
+        </div>
+        <div class="card__resume">
+          <div class="resume__information">
+            <h2 class="information__quantity">12</h2>
+            <h4 class="information__title">Categorias</h4>
+          </div>
+          <i class="fa-solid fa-tag information__icon"></i>
+        </div>
+        <div class="card__resume">
+          <div class="resume__information">
+            <h2 class="information__quantity">12</h2>
+            <h4 class="information__title">Cantidad de ventas</h4>
+          </div>
+          <i class="fa-solid fa-cart-shopping information__icon"></i>
+        </div>
+      </article>
+
+      <article class="product__header">
+        <h2 class="header__title">Productos</h2>
+        <button class="header__button">
+          <i class="fa-solid fa-plus"></i>Agregar producto
+        </button>
+      </article>
+
+      <article class="product__form">
+        <form action="">
+          <div class="input__group">
+            <input type="text" class="search__input" />
+            <button class="search__button">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+          <div class="form__filters">
+            <div class="select__group">
+              <label for="category" class="form__label">Categoria</label>
+              <select name="category" id="category" class="form__select">
+                <option value="">Seleccionar categoria</option>
+              </select>
+
+              <label for="order" class="form__label">Ordenar</label>
+              <select name="order" id="order" class="form__select">
+                <option value="">Seleccionar orden</option>
+              </select>
+            </div>
+            <button class="header__button">
+              <i class="fa-solid fa-filter"></i>Filtrar
+            </button>
+          </div>
+        </form>
+      </article>
+      <table class="table table--wide">
+        <tr>
+          <th><i class="fa-solid fa-align-left th__icon"></i></th>
+          <th class="table__title">Imagen</th>
+          <th class="table__title">Nombre</th>
+          <th class="table__title">Precio</th>
+          <th></th>
+        </tr>
+        <% for(let i = 0; i < products.length; i++) { %>
+        <tr class="table__row">
+          <td><%= products[i].id %></td>
+          <td>
+            <img
+              src="/img/products/<%= products[i].image %>"
+              alt=""
+              class="table__image"
+            />
+          </td>
+          <td><%=products[i].name %></td>
+          <td>$<%=products[i].price %></td>
+          <td class="td__options">
+            <button class="table__buttons">
+              <i class="fa-solid fa-pen"></i>
+            </button>
+            <button class="table__buttons">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </td>
+        </tr>
+        <% } %>
+      </table>
+    </section>
+  </body>
+</html>

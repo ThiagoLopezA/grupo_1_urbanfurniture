@@ -3,11 +3,66 @@
   <%- include ('../partials/head.ejs', {route:'adminDash.css', main:'', title:
   'Admin'}) %>
   <body>
-    <%- include('../partials/navbar_dashboard.ejs') %>
-    <section class="content-area">
-      <article class="card__home">
-        <h2></h2>
+    <%- include('../partials/navbar_dashboard.ejs', {url : url}) %>
+    <section class="section__content">
+      <div class="card__group">
+
+        <article class="card__resume">
+          <div class="resume__information">
+            <h2 class="information__quantity">1234</h2>
+            <h4 class="information__title">Cantidad de productos</h4>
+          </div>
+          <i class="fa-solid fa-boxes-stacked information__icon"></i>
+        </article>
+
+        <article class="card__resume">
+          <div class="resume__information">
+            <h2 class="information__quantity">350</h2>
+            <h4 class="information__title">Cantidad de usuarios</h4>
+          </div>
+          <i class="fa-solid fa-people-group information__icon"></i>
+        </article>
       </article>
-    </section>
-  </body>
+
+      <article class="card__resume">
+        <div class="resume__information">
+          <h2 class="information__quantity">12</h2>
+          <h4 class="information__title">Cantidad de ventas</h4>
+        </div>
+        <i class="fa-solid fa-cart-shopping information__icon"></i>
+      </article>
+
+    </div>
+
+    <article class="table__group">
+
+        <table class="table">
+          <tr class="table__row">
+            <th><i class="fa-solid fa-align-left table__icon"></i></th>
+            <th class="table__title">Ultimos productos ingresados</th>
+          </tr>
+          <% for(let i = 0; i < 10; i++) { %>
+            <tr class="table__row">
+              <td><%= i %></td>
+              <td> producto</td>
+            </tr>
+          <% } %>
+        </table>
+
+        <table class="table">
+          <tr class="table__row">
+            <th><i class="fa-solid fa-align-left table__icon"></i></th>
+            <th class="table__title">Ultimas ventas realizadas</th>
+          </tr>
+          <% for(let i = 0; i < 10; i++) { %>
+            <tr class="table__row">
+              <td ><%= i %></td>
+              <td> producto</td>
+            </tr>
+          <% } %>
+        </table>
+    
+    </article>
+  </section>
+</body>
 </html>

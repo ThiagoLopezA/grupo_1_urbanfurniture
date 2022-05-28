@@ -1,47 +1,40 @@
 <section class="section__navbar">
-  <div class="navbar__logo">
-    <a href="/">
-      <h3 class="logo__top">URBAN</h3>
-      <h3 class="logo__bottom">FURNITURE</h3>
-    </a>
+  <div class="section__logo">
+    <h2 class="logo__top">URBAN</h2>
+    <h3 class="logo__bottom">FURNITURE</h3>
   </div>
-
-  <nav class="nav">
-    <ul class="nav__container">
-      <li class="container__item">
-        <a href="/admin/"
-          ><i class="fa-solid fa-house item__icon"></i
-          ><span class="item__title">Inicio</span></a
-        >
-      </li>
-    </ul>
-    <h3 class="nav__title">PRODUCTOS</h3>
-    <ul class="nav__container">
-      <li class="container__item">
-        <a href="/admin/agregarProducto"
-          ><i class="fa-solid fa-circle-plus item__icon"></i
-          ><span class="item__title">Agregar producto</span></a
-        >
-      </li>
-      <li class="container__item">
-        <a href="/admin/modificar"
-          ><i class="fa-solid fa-square-pen item__icon"></i
-          ><span class="item__title">Modificar producto</span></a
-        >
-      </li>
-    </ul>
-    <h3 class="nav__title">USUARIOS</h3>
-    <ul class="nav__container">
-      <li class="container__item">
-        <a href="/admin/users"
-          ><i class="fa-solid fa-user-group item__icon"></i
-          ><span class="item__title">Lista usuarios</span></a
-        >
-      </li>
-    </ul>
-    <a href="/" class="container__item"
-      ><i class="fa-solid fa-arrow-left item__icon"></i
-      ><span class="item__title">Volver</span></a
+  <article class="article__items">
+    <div class="items__group <%= url == '/' ? 'items__group--active' : null %>">
+      <a class="a__item" href="/admin">
+        <i class="fa-solid fa-house"></i>
+        <p class="item__title">Inicio</p>
+      </a>
+    </div>
+    <div
+      class="items__group <%= url == '/products' ? 'items__group--active' : null %>"
     >
-  </nav>
+      <a href="/admin/products" class="a__item">
+        <i class="fa-solid fa-couch"></i>
+        <p class="item__title">Productos</p>
+      </a>
+    </div>
+    <div class="items__group">
+      <a href="/admin/users" class="a__item">
+        <i class="fa-solid fa-users"></i>
+        <p class="item__title">Usuarios</p>
+      </a>
+    </div>
+    <div class="items__group">
+      <a href="/admin/sales" class="a__item">
+        <i class="fa-solid fa-money-bills"></i>
+        <p class="item__title">Ventas</p>
+      </a>
+    </div>
+    <div class="items__group">
+      <a href="/" class="a__item">
+        <i class="fa-solid fa-arrow-left-long"></i>
+        <p class="item__title">Volver</p>
+      </a>
+    </div>
+  </article>
 </section>

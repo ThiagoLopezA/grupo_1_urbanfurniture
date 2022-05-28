@@ -2,8 +2,15 @@ const products = require("./productController");
 
 const adminController = {
   index: (req, res) => {
+    res.render("adm-dashboard/index.ejs", { url: req.url });
+  },
+  products: (req, res) => {
     let database = products.getProducts();
-    res.render("adm-dashboard/index.ejs", { database: database });
+    console.log(database);
+    res.render("adm-dashboard/products.ejs", {
+      url: req.url,
+      products: database,
+    });
   },
   modificarProducto: (req, res) => {
     let database = products.getProducts();
