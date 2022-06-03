@@ -18,7 +18,9 @@
         <p class="item__title">Productos</p>
       </a>
     </div>
-    <div class="items__group">
+    <div
+      class="items__group <%= url == '/users' ? 'items__group--active' : null %>"
+    >
       <a href="/admin/users" class="a__item">
         <i class="fa-solid fa-users"></i>
         <p class="item__title">Usuarios</p>

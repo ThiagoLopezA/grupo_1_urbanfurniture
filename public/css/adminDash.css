@@ -76,8 +76,8 @@ a {
   color: #f3f3f3;
   transition: 500ms;
 }
-.items__group--active:hover{
-  background-color: rgba(3, 9, 28, 90%);
+.items__group--active:hover, .header__button:hover {
+  background-color: rgba(3, 9, 28, 85%);
 }
 .item__title{
   margin: 0;
@@ -258,7 +258,7 @@ section .class-area {
   top: 20%;
 }
 */
-/* card */
+/* card
 .product__area{
   display: flex;
   flex-direction: column;
@@ -319,6 +319,7 @@ section .class-area {
   font-weight: 300;
   font-family: Roboto;
 }
+*/
 .product__header{
   width: 100%;
   display: flex;
@@ -336,6 +337,7 @@ section .class-area {
   border: transparent;
   background-color: #03091c;
   color: #f3f3f3;
+  transition: 500ms;
 }
 .header__button i {
   margin-right: .5rem;
@@ -392,7 +394,15 @@ section .class-area {
   font-size: 1rem;
   margin-right: 1rem;
   color: #03091c;
+  transition: 500ms;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
 }
+.table__buttons:hover{
+  background-color: rgba(0,0,0,10%);
+}
+
 .fa-xmark{
   color: rgb(177, 17, 17);
 }

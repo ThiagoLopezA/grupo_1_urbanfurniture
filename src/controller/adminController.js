@@ -1,3 +1,4 @@
+const { redirect } = require("express/lib/response");
 const products = require("./productController");
 
 const adminController = {
@@ -6,12 +7,25 @@ const adminController = {
   },
   products: (req, res) => {
     let database = products.getProducts();
-    console.log(database);
+    let categories = [];
+    database.forEach(e => {
+      if (!categories.includes(e.category)) {
+        categories.push(e.category);
+      }
+    });
     res.render("adm-dashboard/products.ejs", {
       url: req.url,
       products: database,
+      categories: categories,
     });
   },
+  searchProducts: (req, res) => {
+    res.redirect("/admin/products", { url: req.url });
+  },
+  users: (req, res) => {
+    res.render("adm-dashboard/users.ejs", { url: req.url });
+  },
+
   modificarProducto: (req, res) => {
     let database = products.getProducts();
     res.render("adm-dashboard/modificarProducto.ejs", { data: database });

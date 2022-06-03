@@ -8,14 +8,14 @@
       <article class="card__group">
         <div class="card__resume">
           <div class="resume__information">
-            <h2 class="information__quantity">1234</h2>
+            <h2 class="information__quantity"><%=products.length%></h2>
             <h4 class="information__title">Cantidad de productos</h4>
           </div>
           <i class="fa-solid fa-boxes-stacked information__icon"></i>
         </div>
         <div class="card__resume">
           <div class="resume__information">
-            <h2 class="information__quantity">12</h2>
+            <h2 class="information__quantity"><%=categories.length%></h2>
             <h4 class="information__title">Categorias</h4>
           </div>
           <i class="fa-solid fa-tag information__icon"></i>
@@ -23,9 +23,9 @@
         <div class="card__resume">
           <div class="resume__information">
             <h2 class="information__quantity">12</h2>
-            <h4 class="information__title">Cantidad de ventas</h4>
+            <h4 class="information__title">En oferta</h4>
           </div>
-          <i class="fa-solid fa-cart-shopping information__icon"></i>
+          <i class="fa-solid fa-percent information__icon"></i>
         </div>
       </article>
 
@@ -37,10 +37,10 @@
       </article>
 
       <article class="product__form">
-        <form action="">
+        <form action="/admin/products/search" method="GET">
           <div class="input__group">
-            <input type="text" class="search__input" />
-            <button class="search__button">
+            <input type="text" class="search__input" name="keywords" />
+            <button type="submit" class="search__button">
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
           </div>
@@ -49,14 +49,20 @@
               <label for="category" class="form__label">Categoria</label>
               <select name="category" id="category" class="form__select">
                 <option value="">Seleccionar categoria</option>
+                <% categories.forEach(c => { %>
+                <option value="<%=c%>"><%=c%></option>
+                <% }) %>
               </select>
 
               <label for="order" class="form__label">Ordenar</label>
               <select name="order" id="order" class="form__select">
                 <option value="">Seleccionar orden</option>
+                <option value="id">por ID</option>
+                <option value="price">por precio</option>
+                <option value="name">por nombre</option>
               </select>
             </div>
-            <button class="header__button">
+            <button type="submit" class="header__button">
               <i class="fa-solid fa-filter"></i>Filtrar
             </button>
           </div>
@@ -83,12 +89,16 @@
           <td><%=products[i].name %></td>
           <td>$<%=products[i].price %></td>
           <td class="td__options">
-            <button class="table__buttons">
-              <i class="fa-solid fa-pen"></i>
-            </button>
-            <button class="table__buttons">
-              <i class="fa-solid fa-xmark"></i>
-            </button>
+            <a href="/admin/products/edit/<%=products[i].id%>">
+              <button class="table__buttons">
+                <i class="fa-solid fa-pen"></i>
+              </button>
+            </a>
+            <a href="/admin/products/delete/<%=products[i].id%>">
+              <button class="table__buttons">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </a>
           </td>
         </tr>
         <% } %>
