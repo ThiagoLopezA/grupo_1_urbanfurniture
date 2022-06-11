@@ -1,4 +1,4 @@
-const User = require("../models/User");
+const User = require("../database/models/User");
 
 // Middleware para que detecte si hay usurio logueado
 
