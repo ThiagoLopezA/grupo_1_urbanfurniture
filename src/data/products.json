@@ -44,10 +44,11 @@
     "color1": "#000000",
     "color2": "#000000",
     "color3": "#000000",
-    "price": 10000,
+    "price": "10.000",
     "image": "product-1651106188511.png",
     "id": 5,
-    "rating": "5"
+    "rating": "5",
+    "finalPrice": "NaN"
   },
   {
     "id": 6,
@@ -94,9 +95,10 @@
     "color1": "#000000",
     "color2": "#000000",
     "color3": "#000000",
-    "price": 10000,
+    "price": "10.000",
     "image": "product-1651106188511.png",
     "id": 9,
-    "rating": "5"
+    "rating": "5",
+    "finalPrice": "NaN"
   }
 ]
