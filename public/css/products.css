@@ -4,46 +4,6 @@
   font-family: Roboto;
 }
 
-/*Table 
-.section__saludo{
-  background-color: #525865;
-  padding: 0 10%;
-}
-.left{
-  background-color: #03091C;
-}
-.section_table{
-  width: 100%;
-  border-radius: .2rem;
-  border:solid rgba(0, 0, 0, 30%) .2rem;
-}
-.container__left__p{
-  color: #FFFFFF;
-}
-.container__left__h4{
-  color: #FFFFFF;
-}
-.container_left{
-  padding: 1rem;
-  border-radius: .25rem;
-}
-.table {
-  table-layout: fixed;
-}
-.table__title{
-  
-  padding: 6px 0;
-}
-
-.container__left__hr{
-  background-color: #FFFFFF;
-  border: #FFFFFF 3px solid;
-  height: 2px;
-}
-
-css*/
-
-
 .item__img{
     padding: 0.2rem;
     width: 2rem;
@@ -151,4 +111,10 @@ position: absolute;
 .fa-arrow-left-long{
   margin-right: .5rem;
   margin-bottom: 1rem
+}
+.fa-minus, .fa-plus{
+  font-size: 0.6rem;
+}
+.fa-x{
+  color: #CF0000;
 }
