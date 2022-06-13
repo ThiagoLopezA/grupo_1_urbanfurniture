@@ -3,13 +3,152 @@
 * {
   font-family: Roboto;
 }
-/*Table css*/
+
+/*Table 
+.section__saludo{
+  background-color: #525865;
+  padding: 0 10%;
+}
+.left{
+  background-color: #03091C;
+}
+.section_table{
+  width: 100%;
+  border-radius: .2rem;
+  border:solid rgba(0, 0, 0, 30%) .2rem;
+}
+.container__left__p{
+  color: #FFFFFF;
+}
+.container__left__h4{
+  color: #FFFFFF;
+}
+.container_left{
+  padding: 1rem;
+  border-radius: .25rem;
+}
+.table {
+  table-layout: fixed;
+}
+.table__title{
+  
+  padding: 6px 0;
+}
+
+.container__left__hr{
+  background-color: #FFFFFF;
+  border: #FFFFFF 3px solid;
+  height: 2px;
+}
+
+css*/
+
+
 .item__img{
     padding: 0.2rem;
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 2rem;
+    height: 2rem;
     object-fit: fit;
     background-color: rgba(0, 0, 0, 10%);
     border-radius: .2rem;
     margin: .5rem;
+}
+.main__carrito{
+  padding: 0 10%
+}
+.section__carrito{
+ background-color: #FFFFFF;
+ border-radius: .2rem;
+}
+tr th:nth-child(2), tr td:nth-child(2) { display: none }
+.table__body{
+  width: 100%;
+}
+tr th:nth-child(1), tr td:nth-child(1) { width: 2.4rem; }
+tr th:nth-child(6), tr td:nth-child(6) { text-align: center; }
+.table__title{
+  padding: .5rem;
+  font-size: 0.85rem;
+  color: #909090;
+  font-weight: 400;
+}
+.table__item{
+  padding: 0 .5rem;
+  font-size: 0.85rem;
+  position: relative;
+}
+.table__row{
+  padding: 1rem;
+  width: 100%;
+}
+
+/*Cantidad*/
+.item__button--decrease, .item__button--increase{
+background-color: transparent;
+border: none;
+position: absolute;
+}
+.item__button--decrease{
+  left: .8rem;
+  top: 1rem;
+}
+.item__button--increase{
+  right: .8rem;
+  top: 1rem;
+}
+.item__input{
+  width: 100%;
+  border: 1px solid #999999;
+  border-radius: .2rem;
+  text-align: center;
+}
+/*Seccion pagos*/
+.prepago{
+  background-color: #03091C;
+  color: #ECECEC;
+  padding: 1rem;
+  border-radius: .4rem;
+  margin-top: 1rem;
+}
+
+.contact__detail{
+  background-color: #03091C;
+  color: #ECECEC;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: .4rem;
+  margin-bottom: 1rem;
+}
+
+.prepago__h4{
+  font-size: 1rem;
+}
+
+.prepago__p{
+  font-size: .8rem;
+  font-weight: 200;
+}
+.linea{
+  width: 50%;
+  height: 1px;
+  background-color: #FFFFFF;
+  margin-bottom: 1rem;
+}
+.prepago__button{
+  background-color: #E3E3E3;
+  padding: .4rem .2rem ;
+  border-radius: .3rem;
+  width: 100%;
+  font-size: .8rem;
+  font-weight: 400
+}
+.fa-phone{
+  margin-right: .5rem;
+}
+.redirect{
+  color: #03091C;
+}
+.fa-arrow-left-long{
+  margin-right: .5rem;
+  margin-bottom: 1rem
 }
