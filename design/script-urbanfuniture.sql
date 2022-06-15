@@ -14,10 +14,10 @@ USE `urbanfurniture` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `urbanfurniture`.`users` (
   `idusers` INT NOT NULL AUTO_INCREMENT,
-  `firts_name` VARCHAR(45) NULL,
+  `first_name` VARCHAR(45) NULL,
   `last_name` VARCHAR(45) NULL,
   `email` VARCHAR(45) NULL,
-  `password` VARCHAR(45) NULL,
+  `password` VARCHAR(100) NULL,
   `access` TINYINT(2) NULL,
   `phone` VARCHAR(25) NULL,
   `dni` VARCHAR(15) NULL,

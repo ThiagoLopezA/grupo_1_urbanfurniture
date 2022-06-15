@@ -9,16 +9,16 @@
         <article class="article__image-section">
           <img
             class="image-section__image"
-            src="/img/products/<%=product.image%>"
+            src="/public/img/products/<%=product.image%>"
             alt=""
           />
         </article>
         <article class="article__detail">
           <h2 class="detail__title"><%= product.name %></h2>
           <a
-            href="/product/category/<%= product.category %>"
+            href="/product/category/<%=product.dataValues.categories_idcategories%>"
             class="detail__category"
-            ><%= product.category %></a
+            ><%= product.categories.dataValues.nombre%></a
           >
           <p class="detail__description"><%= product.description %></p>
           <div class="detail__bottom">
@@ -28,7 +28,7 @@
             <% if (product.discount > 0 ) { %>
             <h4 class="detail__price--original">$<%= product.price %></h4>
             <h3 class="detail__price">
-              $<%= product.finalPrice %>
+              $<%= product.dataValues.finalPrice %>
               <span class="detail__discount">%<%= product.discount %></span>
             </h3>
             <%} else {%>

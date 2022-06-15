@@ -21,9 +21,7 @@ app.use(
 );
 
 // <-- Definiendo la carpeta estatica -->
-app.use("/css", express.static(path.join(__dirname, "../public/css")));
-app.use("/img", express.static(path.join(__dirname, "../public/img")));
-app.use("/js", express.static(path.join(__dirname, "../public/js")));
+app.use("/public", express.static(path.join(__dirname, "../public")));
 
 // <-- Levantando el Servidor -->
 app.listen(3030, () =>

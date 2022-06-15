@@ -10,9 +10,12 @@
           <h2><%=filtro%></h2>
           <h4>(<%=data.length%> Resultados)</h4>
           <h5 class="category__subtitle">categorias</h5>
-          <% for(let prop in categories){ %>
-          <a href="/product/category/<%=prop%>"
-            ><p class="category__item"><%=prop%> (<%=categories[prop]%>)</p></a
+          <% for(let prop of categories){ %>
+          <a href="/product/category/<%=prop.categories_idcategories%>">
+            <p class="category__item">
+              <%=prop.dataValues.categories.dataValues.nombre%>
+              (<%=prop.dataValues.count_cats%>)
+            </p></a
           >
           <% } %>
         </div>

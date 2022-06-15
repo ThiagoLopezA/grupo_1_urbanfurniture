@@ -354,7 +354,71 @@ section .class-area {
 .form__button--delete:hover{
   background-color: rgba(177, 17, 17, 10%);
 }
+
+/*Delete confirm view*/
+.article__delete{
+  width: 90%;
+  background-color: white;
+  position: relative;
+  padding: 2rem 1rem;
+  border-radius: .25rem;
+}
+.article__delete form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.delete__image{
+  width: 4rem;
+  height: 4rem;
+  object-fit: contain;
+}
+.delete__title{
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.delete__product{
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.delete__description{
+  color: #999999;
+}
+.delete__buttons{
+  display: flex;
+  width: 100%;
+  justify-content:flex-end;
+}
+.delete__button, .cancel__button{
+  border-radius: .25rem;
+  padding: .3rem .8rem;
+  margin-left: 1rem;
+  border: none;
+  transition:500ms;
+  font-size: .9rem;
+  font-weight: 600;
+}
+.delete__button{
+  background-color: #b71d1d;
+  color: white;
+}
+.delete__button:hover{
+  background-color: #821212;
+}
+.cancel__button{
+  background-color: transparent;
+}
+.cancel__button:hover{
+  background-color: rgba(0, 0, 0, 5%);
+}
+
 @media (min-width: 769px) {
+  .article__delete{
+    width: 30rem;
+  }
   .product__area {
     flex-direction: row;
     justify-content: center;

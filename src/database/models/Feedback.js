@@ -16,21 +16,21 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
     },
     products_idproducts: {
-        type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
     },
   };
   let config = {
     tableName: "feedbacks",
-    timestamps: false
+    timestamps: false,
   };
   const Feedback = sequelize.define(alias, cols, config);
 
-  Feedback.associate = (models) => {
-    Feedback.belongTo(models.Product, {
-        as: "products",
-        foreignKey: "products_idproducts"
+  Feedback.associate = models => {
+    Feedback.belongsTo(models.Product, {
+      as: "products",
+      foreignKey: "products_idproducts",
     });
-  }
+  };
 
   return Feedback;
 };

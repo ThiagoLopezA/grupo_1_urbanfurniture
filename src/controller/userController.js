@@ -1,21 +1,16 @@
 const fs = require("fs");
 const path = require("path");
-const userFilePath = path.join(__dirname, "../data/user.json");
 const { validationResult } = require("express-validator");
-const User = require("../database/models/User");
+const db = require("../database/models");
 const bcryptjs = require("bcryptjs");
 
 const userController = {
-  getdatos: () => {
-    return JSON.parse(fs.readFileSync(userFilePath, "utf-8"));
-  },
   login: (req, res) => {
     return res.render("users/login");
   },
   loginProcess: (req, res) => {
     // Traigo los posibles errores
     const resultValidation = validationResult(req);
-
     // Si hay errores, envío la vista de login con los mensajes de error
     if (resultValidation.errors.length > 0) {
       return res.render("users/login", {
@@ -24,46 +19,49 @@ const userController = {
       });
     }
     // Si el usuario está en la DB lo guardo, sino guarda undefined. Chequeo por el email
-    let userToLogin = User.findByField("email", req.body.email);
-
-    if (userToLogin) {
-      // entra al if sólo si pudo guardar un usuario
-      let isOkThePassword = bcryptjs.compareSync(
-        req.body.password,
-        userToLogin.password
-      );
-      if (isOkThePassword) {
-        delete userToLogin.password; // elimino la propiedad password de la session por seguridad
-        req.session.userLogged = userToLogin; // el usuario de la session es el usuario que se logueó
-
-        //  Configuro la cookie y la valido si esta tildado el checkbox
-        if (req.body.remember_user == "on") {
-          res.cookie("userEmail", req.session.userLogged.email, {
-            maxAge: 1000 * 60 * 20,
+    let userToLogin = db.User.findOne({
+      where: { email: req.body.email },
+    })
+      .then(user => {
+        if (user) {
+          // Compara contraseñas
+          let isOkThePassword = bcryptjs.compareSync(
+            req.body.password,
+            user.password
+          );
+          // Caso contraseña correcta
+          if (isOkThePassword) {
+            delete user.password; // elimino la propiedad password de la session por seguridad
+            req.session.userLogged = user; // el usuario de la session es el usuario que se logueó
+            if (req.body.remember_user == "on") {
+              //  Configuro la cookie y la valido si esta tildado el checkbox
+              res.cookie("userEmail", req.session.userLogged.email, {
+                maxAge: 1000 * 60 * 20,
+              });
+            }
+            return res.redirect("/");
+          } else {
+            return res.render("users/login", {
+              // ejecuta en caso de que la comparación de password dio false
+              errors: {
+                email: {
+                  msg: "Las credenciales son inválidas",
+                },
+              },
+            });
+          }
+        } else {
+          return res.render("users/login", {
+            // ejecuta si userToLogin == undefined
+            errors: {
+              email: {
+                msg: "El email ingresado no se encuentra registrado",
+              },
+            },
           });
         }
-
-        return res.redirect("/");
-      }
-
-      return res.render("users/login", {
-        // ejecuta en caso de que la comparación de password dio false
-        errors: {
-          email: {
-            msg: "Las credenciales son inválidas",
-          },
-        },
-      });
-    }
-
-    return res.render("users/login", {
-      // ejecuta si userToLogin == undefined
-      errors: {
-        email: {
-          msg: "El email ingresado no se encuentra registrado",
-        },
-      },
-    });
+      })
+      .catch(e => res.send(e));
   },
   register: (req, res) => {
     return res.render("users/register");
@@ -80,50 +78,49 @@ const userController = {
       });
     }
     // Verifico si el usuario ya está en la base de datos
-    let userInDB = User.findByField("email", req.body.email);
-
-    // Si encuentra que ya hay un usuario con ese email, envío msg de error
-    if (userInDB) {
-      return res.render("users/register", {
-        errors: {
-          email: {
-            msg: "Ya se encuentra registrado un usuario con este email",
-          },
-        },
-        oldData: req.body,
-      });
-    }
-    // Verifico que la password y el confirm coincidan
-    if (req.body.password !== req.body.password_confirm) {
-      return res.render("users/register", {
-        // errors: resultValidation.mapped(),
-        oldData: req.body,
-        errors: {
-          password: {
-            msg: "Las contraseñas no coinciden",
-          },
-        },
-      });
-    }
-
-    // Creo un nuevo usuario con los datos que llegan del body y hasheo el password
-    let userToCreate = {
-      ...req.body,
-      password: bcryptjs.hashSync(req.body.password, 10),
-      access: "0",
-      phone: "",
-      dni: "",
-      street: "",
-      street_number: "",
-      floor: "",
-      apartment: "",
-      province: "",
-      town: "",
-      CP: "",
-    };
-
-    User.create(userToCreate);
-    return res.redirect("login");
+    let userInDB = db.User.findOne({ where: { email: req.body.email } })
+      .then(user => {
+        if (user) {
+          // Si encuentra que ya hay un usuario con ese email, envío msg de error
+          res.render("users/register", {
+            errors: {
+              email: {
+                msg: "Ya se encuentra registrado un usuario con este email",
+              },
+            },
+            oldData: req.body,
+          });
+        } else if (req.body.password !== req.body.password_confirm) {
+          // Verifico que la password y el confirm coincidan
+          return res.render("users/register", {
+            oldData: req.body,
+            errors: {
+              password: {
+                msg: "Las contraseñas no coinciden",
+              },
+            },
+          });
+        } else {
+          // Creo un nuevo usuario con los datos que llegan del body y hasheo el password
+          let userToCreate = {
+            ...req.body,
+            password: bcryptjs.hashSync(req.body.password, 10),
+            access: "0",
+            phone: "",
+            dni: "",
+            street: "",
+            street_number: "",
+            floor: "",
+            apartment: "",
+            province: "",
+            town: "",
+            CP: "",
+          };
+          db.User.create(userToCreate);
+          return res.redirect("login");
+        }
+      })
+      .catch(e => res.send(e));
   },
   logout: (req, res) => {
     res.clearCookie("userEmail"); //para eliminar la cookies

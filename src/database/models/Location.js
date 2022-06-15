@@ -36,5 +36,12 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: false,
   };
   const Location = sequelize.define(alias, cols, config);
+
+  Location.associate = models => {
+    Location.belongsTo(models.User, {
+      as: "locations",
+      foreignKey: "users_idusers",
+    });
+  };
   return Location;
 };
