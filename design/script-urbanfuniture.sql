@@ -1,8 +1,3 @@
--- MySQL Workbench Forward Engineering
-
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
 -- Schema urbanfurniture
@@ -19,13 +14,13 @@ USE `urbanfurniture` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `urbanfurniture`.`users` (
   `idusers` INT NOT NULL AUTO_INCREMENT,
-  `firts_name` VARCHAR(45) NULL,
+  `first_name` VARCHAR(45) NULL,
   `last_name` VARCHAR(45) NULL,
   `email` VARCHAR(45) NULL,
-  `password` VARCHAR(45) NULL,
+  `password` VARCHAR(100) NULL,
   `access` TINYINT(2) NULL,
-  `phone` SMALLINT(20) NULL,
-  `dni` SMALLINT(20) NULL,
+  `phone` VARCHAR(25) NULL,
+  `dni` VARCHAR(15) NULL,
   PRIMARY KEY (`idusers`))
 ENGINE = InnoDB;
 
@@ -109,6 +104,45 @@ CREATE TABLE IF NOT EXISTS `urbanfurniture`.`feedbacks` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+
+/* Agregando categorias */
+INSERT INTO categories (nombre) VALUES ("Mesas");
+INSERT INTO categories (nombre) VALUES ("Sillones");
+INSERT INTO categories (nombre) VALUES ("Lamparas");
+INSERT INTO categories (nombre) VALUES ("Camas");
+/* Agregando productos */
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-1.png","10","12500", "Sillon anaranjado de un cuerpo.", "Sillon anaranjado", 2);
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-2.png", "0","18500", "Sillon moderno blanco con tapizado rojo.", "Sillon moderno blanco", 2);
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-3.png","10","12500", "Sillon anaranjado de un cuerpo.", "Sillon anaranjado", 2);
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-4.png","0", "8500", "Mesa redonda hecha de madera y hierro", "Mesa redonda",1);
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-5.png","5", "10000", "Sillon anaranjado de forma hexagonal", "Sillon hexa anaranjado",2);
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-6.png","0", "11500", "Sillon gris con patas de madera", "Sillon gris", 2);
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-7.png","25", "19500", "Sillon moderno rojo", "Sillon rojo", 2);
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-8.png","0", "10500", "Mesa de luz de madera", "Mesita de madera", 1);
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-9.png","15","8000","Mesa de madera", "Mesa de madera", 1);
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-10.png","0","25500","Escritorio negro de oficina", "Escritorio negro", 1);
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-11.png","35","12000","Mueble con cajones de madera", "Mueble de madera", 1);
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-12.png","5", "35000", "Juego de sillas y una mesa para la cocina", "Mesa y juego de sillas", 1);
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-13.png","0","12000","Sillon turquesa cuadrangular", "Sillon turquesa", 2);
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-14.png","10","22500","Cama de dos plazas", "Cama de dos plazas",4);
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-15.png","0","19250","Sillon de dos cuerpos anaranjado","Sillon naranja",2);
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-16.png","15","13250","Sillon azul", "Sillon azul", 2);
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-17.png","0","10250","Sillon azul", "Sillon azul", 2);
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-18.png","5","7850","Silla naranja", "Silla naranja",2);
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-19.png","0","18550","Sillon azul de 3 cuerpos","Sillon azul",2);
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-20.png","10","11000","Sillon azul", "Sillon azul",2);
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-21.png","0","15550","Mesa oscura", "Mesa oscura",1);
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-22.png","5","12550","Mesa oscura","Mesa oscura",1);
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-23.png","0","15550","Mesa oscura","Mesa oscura",1);
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-24.png","10","18575","Sillon gris","Sillon gris",2);
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-25.png","0","8550","Lampara de madera","Lampara de madera",3);
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-26.png","15","7500","Silla de madera","Silla de madera",2);
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-27.png","0","12500","Sillon con reposa piernas","Sillon",2);
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-28.png","5","9500","Mesa oscura","Mesa oscura",1);
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-29.png","0","25500","Mesa oscura con vidrio","Mesa con vidrio",1);
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-30.png","5","12550","Par de mesas de madera con superficie de vidrio","Par de mesas",1);
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-31.png","0","10500","Escritorio para oficina","Escritorio blanco",1);
+INSERT INTO products (image, discount, price, description, name, categories_idcategories) VALUES ("product-32.png","0","5500","Lampara moderna","Lampara moderna","3");
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

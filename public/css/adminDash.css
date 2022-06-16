@@ -56,7 +56,7 @@ a {
   align-items: center;
   justify-content: center;
   color: #303030;
-  padding:  .4rem;
+  padding: .6rem  .4rem;
   border-radius: 50%;
   width: 70%;
 }
@@ -88,7 +88,7 @@ a {
 
 /* Content area section */
 .section__content {
-  width: 100%;
+  width:85%;
   padding:  3% 5%;
   display: flex;
   flex-direction: column;
@@ -158,168 +158,6 @@ section .class-area {
   display: flex;
 }
 
-/*
-/* vista agregar producto
-.section{
-  width: 85%;
-  padding: 2rem;
-}
-.section__form{
-  display: flex;
-  flex-direction: column;
-}
-.form__label{
-  display: block;
-  font-size: 1.1rem;
-  margin: 1rem 0;
-  font-family: Roboto;
-  font-weight: 500;
-}
-.form__input{
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 20%);
-  padding: 0.4rem;
-  border: none;
-  border-radius: .2rem;
-  width: 100%;
-}
-.form__file{
-  visibility: hidden;
-  display: none;
-}
-.form__label--image img{
-  width: 4rem;
-  height: fit-content;
-}
-.form__label--image{
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 20%);
-  background-color: white;
-  padding: 1rem;
-  border-radius: .2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: .9rem;
-}
-.form__input--color{
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  width: 2rem;
-  height: 2rem;
-  border: none;
-  margin-right: 1rem;
-  border-radius: 2rem;
-}
-.form__input--color::-webkit-color-swatch{
-  border:none;
-  border-radius: .2rem;
-}
-.form__button{
-  margin-top: 2rem;
-  width: 100%;
-  padding: 0.4rem;
-  background-color: #03091c;
-  border: none;
-  color: white;
-  border-radius: .2rem;
-  cursor: pointer;
-}
-.form__button--delete{
-  background-color: transparent;
-  color: #03091c;
-  font-weight: 700;
-  transition: 500ms;
-}
-.form__button--delete:hover{
-  background-color: rgba(3, 9, 28, 5%);
-}
-*/
-/* vista modificar producto*/
-/* form busqueda */
-/*
-.form__search{
-  margin-top: 1rem;
-  width: 70vw;
-  position: relative;
-}
-.search__input{
-  width: 100%;
-  padding: 0.5rem;
-  border: none;
-  border-radius: .3rem;
-}
-.search__button{
-  background-color: transparent;
-  border: none;
-  position: absolute;
-  font-size: 1rem;
-  color: #707070;
-  right: 1rem;
-  top: 20%;
-}
-*/
-/* card
-.product__area{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.card{
-  width: 70vw;
-  background-color: white;
-  border-radius: 1rem;
-  padding: 1rem;
-  margin:1rem .8rem;
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
-  cursor: pointer;
-  text-align: center;
-}
-.card__container{
-  position: relative;
-  width: 100%;
-  height: 13rem;
-  border-radius: .5rem;
-  background-color: rgba(196, 196, 196,33%);
-  
-}
-.container__image{
-   position: absolute;
-   top:0;
-   left:0;
-   width: 100%;
-   height: 100%;
-   object-fit:contain
-}
-.info__price{
-  font-weight: 300;
-  font-family: Roboto;
-  text-decoration: line-through;
-  font-size: 0.9rem;
-  color: #666;
-  display: none;
-}
-.info__finalPrice{
-  font-family: Roboto;
-  font-weight: 300;
-  display: inline;
-  font-size: 1.5rem;
-}
-.info__discount{
-  color: #39d54a;
-  display: inline;
-  font-family: Roboto;
-  font-weight: 300;
-  font-size: 1rem;
-}
-.info__description {
-  font-size: 1rem;
-  color: #666;
-  opacity: 0;
-  margin-top: .5rem;
-  font-weight: 300;
-  font-family: Roboto;
-}
-*/
 .product__header{
   width: 100%;
   display: flex;
@@ -375,7 +213,6 @@ section .class-area {
 }
 .form__select{
   border-radius: 1rem;
-  width: 8rem;
   font-size: .9rem;
   border: 1px solid #ebebeb;
   padding: .2rem;
@@ -406,7 +243,182 @@ section .class-area {
 .fa-xmark{
   color: rgb(177, 17, 17);
 }
+.article__modal{
+  z-index: 3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0,0,0,35%);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.modal__body{
+  background-color: white;
+  width: 80vw;
+  border-radius: .5rem;
+  padding: 1rem;
+}
+.modal__header{
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+.form__input{
+  width: 100%;
+  padding: .3rem;
+  border: 1px solid #999999;
+  border-radius: .2rem;
+  margin-bottom: 1rem;
+}
+.form__button{
+  padding: .4rem;
+  color: white;
+  width: 100%;
+  border: none;
+  border-radius: .3rem;
+  background-color: #03091c;
+}
+.input__image{
+  position: absolute;
+  left: -100vw;
+}
+.image__upload{
+  width: 5rem;
+  height: 5rem;
+  object-fit: contain;
+}
+.form__label--image{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: .5rem;
+  border: 1px solid #999999;
+  margin-bottom: 1rem;
+  border-radius: .3rem;
+}
+
+/*--edit view--*/
+.article__editHeader{
+ width: 100%;
+ display: flex;
+ background-color: #03091c;
+ padding: 1rem;
+ border-radius: .5rem;
+ color: #f3f3f3;
+}
+.editHeader__icon{
+  border: 1px solid #f3f3f3;
+  border-radius: .3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .5rem 1.2rem;
+  margin-right: 1rem;
+}
+.editHeader__icon i{
+  font-size: 1.5rem;
+}
+.editHeader__title{
+  font-size: 1.2rem;
+  margin: 0;
+  font-family: Roboto;
+}
+.editHeader__subtitle{
+  font-size: 1rem;
+  font-family: Roboto;
+  margin: 0;
+}
+.input__field{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.article__formEdit{
+  width: 100%;
+  border-radius: .5rem;
+  margin-top: 1rem;
+  background-color: white;
+  padding: 1rem;
+}
+.form__button--delete{
+  margin-top: 1rem;
+  background-color: transparent;
+  border: 1px solid rgb(177, 17, 17);
+  color: rgb(177, 17, 17);
+  transition: 500ms;
+}
+.form__button--delete:hover{
+  background-color: rgba(177, 17, 17, 10%);
+}
+
+/*Delete confirm view*/
+.article__delete{
+  width: 90%;
+  background-color: white;
+  position: relative;
+  padding: 2rem 1rem;
+  border-radius: .25rem;
+}
+.article__delete form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.delete__image{
+  width: 4rem;
+  height: 4rem;
+  object-fit: contain;
+}
+.delete__title{
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.delete__product{
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.delete__description{
+  color: #999999;
+}
+.delete__buttons{
+  display: flex;
+  width: 100%;
+  justify-content:flex-end;
+}
+.delete__button, .cancel__button{
+  border-radius: .25rem;
+  padding: .3rem .8rem;
+  margin-left: 1rem;
+  border: none;
+  transition:500ms;
+  font-size: .9rem;
+  font-weight: 600;
+}
+.delete__button{
+  background-color: #b71d1d;
+  color: white;
+}
+.delete__button:hover{
+  background-color: #821212;
+}
+.cancel__button{
+  background-color: transparent;
+}
+.cancel__button:hover{
+  background-color: rgba(0, 0, 0, 5%);
+}
+
 @media (min-width: 769px) {
+  .article__delete{
+    width: 30rem;
+  }
   .product__area {
     flex-direction: row;
     justify-content: center;
@@ -429,6 +441,9 @@ section .class-area {
   }
 }
 @media(min-width: 900px){
+  .form__select{
+      width: 8rem;
+  }
   .section__navbar{
     width: 15rem;
     padding: 0 1rem;
@@ -473,6 +488,22 @@ section .class-area {
     width: 48%;
   }
   .table--wide{
+    width: 100%;
+  }
+  .form__group{
+    display: flex;
+    justify-content: space-between;
+  }
+  .form__group .form__input{
+    width: 49%;
+  }
+  .modal__body{
+    width: 50vw;
+  }
+  .form__group .input__field {
+    width: 48%;
+  }
+  .input__field .form__input{
     width: 100%;
   }
 }

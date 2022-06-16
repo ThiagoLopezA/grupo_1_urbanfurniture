@@ -31,9 +31,73 @@
 
       <article class="product__header">
         <h2 class="header__title">Productos</h2>
-        <button class="header__button">
+        <button class="header__button" id="addProduct">
           <i class="fa-solid fa-plus"></i>Agregar producto
         </button>
+      </article>
+
+      <article class="article__modal">
+        <div class="modal__body">
+          <div class="modal__header">
+            <i class="fa-solid fa-xmark close__icon"></i>
+          </div>
+          <form
+            action="/product"
+            class="modal__form"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <div class="form__group">
+              <input
+                type="text"
+                class="form__input"
+                name="name"
+                placeholder="Nombre del producto"
+              />
+              <input
+                type="number"
+                class="form__input"
+                name="price"
+                placeholder="Precio"
+              />
+            </div>
+            <div class="form__group">
+              <input
+                type="number"
+                class="form__input"
+                name="discount"
+                placeholder="Descuento"
+              />
+              <select name="categories_idcategories" id="" class="form__input">
+                <option value="">Elegir una categoria</option>
+                <% categories.forEach(cat => { %>
+                <option value="<%=cat.dataValues.idcategories%>">
+                  <%=cat.dataValues.nombre%>
+                </option>
+                <% }) %>
+              </select>
+            </div>
+            <div class="form__images">
+              <label for="image" class="form__label--image">
+                <img
+                  src="/public/img/icons/upload.png"
+                  alt="image"
+                  class="image__upload"
+                />
+                Haz click para cargar tu imagen
+              </label>
+              <input type="file" id="image" name="image" class="input__image" />
+            </div>
+            <textarea
+              name="description"
+              id=""
+              rows="10"
+              class="form__input"
+              placeholder="Descripción del producto"
+            ></textarea>
+            <button class="form__button">Agregar producto</button>
+          </form>
+        </div>
       </article>
 
       <article class="product__form">
@@ -46,18 +110,9 @@
           </div>
           <div class="form__filters">
             <div class="select__group">
-              <label for="category" class="form__label">Categoria</label>
-              <select name="category" id="category" class="form__select">
-                <option value="">Seleccionar categoria</option>
-                <% categories.forEach(c => { %>
-                <option value="<%=c%>"><%=c%></option>
-                <% }) %>
-              </select>
-
               <label for="order" class="form__label">Ordenar</label>
               <select name="order" id="order" class="form__select">
                 <option value="">Seleccionar orden</option>
-                <option value="id">por ID</option>
                 <option value="price">por precio</option>
                 <option value="name">por nombre</option>
               </select>
@@ -81,7 +136,7 @@
           <td><%= products[i].id %></td>
           <td>
             <img
-              src="/img/products/<%= products[i].image %>"
+              src="/public/img/products/<%= products[i].dataValues.image %>"
               alt=""
               class="table__image"
             />
@@ -89,12 +144,12 @@
           <td><%=products[i].name %></td>
           <td>$<%=products[i].price %></td>
           <td class="td__options">
-            <a href="/admin/products/edit/<%=products[i].id%>">
+            <a href="/product/edit/<%=products[i].dataValues.idproducts%>">
               <button class="table__buttons">
                 <i class="fa-solid fa-pen"></i>
               </button>
             </a>
-            <a href="/admin/products/delete/<%=products[i].id%>">
+            <a href="/product/delete/<%=products[i].dataValues.idproducts%>">
               <button class="table__buttons">
                 <i class="fa-solid fa-xmark"></i>
               </button>
@@ -104,5 +159,6 @@
         <% } %>
       </table>
     </section>
+    <script src="/public/js/adminProducts.js"></script>
   </body>
 </html>
