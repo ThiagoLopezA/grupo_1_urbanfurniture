@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include ('../partials/head.ejs', {route:'adminDash.css', main:'', title:
+  'Admin'}) %>
+  <body>
+    <%- include('../partials/navbar_dashboard.ejs') %>
+    <section class="section__content">
+      <article class="article__delete">
+        <form
+          action="/admin/users/delete/<%=user.dataValues.idusers%>?_method=DELETE"
+          method="POST"
+        >
+          <img
+            src="/public/img/icons/remove.png"
+            alt=""
+            class="delete__image"
+          />
+          <h2 class="delete__title">
+            Estas a punto de eliminar el usuario de:
+          </h2>
+          <h2 class="delete__product"><%=user.dataValues.first_name%></h2>
+
+          <p class="delete__description">
+            Esta acción es irreversible, ¿Estas seguro?
+          </p>
+          <div class="delete__buttons">
+            <a href="/admin/users">
+              <button type="button" class="cancel__button">Cancelar</button>
+            </a>
+            <button class="delete__button">Eliminar</button>
+          </div>
+        </form>
+      </article>
+    </section>
+  </body>
+</html>

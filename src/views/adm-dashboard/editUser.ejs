@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include ('../partials/head.ejs', {route:'adminDash.css', main:'', title:
+  'Admin'}) %>
+  <body>
+    <%- include('../partials/navbar_dashboard.ejs') %>
+    <section class="section__content">
+      <article class="article__editHeader">
+        <div class="editHeader__icon">
+          <i class="fa-solid fa-pen"></i>
+        </div>
+        <div class="editHeader__text">
+          <h2 class="editHeader__title">Estas modificando el usuario:</h2>
+          <p class="editHeader__subtitle"><%=user.dataValues.first_name%></p>
+        </div>
+      </article>
+      <article class="article__formEdit">
+        <form
+          action="/admin/users/edit/<%=user.dataValues.idusers%>?_method=PUT"
+          method="POST"
+        >
+          <div class="form__group">
+            <div class="input__field">
+              <label for="name">Nombre</label>
+              <input
+                type="text"
+                class="form__input"
+                name="first_name"
+                id="name"
+                value="<%= user.dataValues.first_name %>"
+              />
+            </div>
+            <div class="input__field">
+              <label for="price">Apellido</label>
+              <input
+                type="text"
+                class="form__input"
+                name="last__name"
+                value="<%=user.dataValues.last_name%>"
+              />
+            </div>
+          </div>
+          <label for="email">Email</label>
+          <input
+            type="text"
+            name="email"
+            value="<%= user.dataValues.email %>"
+            class="form__input"
+          />
+          <button class="form__button">Modificar</button>
+        </form>
+        <a href="/users/delete/<%=user.dataValues.idusers%>">
+          <button class="form__button form__button--delete">Eliminar</button>
+        </a>
+      </article>
+    </section>
+  </body>
+</html>

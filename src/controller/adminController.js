@@ -81,11 +81,35 @@ module.exports = {
     res.render("adm-dashboard/editProduct.ejs", { product, url: req.url });
   },
   users: (req, res) => {
-    res.render("adm-dashboard/users.ejs", { url: req.url });
+    db.User.findAll()
+      .then(users => {
+        res.render("adm-dashboard/users.ejs", { url: req.url, users });
+      })
+      .catch(e => console.log(e));
   },
-
-  modificarProducto: (req, res) => {
-    let database = products.getProducts();
-    res.render("adm-dashboard/modificarProducto.ejs", { data: database });
+  editUser: (req, res) => {
+    db.User.findOne({ where: { idusers: req.params.id } }).then(user => {
+      res.render("adm-dashboard/editUser.ejs", { url: req.url, user });
+    });
+  },
+  updateUser: (req, res) => {
+    db.User.update(req.body, { where: { idusers: req.params.id } })
+      .then(() => res.redirect("/admin/users"))
+      .catch(e => console.log(e));
+  },
+  confirmDeleteUser: (req, res) => {
+    db.User.findOne({
+      where: { idusers: req.params.id },
+      attributes: ["first_name", "idusers"],
+    }).then(user => {
+      res.render("./adm-dashboard/confirmDeleteUser", { url: req.url, user });
+    });
+  },
+  destroyUser: (req, res) => {
+    db.User.destroy({ where: { idusers: req.params.id } })
+      .then(() => {
+        res.redirect("/admin/users");
+      })
+      .catch(e => console.log(e));
   },
 };
