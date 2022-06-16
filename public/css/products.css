@@ -61,6 +61,7 @@ position: absolute;
   border: 1px solid #999999;
   border-radius: .2rem;
   text-align: center;
+  padding: .5rem;
 }
 /*Seccion pagos*/
 .prepago{
@@ -117,4 +118,20 @@ position: absolute;
 }
 .fa-x{
   color: #CF0000;
+}
+@media(min-width: 460px){
+  .main__carrito{
+    display: flex;
+    width: 100%;
+  }
+  .section__carrito{
+    width: 65%;
+    margin-right: 1rem;
+  }
+  tr th:nth-child(2), tr td:nth-child(2) { display:flex; align-items: center; }
+
+  .section__pago{
+    width: 30%;
+    margin-left: 2rem;
+  }
 }

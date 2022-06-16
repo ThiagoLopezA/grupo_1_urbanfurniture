@@ -45,7 +45,7 @@ const productController = {
         nombre: "Silla Ferragamo",
       },
     ];
-    res.render("product/productCart2", { data: productData });
+    res.render("product/productCart", { data: productData });
   },
   detail: (req, res) => {
     let data = productController.getProducts();

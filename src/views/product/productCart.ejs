@@ -1,100 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('../partials/head', {route:'productCart.css', main:'main.css',
-  title:'Carrito'})%>
-
-  <body>
+    <%- include('../partials/head', {route:'products.css', main:'main.css',
+    title:'Carrito'})%>
+<body>
     <%- include('../partials/navbar.ejs') %>
-    <div class="main-cart">
-      <!-- Seccion primer producto-->
-      <section class="product-wrapper">
-        <% data.forEach(product=>{ %>
-        <!-- Segundo articulo-->
+    <main class="main__carrito">
+        <section class="section__carrito">
+            <table class="table__body">
+                <thead>
+                    <tr class="table__row">
+                        <th class="table__title">Imagen</th>
+                        <th class="table__title">Detalle producto</th>
+                        <th class="table__title">Precio</th>
+                        <th class="table__title">Cantidad</th>
+                        <th class="table__title">Total</th>
+                        <th class="table__title">Remover</th>
+                    </tr>
+                </thead>
+                <tr class="table__row">
+                    <td class="table__item"><img src="/img/products/product-1.png" alt="" class="item__img"></td>
+                    <td class="table__item">Detalle producto</td>
+                    <td class="table__item">Precio</td>
+                    <td class="table__item input">
+                        <button class="item__button--decrease">
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+                        <input class="item__input" type="number" value="1" readonly>
+                        <button class="item__button--increase">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </td>
+                    <td class="table__item">Total</td>
+                    <td class="table__item"><a href="#"><i class="fa-solid fa-x"></i></a></td>
+                </tr>
+                <tr class="table__row">
+                    <td class="table__item"><img src="/img/products/product-2.png" alt="" class="item__img"></td>
+                    <td class="table__item">Detalle producto</td>
+                    <td class="table__item">Precio</td>
+                    <td class="table__item input">
+                        <button class="item__button--decrease">
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+                        <input class="item__input" type="number" value="1" readonly>
+                        <button class="item__button--increase">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </td>
+                    <td class="table__item">Total</td>
+                    <td class="table__item"><a href="#"><i class="fa-solid fa-x"></i></a></td>
+                </tr>
+                <tr class="table__row">
+                    <td class="table__item"><img src="/img/products/product-4.png" alt="" class="item__img"></td>
+                    <td class="table__item">Detalle producto</td>
+                    <td class="table__item">Precio</td>
+                    <td class="table__item input">
+                        <button class="item__button--decrease">
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+                        <input class="item__input" type="number" value="1" readonly>
+                        <button class="item__button--increase">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </td>
+                    <td class="table__item">Total</td>
+                    <td class="table__item"><a href="#"><i class="fa-solid fa-x"></i></a></td>
+                </tr>
+            </table>
+        </section>
+        <section class="section__pago">
+            <article class="prepago">
+                <h4 class="prepago__h4">Tu compra</h4>
+                <p class="prepago__p">Subtotal :</p>
+                <p class="prepago__p">Costo de envio :</p>
+                <div class="linea"></div>
+                <h4 class="prepago__h4">Total :</h4>
+                <button class="prepago__button">
+                    Seleccionar medio de pago
+                </button>
+            </article>
+            <article class="contact__detail">
+                <p class="prepago__p"><i class="fa-solid fa-phone"></i> Atención telefonica</p>
+                <p class="prepago__p">Llamanos de Lunes a Sabados de 10 a 20 hs al 11.4631.2022 </p>
+            </article>
+            <a class="redirect" href="/"><i class="fa-solid fa-arrow-left-long"></i> Continuar comprando</a>
+        </section>
 
-        <article class="product">
-          <div class="imagenes">
-            <img src="<%= product.src %>" />
-          </div>
-
-          <div class="description-cant">
-            <h3><%= product.nombre %></h3>
-            <p>Precio Unitario</p>
-            <select name="cantidad" id="cant">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-          </div>
-
-          <div class="description-price">
-            <p class="precio-anterior"><%= product.precioAnt%></p>
-            <div class="precio-descuento">
-              <p><%= product.precio %></p>
-              <% let descuento = parseInt(100 - (product.precio * 100 /
-              product.precioAnt)) %>
-              <p class="descuento"><%= descuento %>% OFF</p>
-            </div>
-            <div class="subtotal">
-              <p class="letra-subtotal">Subtotal</p>
-              <p class="total"><%= product.precio %></p>
-            </div>
-          </div>
-        </article>
-        <% }) %>
-      </section>
-
-      <!-- Seccion total-->
-      <section class="your-shop">
-        <!-- Seccion 1 -->
-        <div class="section-shop">
-          <h3>TU COMPRA</h3>
-          <div class="section-before-total">
-            <div class="detail-name">
-              <p>Subtotal</p>
-              <p>Costo de envio</p>
-            </div>
-            <div class="detail-price">
-              <p>$55.380</p>
-              <p>$0</p>
-            </div>
-          </div>
-
-          <div class="section-total">
-            <p class="word-total">TOTAL</p>
-            <p class="final">$55.380</p>
-          </div>
-          <div>
-            <p class="cp">Código Postal</p>
-            <div class="datos">
-              <form>
-                <input
-                  class="boton-postal"
-                  type="text"
-                  name="codigoPostal"
-                  placeholder="Ingresá tu código postal"
-                />
-              </form>
-            </div>
-            <form>
-              <button type="submit">COMENZAR COMPRA</button>
-            </form>
-            <p class="terminos-condiciones">
-              Al continuar con el proceso de compra usted está aceptando
-              automáticamente los términos y condiciones.
-            </p>
-          </div>
-        </div>
-        <!-- Seccion 2 -->
-        <div class="telephone-service">
-          <p class="atencion">Atención telefónica</p>
-          <p class="contacto-tel">
-            Llamanos de Lunes a Sábados de 10 a 20hs. al 11 4631 2022
-          </p>
-        </div>
-      </section>
-    </div>
+    </main>
     <%- include('../partials/footer.ejs') %>
-  </body>
+</body>
+<script src="/js/productQuantity.js"></script>
 </html>
