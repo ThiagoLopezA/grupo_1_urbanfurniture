@@ -11,12 +11,12 @@
       <div class="card__info">
         <% if(product.discount > 0) { %>
         <h3 class="info__price">$<%= product.price %></h3>
-        <h3 class="info__finalPrice">$<%= product.dataValues.finalPrice %></h3>
+        <h3 class="info__finalPrice">$<%= product.dataValues.finalPrice.toFixed(2) %></h3>
         <h3 class="info__discount"><%= product.discount %>% OFF</h3>
         <% } else { %>
-        <h3 class="info__finalPrice">$<%= product.price %></h3>
+        <h3 class="info__finalPrice">$<%=product.price.toFixed(2) %></h3>
         <% } %>
-        <p class="info__description"><%= product.description %></p>
+        <p class="info__description"><%= product.name %></p>
       </div>
     </article>
   </a>
