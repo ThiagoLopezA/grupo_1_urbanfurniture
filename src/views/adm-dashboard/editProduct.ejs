@@ -16,7 +16,7 @@
       </article>
       <article class="article__formEdit">
         <form
-          action="/product/update/<%=product.idproducts%>?_method=PUT"
+          action="/admin/products/update/<%=product.idproducts%>?_method=PUT"
           method="POST"
         >
           <div class="form__group">
@@ -81,7 +81,7 @@
           </div>
           <button class="form__button">Modificar</button>
         </form>
-        <a href="/product/delete/<%=product.idproducts%>" >
+        <a href="/admin/products/delete/<%=product.idproducts%>" >
           <button class="form__button form__button--delete">Eliminar</button>
         </a>
       </article>

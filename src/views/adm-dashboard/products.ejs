@@ -42,7 +42,7 @@
             <i class="fa-solid fa-xmark close__icon"></i>
           </div>
           <form
-            action="/product"
+            action="/admin/products"
             class="modal__form"
             method="POST"
             enctype="multipart/form-data"
@@ -144,12 +144,16 @@
           <td><%=products[i].name %></td>
           <td>$<%=products[i].price %></td>
           <td class="td__options">
-            <a href="/product/edit/<%=products[i].dataValues.idproducts%>">
+            <a
+              href="/admin/products/edit/<%=products[i].dataValues.idproducts%>"
+            >
               <button class="table__buttons">
                 <i class="fa-solid fa-pen"></i>
               </button>
             </a>
-            <a href="/product/delete/<%=products[i].dataValues.idproducts%>">
+            <a
+              href="/admin/products/delete/<%=products[i].dataValues.idproducts%>"
+            >
               <button class="table__buttons">
                 <i class="fa-solid fa-xmark"></i>
               </button>

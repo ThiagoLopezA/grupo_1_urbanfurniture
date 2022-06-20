@@ -75,10 +75,61 @@ module.exports = {
       });
     });
   },
-  editProducts: (req, res) => {
-    let database = products.getProducts();
-    let product = database.find(p => (p.id = req.params.id));
-    res.render("adm-dashboard/editProduct.ejs", { product, url: req.url });
+  createProduct: (req, res) => {
+    if (req.file != undefined) {
+      req.body.image = req.file.filename;
+    }
+    db.Product.create(req.body)
+      .then(() => res.redirect("/admin/products"))
+      .catch(e => console.log(e));
+  },
+  editProduct: (req, res) => {
+    db.Product.findOne({
+      where: { idproducts: req.params.id },
+      include: [{ association: "categories" }],
+      attributes: [
+        "idproducts",
+        "image",
+        "discount",
+        "price",
+        "description",
+        "name",
+        "categories_idcategories",
+      ],
+    }).then(product => {
+      db.Category.findAll().then(cats => {
+        res.render("adm-dashboard/editProduct", {
+          product,
+          url: req.url,
+          categories: cats,
+        });
+      });
+    });
+  },
+  updateProduct: (req, res) => {
+    if (req.file != undefined) {
+      req.body.image = req.file.filename;
+    } else {
+      delete req.body.image;
+    }
+    db.Product.update(req.body, { where: { idproducts: req.params.id } })
+      .then(() => res.redirect("/admin/products"))
+      .catch(e => console.log(e));
+  },
+  confirmDeleteProduct: (req, res) => {
+    db.Product.findOne({
+      where: { idproducts: req.params.id },
+      attributes: ["name", "idproducts"],
+    }).then(product => {
+      res.render("./adm-dashboard/confirmDelete", { url: req.url, product });
+    });
+  },
+  deleteProduct: (req, res) => {
+    db.Product.destroy({ where: { idproducts: req.params.id } })
+      .then(() => {
+        res.redirect("/admin/products");
+      })
+      .catch(e => console.log(e));
   },
   users: (req, res) => {
     db.User.findAll()
