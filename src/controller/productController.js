@@ -169,62 +169,62 @@ const productController = {
       });
     });
   },
-  create: (req, res) => {
-    if (req.file != undefined) {
-      req.body.image = req.file.filename;
-    }
-    db.Product.create(req.body)
-      .then(() => res.redirect("/admin/products"))
-      .catch(e => console.log(e));
-  },
-  edit: (req, res) => {
-    db.Product.findOne({
-      where: { idproducts: req.params.id },
-      include: [{ association: "categories" }],
-      attributes: [
-        "idproducts",
-        "image",
-        "discount",
-        "price",
-        "description",
-        "name",
-        "categories_idcategories",
-      ],
-    }).then(product => {
-      db.Category.findAll().then(cats => {
-        res.render("adm-dashboard/editProduct", {
-          product,
-          url: req.url,
-          categories: cats,
-        });
-      });
-    });
-  },
-  update: (req, res) => {
-    if (req.file != undefined) {
-      req.body.image = req.file.filename;
-    } else {
-      delete req.body.image;
-    }
-    db.Product.update(req.body, { where: { idproducts: req.params.id } })
-      .then(() => res.redirect("/admin/products"))
-      .catch(e => console.log(e));
-  },
-  confirmDelete: (req, res) => {
-    db.Product.findOne({
-      where: { idproducts: req.params.id },
-      attributes: ["name", "idproducts"],
-    }).then(product => {
-      res.render("./adm-dashboard/confirmDelete", { url: req.url, product });
-    });
-  },
-  delete: (req, res) => {
-    db.Product.destroy({ where: { idproducts: req.params.id } })
-      .then(() => {
-        res.redirect("/admin/products");
-      })
-      .catch(e => console.log(e));
-  },
+  // create: (req, res) => {
+  //   if (req.file != undefined) {
+  //     req.body.image = req.file.filename;
+  //   }
+  //   db.Product.create(req.body)
+  //     .then(() => res.redirect("/admin/products"))
+  //     .catch(e => console.log(e));
+  // },
+  // edit: (req, res) => {
+  //   db.Product.findOne({
+  //     where: { idproducts: req.params.id },
+  //     include: [{ association: "categories" }],
+  //     attributes: [
+  //       "idproducts",
+  //       "image",
+  //       "discount",
+  //       "price",
+  //       "description",
+  //       "name",
+  //       "categories_idcategories",
+  //     ],
+  //   }).then(product => {
+  //     db.Category.findAll().then(cats => {
+  //       res.render("adm-dashboard/editProduct", {
+  //         product,
+  //         url: req.url,
+  //         categories: cats,
+  //       });
+  //     });
+  //   });
+  // },
+  // update: (req, res) => {
+  //   if (req.file != undefined) {
+  //     req.body.image = req.file.filename;
+  //   } else {
+  //     delete req.body.image;
+  //   }
+  //   db.Product.update(req.body, { where: { idproducts: req.params.id } })
+  //     .then(() => res.redirect("/admin/products"))
+  //     .catch(e => console.log(e));
+  // },
+  // confirmDelete: (req, res) => {
+  //   db.Product.findOne({
+  //     where: { idproducts: req.params.id },
+  //     attributes: ["name", "idproducts"],
+  //   }).then(product => {
+  //     res.render("./adm-dashboard/confirmDelete", { url: req.url, product });
+  //   });
+  // },
+  // delete: (req, res) => {
+  //   db.Product.destroy({ where: { idproducts: req.params.id } })
+  //     .then(() => {
+  //       res.redirect("/admin/products");
+  //     })
+  //     .catch(e => console.log(e));
+  // },
 };
 
 module.exports = productController;
