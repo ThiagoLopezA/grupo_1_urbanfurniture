@@ -44,7 +44,7 @@
 - [ ] Hacer funcionar el rating y comentarios de usuario
 - [ ] Validación backend y frontend del registro
 
-:venezuela: :us: Ronald 
+:trollface: :dragon: Ronald 
 - [ ] Permitir que los usuarios puedan tener una foto de perfil
 - [ ] Validación backend y frontend del login
 
