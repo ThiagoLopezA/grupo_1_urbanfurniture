@@ -32,3 +32,24 @@
 - [x] Realizar daily 
 - [x] Realizar retro
 - [x] Script de estructura 
+
+**18/06/2022** :speech_balloon:
+
+:1st_place_medal: :shipit: Thiago
+- [x] Arreglar tarjetas visualmente
+- [x] Migración de rutas del CRUD de productos a admin
+- [ ] Rearmar la vista de contacto
+
+:atom: :electron: Joel 
+- [ ] Hacer funcionar el rating y comentarios de usuario
+- [ ] Validación backend y frontend del registro
+
+:venezuela: :us: Ronald 
+- [ ] Permitir que los usuarios puedan tener una foto de perfil
+- [ ] Validación backend y frontend del login
+
+:lady_beetle: :world_map: Erika 
+- [ ] Validación backend y frontend de crear productos
+- [x] Realizar daily 
+- [x] Realizar retro
+- [ ] Hacer funcionar el carrito (agregar y quitar productos)
