@@ -28,6 +28,8 @@
               placeholder="Email"
               value="<%= locals.oldData ? oldData.email : null %>"
             />
+            <p class="text-danger email"></p>
+            
             <% if (locals.errors && errors.email) { %>
             <div class="text-danger"><%= errors.email.msg %></div>
             <% } %>
@@ -44,6 +46,7 @@
               class="form__input <%= locals.errors && errors.password ? 'form__input--error' : null %>"
               placeholder="Contraseña"
             />
+            <p class="text-danger pass"></p>
             <% if (locals.errors && errors.password) { %>
             <div class="text-danger"><%= errors.password.msg %></div>
             <% } %>
@@ -68,4 +71,5 @@
 
     <%- include('../partials/footer.ejs') %>
   </body>
+    <script src="/public/js/loginValidation.js"></script>
 </html>
