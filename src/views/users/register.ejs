@@ -19,7 +19,7 @@
           <p class="header__text">Ingresa tus datos</p>
         </div>
         <form action="/users/register" method="POST">
-          <div class="input__container">
+          <div class="input__container first-name">
             <img src="/public/img/icons/user.png" alt="" class="input__image" />
             <input
               type="text"
@@ -27,12 +27,14 @@
               class="form__input <%= locals.errors && errors.first_name ? 'form__input--error' : null %>"
               placeholder="Nombre"
               value="<%= locals.oldData ? oldData.first_name : null %>"
+              id="firstName"
             />
+            <p class="text-danger"></p>
             <% if (locals.errors && errors.first_name) { %>
             <div class="text-danger"><%= errors.first_name.msg %></div>
             <% } %>
           </div>
-          <div class="input__container">
+          <div class="input__container last-name">
             <img src="/public/img/icons/user.png" alt="" class="input__image" />
             <input
               type="text"
@@ -40,12 +42,14 @@
               class="form__input <%= locals.errors && errors.last_name ? 'form__input--error' : null %>"
               placeholder="Apellido"
               value="<%= locals.oldData ? oldData.last_name : null %>"
+              id="lastName"
             />
+            <p class="text-danger"></p>
             <% if (locals.errors && errors.last_name) { %>
             <div class="text-danger"><%= errors.last_name.msg %></div>
             <% } %>
           </div>
-          <div class="input__container">
+          <div class="input__container email">
             <img src="/public/img/icons/user.png" alt="" class="input__image" />
             <input
               type="email"
@@ -53,12 +57,14 @@
               class="form__input <%= locals.errors && errors.email ? 'form__input--error' : null %>"
               placeholder="Email"
               value="<%= locals.oldData ? oldData.email : null %>"
+              id="email"
             />
+            <p class="text-danger"></p>
             <% if (locals.errors && errors.email) { %>
             <div class="text-danger"><%= errors.email.msg %></div>
             <% } %>
           </div>
-          <div class="input__container">
+          <div class="input__container password">
             <img
               src="/public/img/icons/password.png"
               alt=""
@@ -69,12 +75,14 @@
               name="password"
               class="form__input <%= locals.errors && errors.password ? 'form__input--error' : null %>"
               placeholder="Contraseña"
+              id="password"
             />
+            <p class="text-danger"></p>
             <% if (locals.errors && errors.password) { %>
             <div class="text-danger"><%= errors.password.msg %></div>
             <% } %>
           </div>
-          <div class="input__container">
+          <div class="input__container pass-confirm">
             <img
               src="/public/img/icons/password.png"
               alt=""
@@ -85,7 +93,9 @@
               name="password_confirm"
               class="form__input <%= locals.errors && errors.password_confirm ? 'form__input--error' : null %>"
               placeholder="Confirma tu contraseña"
+              id="passwordConfirm"
             />
+            <p class="text-danger"></p>
             <% if (locals.errors && errors.password_confirm) { %>
             <div class="text-danger"><%= errors.password_confirm.msg %></div>
             <% } %>
@@ -97,5 +107,6 @@
     <!-- Fin del Main-->
 
     <%- include('../partials/footer.ejs') %>
+    <script src="/public/js/registerValidation.js"></script>
   </body>
 </html>
