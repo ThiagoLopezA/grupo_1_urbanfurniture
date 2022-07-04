@@ -48,26 +48,32 @@
             enctype="multipart/form-data"
           >
             <div class="form__group">
-              <input
+              <input }
+                id="name"
                 type="text"
                 class="form__input"
                 name="name"
                 placeholder="Nombre del producto"
               />
+              <p class="text-danger name"></p>
               <input
+                id="price"
                 type="number"
                 class="form__input"
                 name="price"
                 placeholder="Precio"
               />
+              <p class="text-danger price"></p>
             </div>
             <div class="form__group">
               <input
+                id="discount"
                 type="number"
                 class="form__input"
                 name="discount"
                 placeholder="Descuento"
               />
+              <p class="text-danger discount"></p>
               <select name="categories_idcategories" id="" class="form__input">
                 <option value="">Elegir una categoria</option>
                 <% categories.forEach(cat => { %>
@@ -90,11 +96,12 @@
             </div>
             <textarea
               name="description"
-              id=""
+              id="description"
               rows="10"
               class="form__input"
               placeholder="Descripción del producto"
             ></textarea>
+            <p class="text-danger description"></p>
             <button class="form__button">Agregar producto</button>
           </form>
         </div>
@@ -164,5 +171,6 @@
       </table>
     </section>
     <script src="/public/js/adminProducts.js"></script>
+    <script src="/public/js/productValidation.js"></script>
   </body>
 </html>
