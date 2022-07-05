@@ -1,6 +1,6 @@
 window.addEventListener("load", function () {
   // Formulario
-  let registerForm = document.querySelector("form");
+  let registerForm = document.querySelector("#form");
 
   // Inputs
   let firstNameInput = document.querySelector("#firstName");
@@ -33,7 +33,7 @@ window.addEventListener("load", function () {
   );
 
   // Validaciones para el nombre
-  firstNameInput.addEventListener("focus", () => {
+  firstNameInput.addEventListener("blur", () => {
     if (firstNameInput.value == "") {
       erroresFirstName.innerHTML = campoIncompleto;
     }
@@ -49,7 +49,7 @@ window.addEventListener("load", function () {
   });
 
   // Validaciones para el apellido
-  lastNameInput.addEventListener("focus", () => {
+  lastNameInput.addEventListener("blur", () => {
     if (lastNameInput.value == "") {
       erroresLastName.innerHTML = campoIncompleto;
     }
@@ -65,7 +65,7 @@ window.addEventListener("load", function () {
   });
 
   // Validaciones para el email
-  emailInput.addEventListener("focus", () => {
+  emailInput.addEventListener("blur", () => {
     if (emailInput.value == "") {
       erroresEmail.innerHTML = campoIncompleto;
     }
@@ -82,7 +82,7 @@ window.addEventListener("load", function () {
   });
 
   // Validaciones para la contraseña
-  passwordInput.addEventListener("focus", () => {
+  passwordInput.addEventListener("blur", () => {
     if (passwordInput.value == "") {
       erroresPass.innerHTML = campoIncompleto;
     }
@@ -107,7 +107,7 @@ window.addEventListener("load", function () {
   });
 
   // Validaciones para la confirmación de la contraseña
-  passConfirmInput.addEventListener("focus", () => {
+  passConfirmInput.addEventListener("blur", () => {
     if (passConfirmInput.value == "") {
       erroresPassConfirm.innerHTML = campoIncompleto;
     }
@@ -129,7 +129,7 @@ window.addEventListener("load", function () {
 
   // Validaciones onSubmit
 
-  registerForm.addEventListener("submit", (event) => {
+  registerForm.addEventListener("submit", event => {
     event.preventDefault();
 
     let errores = {};

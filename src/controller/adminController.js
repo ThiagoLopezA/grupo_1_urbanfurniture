@@ -1,6 +1,7 @@
 const db = require("../database/models");
 const sequelize = require("sequelize");
 const Op = sequelize.Op;
+const { validationResult } = require("express-validator");
 
 function getOrder(params) {
   if (params.order) {
@@ -76,6 +77,10 @@ module.exports = {
     });
   },
   createProduct: (req, res) => {
+    const resultValidation = validationResult(req);
+    if (resultValidation.errors.length > 0) {
+      res.redirect("/admin/products");
+    }
     if (req.file != undefined) {
       req.body.image = req.file.filename;
     }
@@ -107,6 +112,10 @@ module.exports = {
     });
   },
   updateProduct: (req, res) => {
+    const resultValidation = validationResult(req);
+    if (resultValidation.errors.length > 0) {
+      res.redirect("/admin/products");
+    }
     if (req.file != undefined) {
       req.body.image = req.file.filename;
     } else {

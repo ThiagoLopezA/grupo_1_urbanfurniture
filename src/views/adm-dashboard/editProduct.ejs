@@ -30,7 +30,7 @@
                 id="name"
                 value="<%= product.name %>"
               />
-              <p class="text-danger name"></p>
+              <p class="text-danger--edit name"></p>
             </div>
             <div class="input__field">
               <label for="price">Precio</label>
@@ -41,7 +41,7 @@
                 name="price"
                 value="<%=product.price%>"
               />
-              <p class="text-danger price"></p>
+              <p class="text-danger--edit price"></p>
             </div>
           </div>
           <div class="form__group">
@@ -54,7 +54,7 @@
                 name="discount"
                 value="<%=product.discount%>"
               />
-              <p class="text-danger discount"></p>
+              <p class="text-danger--edit discount"></p>
             </div>
             <div class="input__field">
               <label for="category">Categoria</label>
@@ -66,7 +66,7 @@
                 </option>
                 <% }) %>
               </select>
-              <p class="text-danger categories"></p>
+              <p class="text-danger--edit categories"></p>
             </div>
           </div>
           <div class="form__images">
@@ -82,9 +82,10 @@
           </div>
           <div class="input__field">
             <label for="description">Descripción</label>
-            <textarea name="description" id="" rows="10" class="form__input">
+            <textarea name="description" id="description" rows="10" class="form__input">
 <%=product.description%></textarea
             >
+            <p class="text-danger--edit description"></p>
           </div>
           <button class="form__button">Modificar</button>
         </form>
@@ -94,5 +95,5 @@
       </article>
     </section>
   </body>
-  <script src="/public/js/editProductValidation.js"></script>
+  <script src="/public/js/productEditValidation.js"></script>
 </html>

@@ -49,41 +49,53 @@
             enctype="multipart/form-data"
           >
             <div class="form__group">
-              <input }
-                id="name"
-                type="text"
-                class="form__input"
-                name="name"
-                placeholder="Nombre del producto"
-              />
-              <p class="text-danger name"></p>
-              <input
-                id="price"
-                type="number"
-                class="form__input"
-                name="price"
-                placeholder="Precio"
-              />
-              <p class="text-danger price"></p>
+              <div class="group__input">
+                <input
+                  id="name"
+                  type="text"
+                  class="form__input"
+                  name="name"
+                  placeholder="Nombre del producto"
+                />
+                <p class="text-danger name"></p>
+              </div>
+              <div class="group__input">
+                <input
+                  id="price"
+                  type="number"
+                  class="form__input"
+                  name="price"
+                  placeholder="Precio"
+                />
+                <p class="text-danger price"></p>
+              </div>
             </div>
             <div class="form__group">
-              <input
-                id="discount"
-                type="number"
-                class="form__input"
-                name="discount"
-                placeholder="Descuento"
-              />
-              <p class="text-danger discount"></p>
-              <select name="categories_idcategories" id="categories" class="form__input">
-                <option value="">Elegir una categoria</option>
-                <% categories.forEach(cat => { %>
-                <option value="<%=cat.dataValues.idcategories%>">
-                  <%=cat.dataValues.nombre%>
-                </option>
-                <% }) %>
-              </select>
-              <p class="text-danger categories"></p>
+              <div class="group__input">
+                <input
+                  id="discount"
+                  type="number"
+                  class="form__input"
+                  name="discount"
+                  placeholder="Descuento"
+                />
+                <p class="text-danger discount"></p>
+              </div>
+              <div class="group__input">
+                <select
+                  name="categories_idcategories"
+                  id="categories"
+                  class="form__input"
+                >
+                  <option value="">Elegir una categoria</option>
+                  <% categories.forEach(cat => { %>
+                  <option value="<%=cat.dataValues.idcategories%>">
+                    <%=cat.dataValues.nombre%>
+                  </option>
+                  <% }) %>
+                </select>
+                <p class="text-danger categories"></p>
+              </div>
             </div>
             <div class="form__images">
               <label for="image" class="form__label--image">
@@ -173,6 +185,6 @@
       </table>
     </section>
     <script src="/public/js/adminProducts.js"></script>
-    <script src="/public/js/productValidation.js"></script>
+    <script src="/public/js/productCreationValidation.js"></script>
   </body>
 </html>

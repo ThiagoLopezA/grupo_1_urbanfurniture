@@ -40,39 +40,65 @@
           <div class="modal__header">
             <i class="fa-solid fa-xmark close__icon"></i>
           </div>
-          <form action="/users/register" class="modal__form" method="POST">
+          <form
+            action="/users/register"
+            id="form"
+            class="modal__form"
+            method="POST"
+          >
             <div class="form__group">
-              <input
-                type="text"
-                class="form__input"
-                name="first_name"
-                placeholder="Nombre del usuario"
-              />
-              <input
-                type="text"
-                class="form__input"
-                name="last_name"
-                placeholder="Apellido"
-              />
+              <div class="group__input first-name">
+                <input
+                  type="text"
+                  class="form__input"
+                  name="first_name"
+                  id="firstName"
+                  placeholder="Nombre del usuario"
+                />
+                <p class="text-danger"></p>
+              </div>
+              <div class="group__input last-name">
+                <input
+                  type="text"
+                  class="form__input"
+                  name="last_name"
+                  id="lastName"
+                  placeholder="Apellido"
+                />
+                <p class="text-danger"></p>
+              </div>
             </div>
-            <input
-              type="text"
-              name="email"
-              placeholder="Email"
-              class="form__input"
-            />
-            <input
-              type="password"
-              name="password"
-              placeholder="Contraseña"
-              class="form__input"
-            />
-            <input
-              type="password"
-              name="password_confirm"
-              placeholder="Confirmar contraseña"
-              class="form__input"
-            />
+            <div class="input__container email">
+              <input
+                type="text"
+                name="email"
+                id="email"
+                placeholder="Email"
+                class="form__input"
+              />
+              <p class="text-danger"></p>
+            </div>
+
+            <div class="input__container password">
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Contraseña"
+                class="form__input"
+              />
+              <p class="text-danger"></p>
+            </div>
+            <div class="input__container pass-confirm">
+              <input
+                type="password"
+                name="password_confirm"
+                id="passwordConfirm"
+                placeholder="Confirmar contraseña"
+                class="form__input"
+              />
+              <p class="text-danger"></p>
+            </div>
             <button class="form__button">Agregar usuario</button>
           </form>
         </div>
@@ -118,6 +144,7 @@
         <% }) %>
       </table>
     </section>
+    <script src="/public/js/registerValidation.js"></script>
   </body>
   <script src="/public/js/adminProducts.js"></script>
 </html>
