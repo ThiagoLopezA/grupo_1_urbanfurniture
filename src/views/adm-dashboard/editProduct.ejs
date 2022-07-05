@@ -16,6 +16,7 @@
       </article>
       <article class="article__formEdit">
         <form
+          id="formAgregar"
           action="/admin/products/update/<%=product.idproducts%>?_method=PUT"
           method="POST"
         >
@@ -29,30 +30,35 @@
                 id="name"
                 value="<%= product.name %>"
               />
+              <p class="text-danger name"></p>
             </div>
             <div class="input__field">
               <label for="price">Precio</label>
               <input
+                id="price"
                 type="number"
                 class="form__input"
                 name="price"
                 value="<%=product.price%>"
               />
+              <p class="text-danger price"></p>
             </div>
           </div>
           <div class="form__group">
             <div class="input__field">
               <label for="discount">Descuento</label>
               <input
+                id="discount"
                 type="number"
                 class="form__input"
                 name="discount"
                 value="<%=product.discount%>"
               />
+              <p class="text-danger discount"></p>
             </div>
             <div class="input__field">
               <label for="category">Categoria</label>
-              <select name="categories_idcategories" id="" class="form__input">
+              <select name="categories_idcategories" id="categories" class="form__input">
                 <option value="">Elegir una categoria</option>
                 <% categories.forEach(cat => { %>
                 <option value="<%=cat.dataValues.idcategories%>" <%= cat.dataValues.nombre == product.dataValues.categories.dataValues.nombre ? "selected" : null %>>
@@ -60,6 +66,7 @@
                 </option>
                 <% }) %>
               </select>
+              <p class="text-danger categories"></p>
             </div>
           </div>
           <div class="form__images">
@@ -87,4 +94,5 @@
       </article>
     </section>
   </body>
+  <script src="/public/js/editProductValidation.js"></script>
 </html>

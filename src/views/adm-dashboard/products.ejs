@@ -42,6 +42,7 @@
             <i class="fa-solid fa-xmark close__icon"></i>
           </div>
           <form
+            id="formAgregar"
             action="/admin/products"
             class="modal__form"
             method="POST"
@@ -74,7 +75,7 @@
                 placeholder="Descuento"
               />
               <p class="text-danger discount"></p>
-              <select name="categories_idcategories" id="" class="form__input">
+              <select name="categories_idcategories" id="categories" class="form__input">
                 <option value="">Elegir una categoria</option>
                 <% categories.forEach(cat => { %>
                 <option value="<%=cat.dataValues.idcategories%>">
@@ -82,6 +83,7 @@
                 </option>
                 <% }) %>
               </select>
+              <p class="text-danger categories"></p>
             </div>
             <div class="form__images">
               <label for="image" class="form__label--image">
