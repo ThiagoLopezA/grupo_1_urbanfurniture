@@ -44,7 +44,43 @@ module.exports = {
       });
     }
   },
-  getProductById: (req, res) => {},
+  getProductById:async (req, res) => {
+    try{
+      let product = await db.Product.findOne({
+        attributes: [
+          "idproducts",
+          "image",
+          "discount",
+          "price",
+          "description",
+          "name",
+          "rating",
+          "categories_idcategories",
+          [sequelize.literal("price-discount*100/price"), "finalPrice"],
+        ],
+        where: { idproducts: req.params.id },
+        include: [{ association: "categories" }],
+      })
+
+        res.status(200).json({
+          status: 200,
+          name: product.name,
+          price: product.price,
+          discount: product.discount,
+          description: product.description,
+          image: product.image,
+          category: product.categories.nombre
+         
+        })
+      
+    }catch (e){
+      res.status(500).json({
+        status: 500,
+        message: "Ocurrio un error:",
+        error: e,
+      });
+    }
+  },
   createProduct: async (req, res) => {
     try {
       let fields = [
@@ -82,7 +118,23 @@ module.exports = {
       });
     }
   },
-  updateProduct: (req, res) => {},
+  updateProduct: async (req, res) => {
+    try {
+      await db.Product.update(req.body, { where: { idproducts: req.params.id } })
+      res.status(200).json({
+        status: 200,
+        message: "Se actualizo exitosamente!",
+      });
+
+    } catch (e){
+      res.status(500).json({
+        status: 500,
+        message: "Ocurrio un error:",
+        error: e,
+      });
+    }
+    
+  },
   deleteProduct: async (req, res) => {
     try {
       await db.Product.destroy({ where: { idproducts: req.params.id } });
