@@ -27,3 +27,11 @@ Dejar de hacer: Que nos vean debiles.
 **_-Continuar haciendo:_** Seguir con el mismo compromiso, dedicación y ganas.  
 **_-Hacer menos:_** No podemos hacer menos.  
 **_-Dejar de hacer:_** Nada, estamos bien.
+
+### _Entregable 7_ :trophy:
+
+**_-Comenzar a hacer:_** Mas daily semanalmente. :1st_place_medal:  
+**_-Hacer más:_** Mas estudio.  
+**_-Continuar haciendo:_** Misma responsabilidad.  
+**_-Hacer menos:_** No podemos hacer menos.  
+**_-Dejar de hacer:_** Nada, estamos bien.
