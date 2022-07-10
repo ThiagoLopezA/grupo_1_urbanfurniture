@@ -1,0 +1,30 @@
+:root{
+    --primary:#03091c;
+}
+
+.card-body-urban{
+    background-color: var(--primary);
+    color: white;
+}
+.sidebar{
+    background-color: var(--primary);
+    color: white;
+}
+.section__logo{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    text-align: center;
+  }
+  .logo__top, .logo__bottom{
+    margin: 0;
+    display: inline;
+  }
+  .logo__top{
+    font-size: 1.4rem;
+    font-weight: 800;
+  }
+  .logo__bottom{
+    font-size: .9rem;
+  }
