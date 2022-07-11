@@ -1,30 +1,16 @@
-const db = require("../database/models");
-const sequelize = db.sequelize;
+const fetch = require("node-fetch");
+const { APIURL } = require("../config");
 
-const otherController = {
+module.exports = {
   main: (req, res) => {
-    db.Product.findAll({
-      limit: 4,
-      include: [{ association: "categories" }],
-      attributes: [
-        "idproducts",
-        "image",
-        "discount",
-        "price",
-        "description",
-        "name",
-        "rating",
-        [sequelize.literal("price-discount*100/price"), "finalPrice"],
-      ],
-    })
-      .then(data => {
-        res.render("others/main", { data });
-      })
-      .catch(e => res.send(e));
+    fetch(`${APIURL}/products/4`)
+      .then(response => response.json())
+      .then(products =>
+        res.render("others/main", { products: products.products })
+      )
+      .catch(error => console.log(error));
   },
   contact: (req, res) => {
     res.render("others/contact");
   },
 };
-
-module.exports = otherController;

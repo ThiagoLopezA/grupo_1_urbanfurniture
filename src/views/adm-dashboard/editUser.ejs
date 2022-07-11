@@ -11,12 +11,12 @@
         </div>
         <div class="editHeader__text">
           <h2 class="editHeader__title">Estas modificando el usuario:</h2>
-          <p class="editHeader__subtitle"><%=user.dataValues.first_name%></p>
+          <p class="editHeader__subtitle"><%=user.first_name%></p>
         </div>
       </article>
       <article class="article__formEdit">
         <form
-          action="/admin/users/edit/<%=user.dataValues.idusers%>?_method=PUT"
+          action="/admin/users/edit/<%=user.idusers%>?_method=PUT"
           method="POST"
         >
           <div class="form__group">
@@ -27,7 +27,7 @@
                 class="form__input"
                 name="first_name"
                 id="name"
-                value="<%= user.dataValues.first_name %>"
+                value="<%= user.first_name %>"
               />
             </div>
             <div class="input__field">
@@ -36,7 +36,7 @@
                 type="text"
                 class="form__input"
                 name="last__name"
-                value="<%=user.dataValues.last_name%>"
+                value="<%=user.last_name%>"
               />
             </div>
           </div>
@@ -44,12 +44,12 @@
           <input
             type="text"
             name="email"
-            value="<%= user.dataValues.email %>"
+            value="<%= user.email %>"
             class="form__input"
           />
           <button class="form__button">Modificar</button>
         </form>
-        <a href="/users/delete/<%=user.dataValues.idusers%>">
+        <a href="/users/delete/<%=user.idusers%>">
           <button class="form__button form__button--delete">Eliminar</button>
         </a>
       </article>

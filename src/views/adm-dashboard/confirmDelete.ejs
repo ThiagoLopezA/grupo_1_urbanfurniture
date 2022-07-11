@@ -7,7 +7,7 @@
     <section class="section__content">
       <article class="article__delete">
         <form
-          action="/admin/products/delete/<%=product.dataValues.idproducts%>?_method=DELETE"
+          action="/admin/products/delete/<%=product.id%>?_method=DELETE"
           method="POST"
         >
           <img
@@ -16,14 +16,14 @@
             class="delete__image"
           />
           <h2 class="delete__title">Estas a punto de eliminar:</h2>
-          <h2 class="delete__product"><%=product.dataValues.name%></h2>
+          <h2 class="delete__product"><%=product.name%></h2>
 
           <p class="delete__description">
             Esta acción es irreversible, ¿Estas seguro?
           </p>
           <div class="delete__buttons">
             <a href="/admin/products">
-              <button class="cancel__button">Cancelar</button>
+              <button class="cancel__button" type="button">Cancelar</button>
             </a>
             <button class="delete__button">Eliminar</button>
           </div>

@@ -5,7 +5,6 @@ window.addEventListener("load", () => {
 
   btnModal.addEventListener("click", () => {
     modal.style.display = "flex";
-    console.log("click");
   });
 
   window.addEventListener("click", e => {

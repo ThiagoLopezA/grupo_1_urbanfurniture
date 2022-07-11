@@ -7,7 +7,7 @@
     <section class="section__content">
       <article class="article__delete">
         <form
-          action="/admin/users/delete/<%=user.dataValues.idusers%>?_method=DELETE"
+          action="/admin/users/delete/<%=user.idusers%>?_method=DELETE"
           method="POST"
         >
           <img
@@ -18,7 +18,7 @@
           <h2 class="delete__title">
             Estas a punto de eliminar el usuario de:
           </h2>
-          <h2 class="delete__product"><%=user.dataValues.first_name%></h2>
+          <h2 class="delete__product"><%=user.first_name%></h2>
 
           <p class="delete__description">
             Esta acción es irreversible, ¿Estas seguro?

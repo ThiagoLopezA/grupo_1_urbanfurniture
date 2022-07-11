@@ -1,5 +1,7 @@
 const db = require("../database/models");
 const sequelize = require("sequelize");
+const Op = sequelize.Op;
+
 module.exports = {
   getProducts: async (req, res) => {
     try {
@@ -16,19 +18,15 @@ module.exports = {
           "categories_idcategories",
           [sequelize.literal("price-discount*100/price"), "finalPrice"],
         ],
+        limit: req.params.limit ? parseInt(req.params.limit) : null,
       });
-      let categories = await db.Product.findAll({
-        include: [{ association: "categories" }],
-        group: ["categories_idcategories"],
-        attributes: [
-          "categories_idcategories",
-          [
-            sequelize.fn("count", sequelize.col("categories_idcategories")),
-            "count_cats",
-          ],
-        ],
+      let categories = await db.Category.findAll({
+        include: [{ association: "products", as: "p" }],
+        attributes: ["idcategories", "nombre"],
       });
-
+      categories.forEach(category => {
+        category.dataValues.products = category.dataValues.products.length;
+      });
       res.status(200).json({
         status: 200,
         countProducts: products.length,
@@ -44,8 +42,48 @@ module.exports = {
       });
     }
   },
-  getProductById:async (req, res) => {
-    try{
+  getProductsOrdered: async (req, res) => {
+    try {
+      let products = await db.Product.findAll({
+        include: [{ association: "categories" }],
+        attributes: [
+          "idproducts",
+          "image",
+          "discount",
+          "price",
+          "description",
+          "name",
+          "rating",
+          "categories_idcategories",
+          [sequelize.literal("price-discount*100/price"), "finalPrice"],
+        ],
+        limit: req.params.limit ? parseInt(req.params.limit) : null,
+        order: [[req.params.orderBy, req.params.order]],
+      });
+      let categories = await db.Category.findAll({
+        include: [{ association: "products", as: "p" }],
+        attributes: ["idcategories", "nombre"],
+      });
+      categories.forEach(category => {
+        category.dataValues.products = category.dataValues.products.length;
+      });
+      res.status(200).json({
+        status: 200,
+        countProducts: products.length,
+        countCategories: categories.length,
+        products,
+        categories,
+      });
+    } catch (e) {
+      res.status(500).json({
+        status: 500,
+        message: "Ocurrio un error:",
+        error: e,
+      });
+    }
+  },
+  getProductById: async (req, res) => {
+    try {
       let product = await db.Product.findOne({
         attributes: [
           "idproducts",
@@ -60,20 +98,108 @@ module.exports = {
         ],
         where: { idproducts: req.params.id },
         include: [{ association: "categories" }],
-      })
+      });
 
-        res.status(200).json({
-          status: 200,
-          name: product.name,
-          price: product.price,
-          discount: product.discount,
-          description: product.description,
-          image: product.image,
-          category: product.categories.nombre
-         
-        })
-      
-    }catch (e){
+      res.status(200).json({
+        status: 200,
+        id: product.idproducts,
+        name: product.name,
+        price: product.price,
+        discount: product.discount,
+        rating: product.rating ? product.rating : 0,
+        description: product.description,
+        image: product.image,
+        category: product.categories.nombre,
+        idcategory: product.categories.idcategories,
+      });
+    } catch (e) {
+      res.status(500).json({
+        status: 500,
+        message: "Ocurrio un error:",
+        error: e,
+      });
+    }
+  },
+  getProductsByCategory: async (req, res) => {
+    try {
+      let products = await db.Product.findAll({
+        attributes: [
+          "idproducts",
+          "image",
+          "discount",
+          "price",
+          "description",
+          "name",
+          "rating",
+          [sequelize.literal("price-discount*100/price"), "finalPrice"],
+        ],
+        include: [{ association: "categories" }],
+        where: { categories_idcategories: req.params.idCategory },
+        limit: req.params.limit ? parseInt(req.params.limit) : null,
+      });
+      let categories = await db.Category.findAll({
+        include: [{ association: "products" }],
+        attributes: ["idcategories", "nombre"],
+      });
+      categories.forEach(category => {
+        category.dataValues.products = category.dataValues.products.length;
+      });
+      res.status(200).json({
+        status: 200,
+        category: products[0].categories.nombre,
+        countProducts: products.length,
+        products: products,
+        categories,
+      });
+    } catch (e) {
+      res.status(500).json({
+        status: 500,
+        message: "Ocurrio un error:",
+        error: e,
+      });
+    }
+  },
+  searchProducts: async (req, res) => {
+    try {
+      let products = await db.Product.findAll({
+        include: [{ association: "categories" }],
+        attributes: [
+          "idproducts",
+          "image",
+          "discount",
+          "price",
+          "description",
+          "name",
+          "rating",
+          "categories_idcategories",
+          [sequelize.literal("price-discount*100/price"), "finalPrice"],
+        ],
+        limit: req.params.limit ? parseInt(req.params.limit) : null,
+        where: {
+          name: {
+            [Op.like]: "%" + req.params.keywords + "%",
+          },
+        },
+        order:
+          req.params.order && req.params.orderBy
+            ? [[req.params.orderBy, req.params.order]]
+            : null,
+      });
+      let categories = await db.Category.findAll({
+        include: [{ association: "products", as: "p" }],
+        attributes: ["idcategories", "nombre"],
+      });
+      categories.forEach(category => {
+        category.dataValues.products = category.dataValues.products.length;
+      });
+      res.status(200).json({
+        status: 200,
+        countProducts: products.length,
+        countCategories: categories.length,
+        products,
+        categories,
+      });
+    } catch (e) {
       res.status(500).json({
         status: 500,
         message: "Ocurrio un error:",
@@ -120,20 +246,20 @@ module.exports = {
   },
   updateProduct: async (req, res) => {
     try {
-      await db.Product.update(req.body, { where: { idproducts: req.params.id } })
+      await db.Product.update(req.body, {
+        where: { idproducts: req.params.id },
+      });
       res.status(200).json({
         status: 200,
         message: "Se actualizo exitosamente!",
       });
-
-    } catch (e){
+    } catch (e) {
       res.status(500).json({
         status: 500,
         message: "Ocurrio un error:",
         error: e,
       });
     }
-    
   },
   deleteProduct: async (req, res) => {
     try {
@@ -141,6 +267,23 @@ module.exports = {
       res.status(200).json({
         status: 200,
         message: "El producto se elimino correctamente",
+      });
+    } catch (e) {
+      res.status(500).json({
+        status: 500,
+        message: "Ocurrio un error:",
+        error: e,
+      });
+    }
+  },
+  getCategories: async (req, res) => {
+    try {
+      let categories = await db.Category.findAll({
+        attributes: ["idcategories", "nombre"],
+      });
+      res.status(200).json({
+        categories,
+        status: 200,
       });
     } catch (e) {
       res.status(500).json({

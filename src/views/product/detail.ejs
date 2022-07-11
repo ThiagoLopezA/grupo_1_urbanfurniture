@@ -16,9 +16,9 @@
         <article class="article__detail">
           <h2 class="detail__title"><%= product.name %></h2>
           <a
-            href="/product/category/<%=product.dataValues.categories_idcategories%>"
+            href="/product/category/<%=product.idcategory%>"
             class="detail__category"
-            ><%= product.categories.dataValues.nombre%></a
+            ><%= product.category %></a
           >
           <p class="detail__description"><%= product.description %></p>
           <div class="detail__bottom">
@@ -28,7 +28,7 @@
             <% if (product.discount > 0 ) { %>
             <h4 class="detail__price--original">$<%= product.price %></h4>
             <h3 class="detail__price">
-              $<%= product.dataValues.finalPrice %>
+              $<%= product.finalPrice %>
               <span class="detail__discount">%<%= product.discount %></span>
             </h3>
             <%} else {%>
@@ -40,9 +40,9 @@
       </section>
       <section class="section__suggestions">
         <h2 class="suggestions__title">Sugerencias basadas en este articulo</h2>
-        <div class="suggestions__products">
-          <%- include('../partials/product_list', {data: suggestions,
-          mode:'usuario'})%>
+        <div class="section__products">
+          <!-- product list -->
+          <%- include('../partials/product_list', {data:productsRelated}) %>
         </div>
       </section>
       <section class="section__comments"></section>

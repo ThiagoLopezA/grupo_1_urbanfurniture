@@ -17,7 +17,7 @@
       <article class="article__formEdit">
         <form
           id="formAgregar"
-          action="/admin/products/update/<%=product.idproducts%>?_method=PUT"
+          action="/admin/products/update/<%=product.id%>?_method=PUT"
           method="POST"
         >
           <div class="form__group">
@@ -60,9 +60,9 @@
               <label for="category">Categoria</label>
               <select name="categories_idcategories" id="categories" class="form__input">
                 <option value="">Elegir una categoria</option>
-                <% categories.forEach(cat => { %>
-                <option value="<%=cat.dataValues.idcategories%>" <%= cat.dataValues.nombre == product.dataValues.categories.dataValues.nombre ? "selected" : null %>>
-                  <%=cat.dataValues.nombre%>
+                <% categories.forEach(category => { %>
+                <option value="<%=category.idcategories%>" <%= category.nombre == product.category ? "selected" : null %>>
+                  <%=category.nombre%>
                 </option>
                 <% }) %>
               </select>
@@ -89,7 +89,7 @@
           </div>
           <button class="form__button">Modificar</button>
         </form>
-        <a href="/admin/products/delete/<%=product.idproducts%>" >
+        <a href="/admin/products/delete/<%=product.id%>" >
           <button class="form__button form__button--delete">Eliminar</button>
         </a>
       </article>

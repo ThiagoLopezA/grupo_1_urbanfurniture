@@ -124,17 +124,17 @@
         </tr>
         <% users.forEach(user => { %>
         <tr class="table__row">
-          <td><%=user.dataValues.idusers%></td>
-          <td><%=user.dataValues.first_name%></td>
-          <td><%=user.dataValues.last_name%></td>
+          <td><%=user.idusers%></td>
+          <td><%=user.first_name%></td>
+          <td><%=user.last_name%></td>
           <td><%=user.email%></td>
           <td class="td__options">
-            <a href="/admin/users/edit/<%=user.dataValues.idusers%>">
+            <a href="/admin/users/edit/<%=user.idusers%>">
               <button class="table__buttons">
                 <i class="fa-solid fa-pen"></i>
               </button>
             </a>
-            <a href="/admin/users/delete/<%=user.dataValues.idusers%>">
+            <a href="/admin/users/delete/<%=user.idusers%>">
               <button class="table__buttons">
                 <i class="fa-solid fa-xmark"></i>
               </button>

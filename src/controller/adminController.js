@@ -1,172 +1,188 @@
-const db = require("../database/models");
-const sequelize = require("sequelize");
-const Op = sequelize.Op;
 const { validationResult } = require("express-validator");
-
-function getOrder(params) {
-  if (params.order) {
-    return [[params.order, "ASC"]];
-  }
-}
+const fetch = require("node-fetch");
+const { APIURL } = require("../config");
 
 module.exports = {
-  index: (req, res) => {
-    db.Product.findAll({ order: [["idproducts", "DESC"]] })
-      .then(products => {
-        db.User.findAll({
-          attributes: [
-            [sequelize.fn("count", sequelize.col("idusers")), "count_users"],
-          ],
-        }).then(users => {
-          let url = req.url;
-          res.render("adm-dashboard/index", { url, products, users });
-        });
-      })
-      .catch(e => console.log(e));
-  },
-  products: (req, res) => {
-    db.Product.findAll({
-      attributes: [
-        "idproducts",
-        "image",
-        "discount",
-        "price",
-        "description",
-        "name",
-        "rating",
-        "categories_idcategories",
-        [sequelize.literal("price-discount*100/price"), "finalPrice"],
-      ],
-      include: [{ association: "categories" }],
-    }).then(products => {
-      db.Category.findAll().then(cats => {
-        res.render("adm-dashboard/products.ejs", {
-          url: req.url,
-          products: products,
-          categories: cats,
-        });
+  index: async (req, res) => {
+    try {
+      let products = await fetch(
+        `${APIURL}/products/order/idproducts/DESC/10`
+      ).then(response => response.json());
+      let users = await fetch(`${APIURL}/users`).then(response =>
+        response.json()
+      );
+      res.render("adm-dashboard/index", {
+        url: req.url,
+        products: products.products,
+        users: users.users.length,
       });
-    });
+    } catch (e) {
+      console.log(e);
+    }
   },
-  searchProducts: (req, res) => {
-    db.Product.findAll({
-      attributes: [
-        "idproducts",
-        "image",
-        "discount",
-        "price",
-        "name",
-        "categories_idcategories",
-        [sequelize.literal("price-discount*100/price"), "finalPrice"],
-      ],
-      where: {
-        name: {
-          [Op.like]: "%" + req.query.keywords + "%",
-        },
-      },
-      order: getOrder(req.query),
-      include: [{ association: "categories" }],
-    }).then(products => {
-      db.Category.findAll().then(cats => {
-        res.render("adm-dashboard/products.ejs", {
-          url: req.url,
-          products: products,
-          categories: cats,
-        });
+  products: async (req, res) => {
+    try {
+      let products = await fetch(
+        `${APIURL}/products/order/idproducts/DESC`
+      ).then(response => response.json());
+      let categories = await fetch(`${APIURL}/products/categories/list`).then(
+        response => response.json()
+      );
+      res.render("adm-dashboard/products.ejs", {
+        url: req.url,
+        products: products.products,
+        categories: categories.categories,
       });
-    });
+    } catch (e) {
+      console.log(e);
+    }
+  },
+  searchProducts: async (req, res) => {
+    try {
+      let url = "";
+      if (req.query.keywords != "") {
+        url =
+          req.query.order != ""
+            ? `${APIURL}/products/search/${req.query.keywords}/${req.query.order}/ASC`
+            : `${APIURL}/products/search/${req.query.keywords}`;
+      } else {
+        url =
+          req.query.order != ""
+            ? `${APIURL}/products/order/${req.query.order}/ASC`
+            : `${APIURL}/products`;
+      }
+      let products = await fetch(url).then(response => response.json());
+      let categories = await fetch(`${APIURL}/products/categories/list`).then(
+        response => response.json()
+      );
+      res.render("adm-dashboard/products.ejs", {
+        url: req.url,
+        products: products.products,
+        categories: categories.categories,
+      });
+    } catch (e) {
+      console.log(e);
+    }
   },
   createProduct: (req, res) => {
     const resultValidation = validationResult(req);
     if (resultValidation.errors.length > 0) {
       res.redirect("/admin/products");
+    } else {
+      if (req.file != undefined) {
+        req.body.image = req.file.filename;
+      } else {
+        req.body.image = "Empty";
+      }
+      fetch(`${APIURL}/products/create`, {
+        method: "POST",
+        body: JSON.stringify(req.body),
+        headers: { "Content-type": "application/json" },
+      })
+        .then(() => {
+          res.redirect("/admin/products");
+        })
+        .catch(e => console.log(e));
     }
-    if (req.file != undefined) {
-      req.body.image = req.file.filename;
-    }
-    db.Product.create(req.body)
-      .then(() => res.redirect("/admin/products"))
-      .catch(e => console.log(e));
   },
-  editProduct: (req, res) => {
-    db.Product.findOne({
-      where: { idproducts: req.params.id },
-      include: [{ association: "categories" }],
-      attributes: [
-        "idproducts",
-        "image",
-        "discount",
-        "price",
-        "description",
-        "name",
-        "categories_idcategories",
-      ],
-    }).then(product => {
-      db.Category.findAll().then(cats => {
-        res.render("adm-dashboard/editProduct", {
-          product,
-          url: req.url,
-          categories: cats,
-        });
+  editProduct: async (req, res) => {
+    try {
+      let product = await fetch(
+        `${APIURL}/products/detail/${req.params.id}`
+      ).then(response => response.json());
+      let categories = await fetch(`${APIURL}/products/categories/list`).then(
+        response => response.json()
+      );
+      res.render("adm-dashboard/editProduct", {
+        product,
+        url: req.url,
+        categories: categories.categories,
       });
-    });
+    } catch (e) {
+      console.log(e);
+    }
   },
   updateProduct: (req, res) => {
     const resultValidation = validationResult(req);
     if (resultValidation.errors.length > 0) {
       res.redirect("/admin/products");
-    }
-    if (req.file != undefined) {
-      req.body.image = req.file.filename;
     } else {
-      delete req.body.image;
+      if (req.file != undefined) {
+        req.body.image = req.file.filename;
+      } else {
+        delete req.body.image;
+      }
+      fetch(`${APIURL}/products/update/${req.params.id}`, {
+        method: "PUT",
+        body: JSON.stringify(req.body),
+        headers: { "Content-type": "application/json" },
+      })
+        .then(() => res.redirect("/admin/products"))
+        .catch(e => console.log(e));
     }
-    db.Product.update(req.body, { where: { idproducts: req.params.id } })
-      .then(() => res.redirect("/admin/products"))
-      .catch(e => console.log(e));
   },
   confirmDeleteProduct: (req, res) => {
-    db.Product.findOne({
-      where: { idproducts: req.params.id },
-      attributes: ["name", "idproducts"],
-    }).then(product => {
-      res.render("./adm-dashboard/confirmDelete", { url: req.url, product });
-    });
-  },
-  deleteProduct: (req, res) => {
-    db.Product.destroy({ where: { idproducts: req.params.id } })
-      .then(() => {
-        res.redirect("/admin/products");
+    fetch(`${APIURL}/products/detail/${req.params.id}`)
+      .then(response => response.json())
+      .then(product => {
+        res.render("./adm-dashboard/confirmDelete", { url: req.url, product });
       })
       .catch(e => console.log(e));
   },
+  deleteProduct: (req, res) => {
+    fetch(`${APIURL}/products/delete/${req.params.id}`, {
+      method: "DELETE",
+    })
+      .then(response => response.json())
+      .then(() => res.redirect("/admin/products"))
+      .catch(e => console.log(e));
+  },
   users: (req, res) => {
-    db.User.findAll()
+    fetch(`${APIURL}/users`)
+      .then(response => response.json())
       .then(users => {
-        res.render("adm-dashboard/users.ejs", { url: req.url, users });
+        res.render("adm-dashboard/users.ejs", {
+          url: req.url,
+          users: users.users,
+        });
       })
       .catch(e => console.log(e));
   },
   editUser: (req, res) => {
-    db.User.findOne({ where: { idusers: req.params.id } }).then(user => {
-      res.render("adm-dashboard/editUser.ejs", { url: req.url, user });
-    });
+    fetch(`${APIURL}/users/${req.params.id}`)
+      .then(response => response.json())
+      .then(user => {
+        res.render("adm-dashboard/editUser.ejs", {
+          url: req.url,
+          user: user.user,
+        });
+      })
+      .catch(e => console.log(e));
   },
   updateUser: (req, res) => {
-    db.User.update(req.body, { where: { idusers: req.params.id } })
+    fetch(`${APIURL}/users/update/${req.params.id}`, {
+      method: "PUT",
+      body: JSON.stringify(req.body),
+      headers: { "Content-type": "application/json" },
+    })
       .then(() => res.redirect("/admin/users"))
       .catch(e => console.log(e));
   },
   confirmDeleteUser: (req, res) => {
-    db.User.findOne({
-      where: { idusers: req.params.id },
-      attributes: ["first_name", "idusers"],
-    }).then(user => {
-      res.render("./adm-dashboard/confirmDeleteUser", { url: req.url, user });
-    });
+    fetch(`${APIURL}/users/${req.params.id}`)
+      .then(response => response.json())
+      .then(user => {
+        res.render("./adm-dashboard/confirmDeleteUser", {
+          url: req.url,
+          user: user.user,
+        });
+      })
+      .catch(e => console.log(e));
   },
   destroyUser: (req, res) => {
-    db.User.destroy({ where: { idusers: req.params.id } })
+    fetch(`${APIURL}/users/delete/${req.params.id}`, {
+      method: "DELETE",
+    })
       .then(() => {
         res.redirect("/admin/users");
       })

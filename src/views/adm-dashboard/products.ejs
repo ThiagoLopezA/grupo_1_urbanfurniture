@@ -88,9 +88,9 @@
                   class="form__input"
                 >
                   <option value="">Elegir una categoria</option>
-                  <% categories.forEach(cat => { %>
-                  <option value="<%=cat.dataValues.idcategories%>">
-                    <%=cat.dataValues.nombre%>
+                  <% categories.forEach(category => { %>
+                  <option value="<%=category.idcategories%>">
+                    <%=category.nombre%>
                   </option>
                   <% }) %>
                 </select>
@@ -157,7 +157,7 @@
           <td><%= products[i].id %></td>
           <td>
             <img
-              src="/public/img/products/<%= products[i].dataValues.image %>"
+              src="/public/img/products/<%= products[i].image %>"
               alt=""
               class="table__image"
             />
@@ -165,16 +165,12 @@
           <td><%=products[i].name %></td>
           <td>$<%=products[i].price %></td>
           <td class="td__options">
-            <a
-              href="/admin/products/edit/<%=products[i].dataValues.idproducts%>"
-            >
+            <a href="/admin/products/edit/<%=products[i].idproducts%>">
               <button class="table__buttons">
                 <i class="fa-solid fa-pen"></i>
               </button>
             </a>
-            <a
-              href="/admin/products/delete/<%=products[i].dataValues.idproducts%>"
-            >
+            <a href="/admin/products/delete/<%=products[i].idproducts%>">
               <button class="table__buttons">
                 <i class="fa-solid fa-xmark"></i>
               </button>
