@@ -1,10 +1,10 @@
 const { validationResult } = require("express-validator");
-const db = require("../database/models");
 const bcryptjs = require("bcryptjs");
-
-const userController = {
+const fetch = require("node-fetch");
+const { APIURL } = require("../config");
+module.exports = {
   login: (req, res) => {
-    return res.render("users/login");
+    res.render("users/login");
   },
   loginProcess: (req, res) => {
     // Traigo los posibles errores
@@ -16,30 +16,30 @@ const userController = {
         oldData: req.body,
       });
     }
+
     // Si el usuario está en la DB lo guardo, sino guarda undefined. Chequeo por el email
-    let userToLogin = db.User.findOne({
-      where: { email: req.body.email },
-    })
+    fetch(`${APIURL}/users/email/${req.body.email}`)
+      .then(response => response.json())
       .then(user => {
-        if (user) {
+        if (user.status == 200) {
           // Compara contraseñas
           let isOkThePassword = bcryptjs.compareSync(
             req.body.password,
-            user.password
+            user.user.password
           );
           // Caso contraseña correcta
           if (isOkThePassword) {
-            delete user.password; // elimino la propiedad password de la session por seguridad
-            req.session.userLogged = user; // el usuario de la session es el usuario que se logueó
+            delete user.user.password; // elimino la propiedad password de la session por seguridad
+            req.session.userLogged = user.user; // el usuario de la session es el usuario que se logueó
             if (req.body.remember_user == "on") {
               //  Configuro la cookie y la valido si esta tildado el checkbox
               res.cookie("userEmail", req.session.userLogged.email, {
                 maxAge: 1000 * 60 * 20,
               });
             }
-            return res.redirect("/");
+            res.redirect("/");
           } else {
-            return res.render("users/login", {
+            res.render("users/login", {
               // ejecuta en caso de que la comparación de password dio false
               errors: {
                 email: {
@@ -49,7 +49,7 @@ const userController = {
             });
           }
         } else {
-          return res.render("users/login", {
+          res.render("users/login", {
             // ejecuta si userToLogin == undefined
             errors: {
               email: {
@@ -59,66 +59,69 @@ const userController = {
           });
         }
       })
-      .catch(e => res.send(e));
+      .catch(e => console.log(e));
   },
   register: (req, res) => {
-    return res.render("users/register");
+    res.render("users/register");
   },
-  registerProcess: (req, res) => {
-    // Traigo los posibles errores
-    const resultValidation = validationResult(req);
-
-    // Si hay errores, envío la vista de registro con los mensajes de error
-    if (resultValidation.errors.length > 0) {
-      return res.render("users/register", {
-        errors: resultValidation.mapped(),
-        oldData: req.body,
-      });
+  registerProcess: async (req, res) => {
+    try {
+      // Traigo los posibles errores
+      const resultValidation = validationResult(req);
+      // Si hay errores, envío la vista de registro con los mensajes de error
+      if (resultValidation.errors.length > 0) {
+        return res.render("users/register", {
+          errors: resultValidation.mapped(),
+          oldData: req.body,
+        });
+      }
+      // Verifico si el usuario ya está en la base de datos
+      let userInDB = await fetch(`${APIURL}/users/email/${req.body.email}`);
+      if (userInDB.status == 200) {
+        res.render("users/register", {
+          errors: {
+            email: {
+              msg: "Ya se encuentra registrado un usuario con este email",
+            },
+          },
+          oldData: req.body,
+        });
+      } else if (req.body.password !== req.body.password_confirm) {
+        // Verifico que la password y el confirm coincidan
+        return res.render("users/register", {
+          oldData: req.body,
+          errors: {
+            password: {
+              msg: "Las contraseñas no coinciden",
+            },
+          },
+        });
+      } else {
+        // Creo un nuevo usuario con los datos que llegan del body y hasheo el password
+        let userToCreate = {
+          ...req.body,
+          password: bcryptjs.hashSync(req.body.password, 10),
+          access: "0",
+          phone: "",
+          dni: "",
+          street: "",
+          street_number: "",
+          floor: "",
+          apartment: "",
+          province: "",
+          town: "",
+          CP: "",
+        };
+        await fetch(`${APIURL}/users/create`, {
+          method: "POST",
+          body: JSON.stringify(userToCreate),
+          headers: { "Content-type": "application/json" },
+        });
+        return res.redirect("login");
+      }
+    } catch (e) {
+      console.log(e);
     }
-    // Verifico si el usuario ya está en la base de datos
-    let userInDB = db.User.findOne({ where: { email: req.body.email } })
-      .then(user => {
-        if (user) {
-          // Si encuentra que ya hay un usuario con ese email, envío msg de error
-          res.render("users/register", {
-            errors: {
-              email: {
-                msg: "Ya se encuentra registrado un usuario con este email",
-              },
-            },
-            oldData: req.body,
-          });
-        } else if (req.body.password !== req.body.password_confirm) {
-          // Verifico que la password y el confirm coincidan
-          return res.render("users/register", {
-            oldData: req.body,
-            errors: {
-              password: {
-                msg: "Las contraseñas no coinciden",
-              },
-            },
-          });
-        } else {
-          // Creo un nuevo usuario con los datos que llegan del body y hasheo el password
-          let userToCreate = {
-            ...req.body,
-            password: bcryptjs.hashSync(req.body.password, 10),
-            access: "0",
-            phone: "",
-            dni: "",
-            street: "",
-            street_number: "",
-            floor: "",
-            apartment: "",
-            province: "",
-            town: "",
-            CP: "",
-          };
-          db.User.create(userToCreate);
-          return res.redirect("login");
-        }
-      })
-      .catch(e => res.send(e));
   },
   logout: (req, res) => {
     res.clearCookie("userEmail"); //para eliminar la cookies
@@ -161,4 +164,3 @@ const userController = {
     });
   },
 };
-module.exports = userController;
