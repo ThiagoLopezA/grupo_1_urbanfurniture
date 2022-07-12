@@ -15,9 +15,9 @@ export default function Sidebar(props) {
           href="/"
         >
           <div className="sidebar-brand-icon">
-          <div class="section__logo mb-3 mt-5">
-          <h2 class="logo__top">URBAN</h2>
-          <h3 class="logo__bottom">FURNITURE</h3>
+          <div className="section__logo mb-3 mt-5">
+          <h2 className="logo__top">URBAN</h2>
+          <h3 className="logo__bottom">FURNITURE</h3>
           </div>
           </div>
         </a>
