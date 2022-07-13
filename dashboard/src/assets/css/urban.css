@@ -28,3 +28,35 @@
   .logo__bottom{
     font-size: .9rem;
   }
+  .detail__data{
+    font-size: 1rem;
+  }
+  .detail__body{
+    background-color: white;
+    padding: 1rem;
+    border-radius: .25rem;
+  }
+  .detail__title{
+    font-size: 1rem;
+    font-weight: 500;
+    color: black;
+  }
+  .list__body{
+    background: white;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+  }
+  .category{
+    color: white;
+    background-color: var(--primary);
+    font-size: 1rem;
+    padding: .25rem;
+    border-radius: .25rem;
+    margin-right: .5rem;
+    height: fit-content;
+  }
+  .page{
+    min-height: 90vh;
+  }
