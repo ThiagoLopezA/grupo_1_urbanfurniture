@@ -53,3 +53,11 @@
 - [x] Realizar daily 
 - [x] Realizar retro
 - [ ] Hacer funcionar el carrito (agregar y quitar productos)
+
+**3/07/2022** :speech_balloon:
+:1st_place_medal: :shipit: Thiago y :trollface: :dragon: Ronald 
+- [x] Realizar API
+
+:atom: :electron: Joel y :lady_beetle: :world_map: Erika
+- [x] Realizar daily 
+- [x] Hacer dashboard
