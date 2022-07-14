@@ -4,6 +4,7 @@ import Topbar from "./Topbar";
 import { Switch, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import NotFound from "../pages/NotFound";
+import Products from "../pages/Products";
 
 export default function ContentWrapper() {
   return (
@@ -12,6 +13,7 @@ export default function ContentWrapper() {
         <div id="content" className="pt-4">
           <Switch>
             <Route path="/" exact={true} component={Home} />
+            <Route path="/products" exact={true} component={Products} />
             <Route component={NotFound} />
           </Switch>
           <Footer />

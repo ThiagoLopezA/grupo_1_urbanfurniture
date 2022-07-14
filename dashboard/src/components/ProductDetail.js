@@ -10,7 +10,7 @@ export default function ProductDetail() {
   return (
     <div className='detail__body'>
         <h3 className='detail__title'>Último Producto</h3>
-        {/* <img src={require(`../../../public/img/products/${product.image}`)} alt="Product" /> */}
+        {/* <img src={require(`localhost:3030/public/img/products/${product.image}`)} alt="Product" /> */}
         <h3 className='detail__data'><span className='detail__title'>Nombre: </span>{product.name}</h3>
         <h3 className='detail__data'><span className='detail__title'>Precio: </span>{product.price}</h3>
         <h3 className='detail__data'><span className='detail__title'>Descripción: </span>{product.description}</h3>

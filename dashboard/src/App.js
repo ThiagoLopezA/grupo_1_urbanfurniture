@@ -7,16 +7,12 @@ import Sidebar from "./components/Sidebar";
 function App() {
   const pages = [
     {
-      title: "Generos",
-      path: "/genres",
+      title: "Inicio",
+      path: "/",
     },
     {
-      title: "Ultima pelicula",
-      path: "/lastMovie",
-    },
-    {
-      title: "Peliculas",
-      path: "/movies",
+      title: "Tabla de Productos",
+      path: "/products",
     },
   ];
   return (

@@ -26,7 +26,7 @@ export default function Sidebar(props) {
         <hr className="sidebar-divider mt-4" />
 
         {/*<!-- Heading --!> */}
-        <div className="sidebar-heading">Actions</div>
+        <div className="sidebar-heading">Páginas</div>
 
         {/*<!-- Nav Item - Pages --!> */}
         {props.pages.map((e, i) => {
