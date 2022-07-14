@@ -1,4 +1,6 @@
 // Middleware para que detecte si hay usurio logueado
+const fetch = require("node-fetch");
+const { APIURL } = require("../config");
 
 function userLoggedMiddleware(req, res, next) {
   res.locals.isLogged = false;

@@ -5,29 +5,26 @@ function TableRow(props) {
   return (
     <React.Fragment>
       <tr>
-        <td>{props.titulo}</td>
-        <td>{props.duracion}</td>
-        <td>{props.rating}</td>
-        <td>{props.generos ? props.generos.name : ""}</td>
-        <td>{props.premios}</td>
+        <td>{props.id}</td>
+        <td>{props.name}</td>
+        <td>${props.price}</td>
+        <td>{props.description}</td>
       </tr>
     </React.Fragment>
   );
 }
 
 TableRow.propTypes = {
-  titulo: PropTypes.string.isRequired,
-  duracion: PropTypes.number,
-  rating: PropTypes.string.isRequired,
-  generos: PropTypes.object,
-  premios: PropTypes.number,
+  id: PropTypes.string,
+  name: PropTypes.string,
+  price: PropTypes.string,
+  description: PropTypes.string,
 };
 TableRow.defaultProps = {
-  titulo: "Not defined",
-  duracion: "Not defined",
-  rating: "Not defined",
-  generos: "Not defined",
-  premios: "Not defined",
+  id: "Not defined",
+  name: "Not defined",
+  price: "Not defined",
+  description: "Not defined",
 };
 
 export default TableRow;
