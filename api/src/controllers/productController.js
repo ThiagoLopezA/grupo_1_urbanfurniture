@@ -94,17 +94,18 @@ module.exports = {
           "name",
           "rating",
           "categories_idcategories",
-          [sequelize.literal("price-discount*100/price"), "finalPrice"],
+          [sequelize.literal("price - (discount*price) / 100"), "finalPrice"],
         ],
         where: { idproducts: req.params.id },
         include: [{ association: "categories" }],
       });
-
+      let finalPrice = product.dataValues.finalPrice;
       res.status(200).json({
         status: 200,
         id: product.idproducts,
         name: product.name,
         price: product.price,
+        finalPrice: finalPrice,
         discount: product.discount,
         rating: product.rating ? product.rating : 0,
         description: product.description,
