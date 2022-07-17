@@ -21,6 +21,7 @@
             ><%= product.category %></a
           >
           <p class="detail__description"><%= product.description %></p>
+          <p class="id__product">ID para referencias: <span class="product__id"><%=product.id%></span></p>
           <div class="detail__bottom">
             <p class="detail__rating">
               <i class="fa-regular fa-star"></i><%= product.rating %>/5
@@ -34,7 +35,12 @@
             <%} else {%>
             <h3 class="detail__price">$<%= product.price %></h3>
             <%} %>
-            <button class="detail__button">Agregar al carrito</button>
+            <form class="button__container" action="/product/addToCart/<%=product.id%>" method="POST">
+              <button class="detail__button" <%=ableToAdd ? "" : "disabled" %>>
+                Agregar al carrito
+              </button>
+              <p class=<%=ableToAdd ? "message_disabled" : "message_enabled" %>>Debe iniciar sesion</p>
+            </form> 
           </div>
         </article>
       </section>
@@ -50,4 +56,5 @@
 
     <%- include('../partials/footer.ejs') %>
   </body>
+  <script src="/public/js/addProductToCart.js"></script>
 </html>

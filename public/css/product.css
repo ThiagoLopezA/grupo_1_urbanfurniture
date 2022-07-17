@@ -224,7 +224,28 @@
   padding-top: 2.5rem;
 }
 /* ---------- */
-
+.message_disabled, .message_enabled{
+  display: none;
+  transition: 500ms;
+}
+.button__container:hover .message_enabled{
+  display: flex;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 10%);
+  font-weight: 700;
+  border-radius: .25rem;
+  margin-top: .5rem;
+  padding:.25rem .5rem;
+}
+.id__product{
+  color: #909090;
+  font-weight: 300;
+  padding: .25rem;
+  border: 1px solid #909090;
+  border-radius: .25rem;
+  display: inline;
+  font-size: .75rem;
+}
 @media (min-width: 830px){
   .section__product-detail{
     flex-direction: row;
