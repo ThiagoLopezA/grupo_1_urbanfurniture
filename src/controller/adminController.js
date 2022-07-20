@@ -63,10 +63,14 @@ module.exports = {
       let categories = await fetch(`${APIURL}/products/categories/list`).then(
         response => response.json()
       );
+      let inSale = await fetch(`${APIURL}/products/inSale`).then(response =>
+        response.json()
+      );
       res.render("adm-dashboard/products.ejs", {
         url: req.url,
         products: products.products,
         categories: categories.categories,
+        inSaleQuantity: inSale.products.length,
       });
     } catch (e) {
       console.log(e);
