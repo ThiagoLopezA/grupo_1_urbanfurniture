@@ -3,288 +3,147 @@
 * {
   font-family: Roboto;
 }
-h3 {
-  font-size: 1.3rem;
-  font-weight: 300;
+
+.item__img{
+    padding: 0.2rem;
+    width: 2rem;
+    height: 2rem;
+    object-fit: fit;
+    background-color: rgba(0, 0, 0, 10%);
+    border-radius: .2rem;
+    margin: .5rem;
 }
-.section-shop h3 {
-  font-size: 1.3rem;
-  font-weight: 400;
+.main__carrito{
+  padding: 0 10%;
+  min-height: 80vh;
+  margin-bottom: 2rem;
 }
-.main-cart {
-  background-color: #ececec;
-  margin-top: 2rem;
+.section__carrito{
+ background-color: #FFFFFF;
+ border-radius: .2rem;
+ margin-bottom: 2rem;
 }
-.product {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1.5rem;
-  border-bottom: rgba(196, 196, 196, 0.33) solid 1px;
-}
-.imagenes {
-  background-color: rgba(196, 196, 196, 0.33);
-  padding: 20px 40px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-}
-.imagenes img {
-  align-self: center;
-  width: 14rem;
-  height: 14rem;
-}
-.descuento {
-  color: #39d54a;
-  font-weight: 400;
-}
-.description-cant p {
-  color: #909090;
-  font-size: 0.9rem;
-}
-.precio-anterior {
-  text-decoration: line-through;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  color: #909090;
-  font-size: 0.7rem;
-}
-.product-wrapper {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  border-bottom: rgba(196, 196, 196, 0.33) solid 1px;
-}
-.precio-descuento {
-  display: flex;
-  justify-content: space-between;
-  color: #909090;
-  font-size: 0.9rem;
-}
-.subtotal {
-  display: flex;
-  flex-direction: column;
-}
-.letra-subtotal {
-  color: #909090;
-  font-size: 0.9rem;
-}
-#cant {
-  background-color: #fff;
-  border: none;
-  padding: 8px 20px;
-}
-.total {
-  font-weight: 900;
-  font-size: 1.4rem;
-  margin-top: 0.3rem;
-}
-.your-shop {
-  display: flex;
-  flex-direction: column;
-  background-color: rgba(196, 196, 196, 0.33);
-  padding: 3.36rem;
-}
-.your-shop h3 {
-  display: inline-block;
-  padding-bottom: 40px;
-}
-.section-shop {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1rem;
-}
-.section-before-total {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: rgba(196, 196, 196, 0.33) solid 1px;
-  padding-bottom: 10px;
-  color: #909090;
-  font-size: 0.9rem;
-}
-.section-total {
-  display: flex;
-  justify-content: space-between;
-  padding-top: 10px;
-  padding-bottom: 50px;
-}
-.word-total {
-  color: #909090;
-  font-size: 1.05rem;
-}
-.cp {
-  font-size: 0.9rem;
-}
-.final {
-  font-weight: 900;
-  font-size: 20px;
-}
-.datos {
-  padding-top: 0.8rem;
-  padding-bottom: 0.8rem;
-}
-.boton-postal {
-  background-color: #fff;
-  color: rgba(196, 196, 196, 0.33);
-  font-size: 10px;
-  border: 1px rgba(196, 196, 196, 0.33) solid;
-  padding: 0.5rem 2rem;
-  border-radius: 0.2rem;
+tr th:nth-child(2), tr td:nth-child(2) { display: none }  
+.table__body{
   width: 100%;
+  height: max-content;
+}
+tr th:nth-child(1), tr td:nth-child(1) { width: 2.4rem; }
+tr th:nth-child(6), tr td:nth-child(6) { text-align: center; }
+.table__title{
+  padding: .5rem;
+  font-size: 0.85rem;
+  color: #909090;
+  font-weight: 400;
+}
+.table__item{
+  padding: 0 .5rem;
+  font-size: 0.85rem;
+  position: relative;
+  height: 100%;
+}
+.table__row{
+  padding: 1rem;
+  width: 100%;
+}
+.input{
+  max-width: 3rem;
+}
+/*Cantidad*/
+.item__button--decrease, .item__button--increase{
+background-color: transparent;
+border: none;
+position: absolute;
+}
+.item__button--decrease{
+  left: .8rem;
+  top: 1rem;
+}
+.item__button--increase{
+  right: .8rem;
+  top: 1rem;
+}
+.item__input{
+  width: 100%;
+  border: 1px solid #999999;
+  border-radius: .2rem;
   text-align: center;
+  padding: .5rem;
 }
-.terminos-condiciones {
-  font-size: 12px;
-  color: #909090;
-  margin-top: 1rem;
-}
-button {
-  width: 100%;
-  padding: 0.5rem 0.8rem;
-  border-radius: 0.2rem;
-  border: none;
-  background-color: #909090;
-}
-.telephone-service {
-  font-size: 12px;
-  border-radius: 0.2rem;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
-.atencion {
-  color: #909090;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-}
-.contacto-tel {
-  color: #ce5009;
+/*Seccion pagos*/
+.prepago{
+  background-color: #03091C;
+  color: #ECECEC;
+  padding: 1rem;
+  border-radius: .4rem;
 }
 
-@media (min-width: 769px) {
-  .product-wrapper {
-    width: 80%;
-    justify-content: center;
-  }
-  .product {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  .imagenes {
-    margin: 1.5rem;
-  }
-  .description-cant {
-    margin: 2rem;
-  }
-  .description-cant p {
-    margin-top: 0.8rem;
-    margin-bottom: 1.2rem;
-  }
-  .description-price {
-    margin: 2rem;
-  }
-  .imagenes img {
-    align-self: center;
-    width: 10rem;
-    height: 10rem;
-  }
-  .main-cart {
-    display: flex;
-    flex-direction: row;
-  }
-  .your-shop {
-    background-color: #ececec;
-    padding: 1.2rem 3rem;
-  }
-  .section-shop {
-    border-radius: 10px;
-    background-color: rgba(196, 196, 196, 0.33);
-    padding: 1.2rem;
-  }
-  .telephone-service {
-    border-radius: 10px;
-    background-color: rgba(196, 196, 196, 0.33);
-    padding: 1.2rem;
-  }
-  h3 {
-    font-size: 1rem;
-  }
-  .total {
-    font-size: 1rem;
-  }
-  .descuento {
-    font-size: 0.7rem;
-    padding-left: 0.2rem;
-  }
-  .precio-anterior {
-    margin-top: 0;
-  }
-  .telephone-service {
-    padding-top: 1.8rem;
-    padding-bottom: 1.8rem;
-  }
-  .terminos-condiciones {
-    margin-top: 1.4rem;
-    margin-bottom: 1.4rem;
-  }
-  .datos {
-    margin-top: 0.5rem;
-  }
+.contact__detail{
+  background-color: #03091C;
+  color: #ECECEC;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: .4rem;
+  margin-bottom: 1rem;
 }
-@media (min-width: 1280px) {
-  .product-wrapper {
-    width: 100%;
-    justify-content: center;
-  }
-  .product {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  .imagenes {
-    margin: 3rem;
-  }
-  .description-cant {
-    margin: 2rem;
-  }
-  .description-cant p {
-    margin-top: 0.8rem;
-    margin-bottom: 1.2rem;
-  }
-  .description-price {
-    margin: 2rem;
-  }
-  .imagenes img {
-    align-self: center;
-    width: 10rem;
-    height: 10rem;
-  }
-  .main-cart {
+
+.prepago__h4{
+  font-size: 1rem;
+}
+
+.prepago__p{
+  font-size: .8rem;
+  font-weight: 200;
+}
+.linea{
+  width: 50%;
+  height: 1px;
+  background-color: #FFFFFF;
+  margin-bottom: 1rem;
+}
+.prepago__button{
+  background-color: #E3E3E3;
+  padding: .4rem .2rem ;
+  border-radius: .3rem;
+  width: 100%;
+  font-size: .8rem;
+  font-weight: 400
+}
+.fa-phone{
+  margin-right: .5rem;
+}
+.redirect{
+  color: #03091C;
+}
+.fa-arrow-left-long{
+  margin-right: .5rem;
+  margin-bottom: 1rem
+}
+.fa-minus, .fa-plus{
+  font-size: 0.6rem;
+}
+.fa-x{
+  color: #CF0000;
+  transition: 500ms;
+  padding: .8rem;
+  border-radius: 50%;
+}
+.fa-x:hover{
+  background-color: rgba(0, 0, 0, 10%);
+}
+@media(min-width: 800px){
+  .main__carrito{
     display: flex;
-    flex-direction: row;
+    width: 100%;
   }
-  .telephone-service {
-    margin-top: 1.5rem;
+  .section__carrito{
+    width: 65%;
+    margin-right: 1rem;
   }
-  h3 {
-    font-size: 1rem;
-    margin-top: 1.5rem;
-  }
-  .total {
-    font-size: 1rem;
-  }
-  .descuento {
-    font-size: 0.7rem;
-    padding-left: 0.2rem;
-  }
-  .precio-anterior {
-    margin-top: 1.5rem;
-  }
-  button {
-    margin-top: 0.5rem;
-  }
-  .datos {
-    margin-top: 0.5rem;
-  }
-  .imagenes img {
-    width: 13rem;
-    height: 13rem;
+  tr th:nth-child(2), tr td:nth-child(2) { display:flex; align-items: center; }
+
+  .section__pago{
+    width: 30%;
+    margin-left: 2rem;
   }
 }

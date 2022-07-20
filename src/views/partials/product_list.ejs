@@ -1,24 +1,23 @@
 <% data.forEach( product => { %>
-    <a href="/product/detail/<%=product.idproducts %>">
-    <article class="card">
-      <div class="card__container">
-        <img
-          class="container__image"
-          src="/public/img/products/<%= product.image %>"
-          alt="estante"
-        />
-      </div>
-      <div class="card__info">
-        <% if(product.discount > 0) { %>
-        <h3 class="info__price">$<%= product.price %></h3>
-        <h3 class="info__finalPrice">$<%= product.finalPrice.toFixed(2) %></h3>
-        <h3 class="info__discount"><%= product.discount %>% OFF</h3>
-        <% } else { %>
-        <h3 class="info__finalPrice">$<%=product.price.toFixed(2) %></h3>
-        <% } %>
-        <p class="info__description"><%= product.name %></p>
-      </div>
-    </article>
-  </a>
-  <% }) %>
+<a href="/product/detail/<%=product.idproducts %>">
+  <article class="card">
+    <div class="card__container">
+      <img
+        class="container__image"
+        src="/public/img/products/<%= product.image %>"
+        alt="estante"
+      />
+    </div>
+    <div class="card__info">
+      <% if(product.discount > 0) { %>
+      <h3 class="info__price">$<%= product.price %></h3>
+      <h3 class="info__finalPrice">$<%= product.finalPrice.toFixed(2) %></h3>
+      <h3 class="info__discount"><%= product.discount %>% OFF</h3>
+      <% } else { %>
+      <h3 class="info__finalPrice">$<%=product.price.toFixed(2) %></h3>
+      <% } %>
+      <p class="info__description"><%= product.name %></p>
+    </div>
+  </article>
 </a>
+<% }) %>

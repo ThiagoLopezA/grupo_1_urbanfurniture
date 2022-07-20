@@ -158,9 +158,26 @@ module.exports = {
       "Tierra del Fuego",
       "Tucumán",
     ];
-    res.render("users/config", {
-      user: req.session.userLogged,
-      provinces: provinces,
-    });
+    let id = req.session.userLogged.idusers;
+    fetch(`${APIURL}/users/${id}`)
+      .then(response => response.json())
+      .then(user => {
+        res.render("users/config", {
+          user: user.user,
+          provinces: provinces,
+        });
+      });
+  },
+  updateUser: (req, res) => {
+    let id = req.session.userLogged.idusers;
+    fetch(`${APIURL}/users/update/${id}`, {
+      method: "PUT",
+      body: JSON.stringify(req.body),
+      headers: { "Content-type": "application/json" },
+    })
+      .then(() => {
+        res.redirect("/users/config");
+      })
+      .catch(e => console.log(e));
   },
 };

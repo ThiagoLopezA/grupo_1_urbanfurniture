@@ -1,5 +1,4 @@
 import React from "react";
-import image from "../assets/images/logo-DH.png";
 import { Link } from "react-router-dom";
 
 export default function Sidebar(props) {
@@ -15,10 +14,10 @@ export default function Sidebar(props) {
           href="/"
         >
           <div className="sidebar-brand-icon">
-          <div className="section__logo mb-3 mt-5">
-          <h2 className="logo__top">URBAN</h2>
-          <h3 className="logo__bottom">FURNITURE</h3>
-          </div>
+            <div className="section__logo mb-3 mt-5">
+              <h2 className="logo__top">URBAN</h2>
+              <h3 className="logo__bottom">FURNITURE</h3>
+            </div>
           </div>
         </a>
 
@@ -39,9 +38,14 @@ export default function Sidebar(props) {
             </li>
           );
         })}
-
         {/*<!-- Divider --!> */}
         <hr className="sidebar-divider d-none d-md-block" />
+        <li className="nav-item">
+          <a href="http://localhost:3030" className="nav-link static-link">
+            <i class="fa-solid fa-arrow-left-long"></i>
+            <span>Volver a la web</span>
+          </a>
+        </li>
       </ul>
     </React.Fragment>
   );

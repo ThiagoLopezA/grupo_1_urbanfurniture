@@ -3,7 +3,6 @@ const { APIURL } = require("../config");
 
 module.exports = {
   productCart: (req, res) => {
-    console.log(req.session.cart)
     let productData = [
       {
         src: "../img/products/product-3.png",
@@ -28,15 +27,14 @@ module.exports = {
       let productsRelated = await fetch(
         `${APIURL}/products/category/${product.idcategory}/4`
       ).then(response => response.json());
-      console.log(req.session.userLogged)
-      let ableToAdd = false; 
-      if(req.session.userLogged){
+      let ableToAdd = false;
+      if (req.session.userLogged) {
         ableToAdd = true;
       }
       res.render("product/detail", {
         product,
         productsRelated: productsRelated.products,
-        ableToAdd
+        ableToAdd,
       });
     } catch (e) {
       console.log(e);
@@ -65,7 +63,6 @@ module.exports = {
       })
       .catch(e => console.log(e));
   },
-
   listBySearch: (req, res) => {
     fetch(`${APIURL}/products/search/${req.query.keywords}`)
       .then(response => response.json())
@@ -77,27 +74,16 @@ module.exports = {
         });
       });
   },
-
-  addToCart: (req, res) => {
-    fetch(`${APIURL}/products/detail/${req.params.id}`)
+  inSale: (req, res) => {
+    fetch(`${APIURL}/products/inSale`)
       .then(response => response.json())
-      .then(product => {
-        product.quantity = 0;
-        product.totalPrice = product.finalPrice || product.price;
-        if(req.session && req.session.cart){
-          let pos = req.session.cart.indexOf(product);
-          if(pos != -1){
-            req.session.cart[pos].quantity += 1;
-            req.session.cart[pos].totalPrice += product.price;
-          } else {
-            req.session.cart.push(product);
-          }
-        } else {
-          req.session.cart = [];
-          req.session.cart.push(product);
-        }
-        res.redirect(`/product/detail/${product.id}`);
+      .then(products => {
+        res.render("product/products", {
+          data: products.products,
+          filtro: "En oferta",
+          categories: products.categories,
+        });
       })
-      .catch(e => console.log(e))
-  }
+      .catch(e => console.log(e));
+  },
 };

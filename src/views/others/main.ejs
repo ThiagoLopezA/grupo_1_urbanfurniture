@@ -24,6 +24,7 @@
               class="form__input"
               type="text"
               placeholder="Buscar productos..."
+              id="search"
             />
             <button class="form__button">Buscar</button>
           </form>
@@ -39,13 +40,6 @@
             src="/public/img/backgrounds/background.png"
             alt=""
           />
-          <div class="image__controls">
-            <div class="control__point"></div>
-            <div class="control__point"></div>
-            <div class="control__point"></div>
-            <div class="control__point"></div>
-            <div class="control__point"></div>
-          </div>
         </article>
       </section>
 
@@ -53,14 +47,18 @@
       <section class="section">
         <div class="section__title__wrapper">
           <h2 class="section__title">Nuestras ofertas</h2>
-          <button class="section__button">ver todas</button>
+          <a href="/product/inSale">
+            <button class="section__button">ver todas</button>
+          </a>
         </div>
         <div class="section__products">
           <!-- product list -->
-          <%- include('../partials/product_list', {data:products}) %>
-          <div class="products__button">
-            <i class="fa-solid fa-arrow-right"></i>
-          </div>
+          <%- include('../partials/product_list', {data:inSaleProducts}) %>
+          <a href="/product/inSale">
+            <div class="products__button">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
         </div>
       </section>
 
@@ -68,14 +66,18 @@
       <section class="section">
         <div class="section__title__wrapper">
           <h2 class="section__title">Ultimas cargas</h2>
-          <button class="section__button">ver todas</button>
+          <a href="/product">
+            <button class="section__button">ver todas</button>
+          </a>
         </div>
         <div class="section__products">
           <!-- product list -->
-          <%- include('../partials/product_list', {data:products}) %>
-          <div class="products__button">
-            <i class="fa-solid fa-arrow-right"></i>
-          </div>
+          <%- include('../partials/product_list', {data:latestProducts}) %>
+          <a href="/product">
+            <div class="products__button">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
         </div>
       </section>
       <!-- info -->

@@ -114,7 +114,7 @@ ul {
   padding: 0;
 }
 .dropdown__menu{
-  z-index: 2;
+  z-index: 5;
   position:absolute;
   background-color: #03091c;
   border-radius: .3rem;
@@ -125,6 +125,11 @@ ul {
   pointer-events: none;
   transform: translateY(-10px);
   transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+}
+.sm__dropdown{
+  left:inherit;
+  right: -.8rem;
+  top: 1rem;
 }
 .dropdown.active > .dropdown__toggler + .dropdown__menu{
   opacity: 1;
@@ -139,6 +144,10 @@ ul {
   top: -.2rem;
   left: 1.3rem;
   transform: rotate(45deg);
+}
+.sm__dropdown .dropdown__decoration{
+  left: inherit;
+  right: 1rem;
 }
 .dropdown__item{
   margin-top: 0.5rem;
@@ -234,6 +243,8 @@ marquee {
 }
 /* <-- Fin Footer config -->*/
 
+
+
 /*<-- Media Querys -->*/
 
 /*
@@ -243,6 +254,7 @@ Tablets & larger smarthphones -> 481-768
 Laptops,larger tablets, and small desktops -> 769 - 1279
 Larger desktops -> 1280+
 */
+
 
 @media (min-width: 769px) {
   header{

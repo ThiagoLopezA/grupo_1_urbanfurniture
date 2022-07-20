@@ -290,7 +290,7 @@
   .card:hover .info__description {
     opacity: 1;
   }
-  .card{
+  .card{  
     width: 35vw;
   }
   .card, .info__description {

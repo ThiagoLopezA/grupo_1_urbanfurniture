@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import ContentRowMovieCard from "./ContentRowCard";
 
 function ContentRowMovies(props) {
@@ -6,26 +6,22 @@ function ContentRowMovies(props) {
   const [users, setUsers] = useState(0);
   const [categories, setCategories] = useState(0);
 
-  useEffect(()=>{
-
-    fetch(`/products`
-    )
-    .then(response => response.json())
-    .then(data => setProducts(data.products.length))
-    .then(() => {
-      fetch("/products/categories/list")
+  useEffect(() => {
+    fetch(`/products`)
       .then(response => response.json())
-      .then(categories => setCategories(categories.categories.length))
+      .then(data => setProducts(data.products.length))
       .then(() => {
-        fetch("/users")
-        .then(response => response.json())
-        .then(users => setUsers(users.users.length))
-      })
-    })
-  
-  }
-   , [])
-   const arr = [
+        fetch("/products/categories/list")
+          .then(response => response.json())
+          .then(categories => setCategories(categories.categories.length))
+          .then(() => {
+            fetch("/users")
+              .then(response => response.json())
+              .then(users => setUsers(users.users.length));
+          });
+      });
+  }, []);
+  const arr = [
     {
       titulo: "Total de productos",
       cifra: products,
@@ -41,7 +37,7 @@ function ContentRowMovies(props) {
       cifra: categories,
       icono: "fa-tags",
     },
-  ]   
+  ];
   return (
     <>
       <div className="row">

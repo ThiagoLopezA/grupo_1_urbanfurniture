@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function TableRow(props) {
+function RowProducts(props) {
   return (
     <React.Fragment>
       <tr>
@@ -14,17 +14,17 @@ function TableRow(props) {
   );
 }
 
-TableRow.propTypes = {
-  id: PropTypes.string,
+RowProducts.propTypes = {
+  id: PropTypes.number,
   name: PropTypes.string,
-  price: PropTypes.string,
+  price: PropTypes.number,
   description: PropTypes.string,
 };
-TableRow.defaultProps = {
+RowProducts.defaultProps = {
   id: "Not defined",
   name: "Not defined",
   price: "Not defined",
   description: "Not defined",
 };
 
-export default TableRow;
+export default RowProducts;

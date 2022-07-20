@@ -1,4 +1,6 @@
 const db = require("../database/models");
+const sequelize = require("sequelize");
+const Op = sequelize.Op;
 module.exports = {
   getUsers: async (req, res) => {
     try {
@@ -35,6 +37,30 @@ module.exports = {
         res.status(200).json({
           status: 200,
           user: user,
+        });
+      } else {
+        res.status(404).json({
+          status: 404,
+          message: "No se encontro",
+        });
+      }
+    } catch (e) {
+      res.status(500).json({
+        status: 500,
+        message: "Ocurrio un error:",
+        error: e,
+      });
+    }
+  },
+  getUsersByName: async (req, res) => {
+    try {
+      let users = await db.User.findAll({
+        where: { first_name: { [Op.like]: `%${req.params.name}%` } },
+      });
+      if (users) {
+        res.status(200).json({
+          status: 200,
+          user: users,
         });
       } else {
         res.status(404).json({
@@ -96,6 +122,7 @@ module.exports = {
   },
   updateUser: async (req, res) => {
     try {
+      console.log(req.body);
       await db.User.update(req.body, { where: { idusers: req.params.id } });
       res.status(200).json({
         status: 200,

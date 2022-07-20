@@ -23,9 +23,7 @@
           <p class="detail__description"><%= product.description %></p>
           <p class="id__product">ID para referencias: <span class="product__id"><%=product.id%></span></p>
           <div class="detail__bottom">
-            <p class="detail__rating">
-              <i class="fa-regular fa-star"></i><%= product.rating %>/5
-            </p>
+            
             <% if (product.discount > 0 ) { %>
             <h4 class="detail__price--original">$<%= product.price %></h4>
             <h3 class="detail__price">
@@ -35,23 +33,31 @@
             <%} else {%>
             <h3 class="detail__price">$<%= product.price %></h3>
             <%} %>
-            <form class="button__container" action="/product/addToCart/<%=product.id%>" method="POST">
               <button class="detail__button" <%=ableToAdd ? "" : "disabled" %>>
                 Agregar al carrito
               </button>
               <p class=<%=ableToAdd ? "message_disabled" : "message_enabled" %>>Debe iniciar sesion</p>
-            </form> 
+         
           </div>
         </article>
       </section>
-      <section class="section__suggestions">
-        <h2 class="suggestions__title">Sugerencias basadas en este articulo</h2>
+      <section class="section">
+        <div class="section__title__wrapper">
+          <h2 class="section__title">Recomendados</h2>
+          <a href="/product/inSale">
+            <button class="section__button">ver todas</button>
+          </a>
+        </div>
         <div class="section__products">
           <!-- product list -->
           <%- include('../partials/product_list', {data:productsRelated}) %>
+          <a href="/product/category/<%=product.idcategory%>">
+            <div class="products__button">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
         </div>
       </section>
-      <section class="section__comments"></section>
     </main>
 
     <%- include('../partials/footer.ejs') %>

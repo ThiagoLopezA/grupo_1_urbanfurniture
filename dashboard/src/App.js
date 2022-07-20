@@ -14,6 +14,7 @@ function App() {
       title: "Tabla de Productos",
       path: "/products",
     },
+    { title: "Tabla de Usuarios", path: "/users" },
   ];
   return (
     <React.Fragment>

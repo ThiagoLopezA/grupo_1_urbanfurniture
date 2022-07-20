@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head', {route:'contact.css', main:'main.css',
+  title:'Contactanos'})%>
+  <body>
+    <%- include('../partials/navbar.ejs') %>
+    <!-- Inicio del Main-->
+    <main class="main">
+      <section class="contact__section">
+        <article class="article__map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.016887889548!2d-58.38375908544157!3d-34.60373446500467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4aa9f0a6da5edb%3A0x11bead4e234e558b!2sObelisco!5e0!3m2!1sen!2sar!4v1647613475913!5m2!1sen!2sar"
+            allowfullscreen=""
+            loading="lazy"
+            class="map__iframe"
+          ></iframe>
+        </article>
+        <article class="article__contact">
+          <h2 class="contact__title">Contactanos</h2>
+          <h3 class="contact__subtitle">Tu consulta no es problema.</h3>
+          <form action="" class="contact__form">
+            <input class="contact__input" type="text" placeholder="Nombre" />
+            <input class="contact__input" type="text" placeholder="Email" />
+            <input class="contact__input" type="text" placeholder="Asunto" />
+            <textarea
+              class="contact__input"
+              name=""
+              id=""
+              cols="30"
+              rows="10"
+              placeholder="Mensaje"
+            ></textarea>
+            <button class="contact__button">Enviar</button>
+          </form>
+        </article>
+      </section>
+    </main>
+    <!-- Fin del Main-->
+
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>

@@ -17,17 +17,6 @@ function userLoggedMiddleware(req, res, next) {
           }
         })
         .catch(e => console.log(e));
-      /*
-      let userFromCookie = db.User.findOne({
-        where: { email: emailInCookie },
-      })
-        .then({
-          if(userFromCookie) {
-            req.session.userLogged = userFromCookie;
-          },
-        })
-        .catch(e => res.send(e));
-        */
     }
   }
 

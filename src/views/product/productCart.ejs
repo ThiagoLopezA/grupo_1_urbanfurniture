@@ -1,92 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/head', {route:'products.css', main:'main.css',
-    title:'Carrito'})%>
-<body>
+  <%- include('../partials/head', {route:'productCart.css', main:'main.css',
+  title:'Carrito'})%>
+  <body>
     <%- include('../partials/navbar.ejs') %>
     <main class="main__carrito">
-        <section class="section__carrito">
-            <table class="table__body">
-                <thead>
-                    <tr class="table__row">
-                        <th class="table__title">Imagen</th>
-                        <th class="table__title">Detalle producto</th>
-                        <th class="table__title">Precio</th>
-                        <th class="table__title">Cantidad</th>
-                        <th class="table__title">Total</th>
-                        <th class="table__title">Remover</th>
-                    </tr>
-                </thead>
-                <tr class="table__row">
-                    <td class="table__item"><img src="/public/img/products/product-1.png" alt="" class="item__img"></td>
-                    <td class="table__item">Detalle producto</td>
-                    <td class="table__item">Precio</td>
-                    <td class="table__item input">
-                        <button class="item__button--decrease">
-                            <i class="fa-solid fa-minus"></i>
-                        </button>
-                        <input class="item__input" type="number" value="1" readonly>
-                        <button class="item__button--increase">
-                            <i class="fa-solid fa-plus"></i>
-                        </button>
-                    </td>
-                    <td class="table__item">Total</td>
-                    <td class="table__item"><a href="#"><i class="fa-solid fa-x"></i></a></td>
-                </tr>
-                <tr class="table__row">
-                    <td class="table__item"><img src="/public/img/products/product-2.png" alt="" class="item__img"></td>
-                    <td class="table__item">Detalle producto</td>
-                    <td class="table__item">Precio</td>
-                    <td class="table__item input">
-                        <button class="item__button--decrease">
-                            <i class="fa-solid fa-minus"></i>
-                        </button>
-                        <input class="item__input" type="number" value="1" readonly>
-                        <button class="item__button--increase">
-                            <i class="fa-solid fa-plus"></i>
-                        </button>
-                    </td>
-                    <td class="table__item">Total</td>
-                    <td class="table__item"><a href="#"><i class="fa-solid fa-x"></i></a></td>
-                </tr>
-                <tr class="table__row">
-                    <td class="table__item"><img src="/public/img/products/product-4.png" alt="" class="item__img"></td>
-                    <td class="table__item">Detalle producto</td>
-                    <td class="table__item">Precio</td>
-                    <td class="table__item input">
-                        <button class="item__button--decrease">
-                            <i class="fa-solid fa-minus"></i>
-                        </button>
-                        <input class="item__input" type="number" value="1" readonly>
-                        <button class="item__button--increase">
-                            <i class="fa-solid fa-plus"></i>
-                        </button>
-                    </td>
-                    <td class="table__item">Total</td>
-                    <td class="table__item"><a href="#"><i class="fa-solid fa-x"></i></a></td>
-                </tr>
-            </table>
-        </section>
-        <section class="section__pago">
-            <article class="prepago">
-                <h4 class="prepago__h4">Tu compra</h4>
-                <p class="prepago__p">Subtotal :</p>
-                <p class="prepago__p">Costo de envio :</p>
-                <div class="linea"></div>
-                <h4 class="prepago__h4">Total :</h4>
-                <button class="prepago__button">
-                    Seleccionar medio de pago
-                </button>
-            </article>
-            <article class="contact__detail">
-                <p class="prepago__p"><i class="fa-solid fa-phone"></i> Atención telefonica</p>
-                <p class="prepago__p">Llamanos de Lunes a Sabados de 10 a 20 hs al 11.4631.2022 </p>
-            </article>
-            <a class="redirect" href="/"><i class="fa-solid fa-arrow-left-long"></i> Continuar comprando</a>
-        </section>
-
+      <section class="section__carrito">
+        <table class="table__body">
+          <thead>
+            <tr class="table__row">
+              <th class="table__title">Imagen</th>
+              <th class="table__title">Detalle producto</th>
+              <th class="table__title">Precio</th>
+              <th class="table__title">Cantidad</th>
+              <th class="table__title">Total</th>
+              <th class="table__title">Remover</th>
+            </tr>
+          </thead>
+          <tr class="table__row">
+            <td class="table__item">
+              <img
+                src="/public/img/products/product-1.png"
+                alt=""
+                class="item__img"
+              />
+            </td>
+            <td class="table__item">Detalle producto</td>
+            <td class="table__item">Precio</td>
+            <td class="table__item input">
+              <button class="item__button--decrease">
+                <i class="fa-solid fa-minus"></i>
+              </button>
+              <input class="item__input" type="number" value="1" readonly />
+              <button class="item__button--increase">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </td>
+            <td class="table__item">Total</td>
+            <td class="table__item">
+              <a href="#"><i class="fa-solid fa-x"></i></a>
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__item">
+              <img
+                src="/public/img/products/product-2.png"
+                alt=""
+                class="item__img"
+              />
+            </td>
+            <td class="table__item">Detalle producto</td>
+            <td class="table__item">Precio</td>
+            <td class="table__item input">
+              <button class="item__button--decrease">
+                <i class="fa-solid fa-minus"></i>
+              </button>
+              <input class="item__input" type="number" value="1" readonly />
+              <button class="item__button--increase">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </td>
+            <td class="table__item">Total</td>
+            <td class="table__item">
+              <a href="#"><i class="fa-solid fa-x"></i></a>
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__item">
+              <img
+                src="/public/img/products/product-4.png"
+                alt=""
+                class="item__img"
+              />
+            </td>
+            <td class="table__item">Detalle producto</td>
+            <td class="table__item">Precio</td>
+            <td class="table__item input">
+              <button class="item__button--decrease">
+                <i class="fa-solid fa-minus"></i>
+              </button>
+              <input class="item__input" type="number" value="1" readonly />
+              <button class="item__button--increase">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </td>
+            <td class="table__item">Total</td>
+            <td class="table__item">
+              <a href="#"><i class="fa-solid fa-x"></i></a>
+            </td>
+          </tr>
+        </table>
+      </section>
+      <section class="section__pago">
+        <article class="prepago">
+          <h4 class="prepago__h4">Tu compra</h4>
+          <p class="prepago__p">Subtotal :</p>
+          <p class="prepago__p">Costo de envio :</p>
+          <div class="linea"></div>
+          <h4 class="prepago__h4">Total :</h4>
+          <button class="prepago__button">Seleccionar medio de pago</button>
+        </article>
+        <article class="contact__detail">
+          <p class="prepago__p">
+            <i class="fa-solid fa-phone"></i> Atención telefonica
+          </p>
+          <p class="prepago__p">
+            Llamanos de Lunes a Sabados de 10 a 20 hs al 11.4631.2022
+          </p>
+        </article>
+        <a class="redirect" href="/"
+          ><i class="fa-solid fa-arrow-left-long"></i> Continuar comprando</a
+        >
+      </section>
     </main>
     <%- include('../partials/footer.ejs') %>
-</body>
-<script src="/js/productQuantity.js"></script>
+  </body>
+  <script src="/public/js/productQuantity.js"></script>
 </html>

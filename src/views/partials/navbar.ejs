@@ -15,13 +15,12 @@
         <li><a class="active nav__item" href="/">Inicio</a></li>
         <li><a class="nav__item" href="/contact">Contacto</a></li>
         <li><a class="nav__item" href="/product">Productos</a></li>
-        <!--
-          <li><a class="nav__item" href="/product">Categorias</a></li>
-        -->
       </ul>
       <div class="user__options">
         <!---->
-        <i class="fa-solid fa-magnifying-glass nav__item .user__icon"></i>
+        <a href="/#search">
+          <i class="fa-solid fa-magnifying-glass nav__item .user__icon"></i>
+        </a>
         <a href="/product/productCart"
           ><i class="fa-solid fa-cart-shopping nav__item .user__icon"></i
         ></a>
@@ -58,20 +57,49 @@
         <% } %>
       </div>
 
-      <div class="menu__sm dropdown" data-dropdown>
-        <button class="dropdown__toggler" data-dropdown-button>
+      <div class="menu__sm dropdown" id="dropdownMenu">
+        <button class="dropdown__toggler" id="dropdownButton">
           <i class="fa-solid fa-bars"></i>
-          <div class="dropdown__menu">
-            <div class="dropdown__decoration"></div>
-            <a class="dropdown__item"
-              ><i class="fa-solid fa-gear dropdown__icon"></i>Configuración</a
-            >
-            <a class="dropdown__item" href="/users/logout"
-              ><i class="fa-solid fa-arrow-right-to-bracket dropdown__icon"></i
-              >Cerrar sesión</a
-            >
-          </div>
         </button>
+        <div class="dropdown__menu sm__dropdown">
+          <div class="dropdown__decoration"></div>
+          <a href="/" class="dropdown__item">
+            <i class="fa-solid fa-house dropdown__icon"></i>
+            Inicio
+          </a>
+          <a href="/contact" class="dropdown__item">
+            <i class="fa-solid fa-phone dropdown__icon"></i>
+            Contacto
+          </a>
+          <a href="/product" class="dropdown__item">
+            <i class="fa-solid fa-boxes-stacked dropdown__icon"></i>
+            Productos
+          </a>
+          <a href="/product/productCart" class="dropdown__item">
+            <i class="fa-solid fa-cart-shopping dropdown__icon"></i>
+            Carrito
+          </a>
+          <% if(locals.userLogged) { %>
+          <a class="dropdown__item" href="/users/config"
+            ><i class="fa-solid fa-gear dropdown__icon"></i>Configuración</a
+          >
+          <% if(locals.userLogged.access = "1") { %>
+          <a href="/admin" class="dropdown__item"
+            ><i class="fa-solid fa-screwdriver-wrench dropdown__icon"></i
+            >Dashboard</a
+          >
+          <% } %>
+          <a class="dropdown__item" href="/users/logout"
+            ><i class="fa-solid fa-arrow-right-to-bracket dropdown__icon"></i
+            >Cerrar sesión</a
+          >
+          <% } else {%>
+          <a href="/users/login" class="dropdown__item">
+            <i class="fa-solid fa-arrow-right-to-bracket dropdown__icon"></i>
+            Iniciar sesión
+          </a>
+          <% } %>
+        </div>
       </div>
     </nav>
   </div>

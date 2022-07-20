@@ -60,3 +60,8 @@
   .page{
     min-height: 90vh;
   }
+  .spinner-border{
+    position: absolute;
+    left: 55%;
+    margin-top: 5rem;
+  }

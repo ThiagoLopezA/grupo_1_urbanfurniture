@@ -11,10 +11,14 @@ module.exports = {
       let users = await fetch(`${APIURL}/users`).then(response =>
         response.json()
       );
+      let allProducts = await fetch(`${APIURL}/products`).then(response =>
+        response.json()
+      );
       res.render("adm-dashboard/index", {
         url: req.url,
         products: products.products,
         users: users.users.length,
+        productsQuantity: allProducts.products.length,
       });
     } catch (e) {
       console.log(e);
@@ -28,10 +32,14 @@ module.exports = {
       let categories = await fetch(`${APIURL}/products/categories/list`).then(
         response => response.json()
       );
+      let inSale = await fetch(`${APIURL}/products/inSale`).then(response =>
+        response.json()
+      );
       res.render("adm-dashboard/products.ejs", {
         url: req.url,
         products: products.products,
         categories: categories.categories,
+        inSaleQuantity: inSale.products.length,
       });
     } catch (e) {
       console.log(e);
@@ -137,16 +145,24 @@ module.exports = {
       .then(() => res.redirect("/admin/products"))
       .catch(e => console.log(e));
   },
-  users: (req, res) => {
-    fetch(`${APIURL}/users`)
-      .then(response => response.json())
-      .then(users => {
-        res.render("adm-dashboard/users.ejs", {
-          url: req.url,
-          users: users.users,
-        });
-      })
-      .catch(e => console.log(e));
+  users: async (req, res) => {
+    try {
+      let request = await fetch(`${APIURL}/users`).then(response =>
+        response.json()
+      );
+      let users = request.users;
+      let usersAdmin = users.filter(user => user.access == 1);
+      let usersClient = users.length - usersAdmin.length;
+      res.render("adm-dashboard/users.ejs", {
+        url: req.url,
+        users: users,
+        usersCount: users.length,
+        adminCount: usersAdmin.length,
+        clientsCount: usersClient,
+      });
+    } catch (e) {
+      console.log(e);
+    }
   },
   editUser: (req, res) => {
     fetch(`${APIURL}/users/${req.params.id}`)

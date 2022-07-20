@@ -20,5 +20,7 @@ router.post("/register", validationsRegister, userController.registerProcess);
 router.get("/logout", userController.logout);
 
 // Config
+router.post("/config", userController.updateUser);
 router.get("/config", userMiddleware, userController.config);
+
 module.exports = router;
