@@ -8,20 +8,22 @@
   width: 100%;
   padding: 0 10% ;
   display: flex;
+  flex-direction: column;
   margin-bottom: 2rem;
 }
 .article__map{
-  width: 50%;
+  width: 100%;
 }
 .map__iframe{
-  width: 90%;
-  height: 100%;
+  width: 100%;
+  height: 20rem;
 }
 .article__contact{
-  width: 50%;
+  width: 100%;
   padding: 1rem;
   background-color: white;
   border-radius: .25rem;
+  margin-bottom: 1rem;
 }
 .contact__title{
   margin: 0;
@@ -56,4 +58,20 @@
   background-color: #03091c;
   color: white;
   font-weight: 500;
+}
+@media (min-width:800px){
+  .contact__section{
+    flex-direction: row;
+  }
+  .article__map{
+    width: 50%;
+  }
+  .article__contact{
+    width: 50%;
+    margin-bottom: 0;
+  }
+  .map__iframe{
+    height: 100%;
+    margin-left: 1rem;
+  }
 }
